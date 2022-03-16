@@ -2,7 +2,7 @@
 weight: 1
 title: "Agricultura de precisión"
 date: 2021-07-12T08:19:27-05:00
-draft: false
+draft: true
 excerpt: Fundamentos de la tecnología Blockchain
 hero: /images/ml-01.jpg
 timeToRead: 4
