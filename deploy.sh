@@ -7,6 +7,7 @@ if [ -n "$*" ]; then
 	msg="$*"
 fi
 
+echo "$msg"
 echo "Committing changes to $(pwd)"
 git add .
 git commit -m "$msg"
