@@ -1005,7 +1005,11 @@ A partir de aquí, el despliegue en una red activa es bastante sencillo. Las pri
 
 ## Imágenes
 
-  [Unplash](https://unsplash.com/) - [3D illustration of blocks in a blockchain](https://unsplash.com/photos/_rZnChsIFuQ). 「 LOGO / BRAND / 3D design 」 WhatsApp: +917559305753 Email: shubhamdhage000@gmail.com
+  * [Unplash](https://unsplash.com/) - [3D illustration of blocks in a blockchain](https://unsplash.com/photos/_rZnChsIFuQ)
+  
+    WhatsApp: +917559305753 
+    
+    Email: shubhamdhage000@gmail.com
 ## Referencias
 
 1. [Julius Berner. 2021. The Modern Mathematics of deep learning.](https://deepai.org/publication/the-modern-mathematics-of-deep-learning)
