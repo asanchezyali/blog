@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Machine Learning - Etiqueta - Alejandro Sánchez Yalí</title>
+        <link>https://alejandrosanchezyali.vercel.app/tags/machine-learning/</link>
+        <description>Machine Learning - Etiqueta - Alejandro Sánchez Yalí</description>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><managingEditor>asanchezyali@gmail.com (Alejandro Sánchez Yalí)</managingEditor>
+            <webMaster>asanchezyali@gmail.com (Alejandro Sánchez Yalí)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 10 Feb 2022 23:31:34 &#43;0000</lastBuildDate><atom:link href="https://alejandrosanchezyali.vercel.app/tags/machine-learning/" rel="self" type="application/rss+xml" /><item>
+    <title>Aprendiendo de los datos</title>
+    <link>https://alejandrosanchezyali.vercel.app/20210712machinelearning/</link>
+    <pubDate>Mon, 12 Jul 2021 08:19:27 -0500</pubDate>
+    <author>Autor</author>
+    <guid>https://alejandrosanchezyali.vercel.app/20210712machinelearning/</guid>
+    <description><![CDATA[¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática.
+Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado que existe una amplia variedad de problemas que no se pueden resolver de forma analítica. En estas situaciones los datos nos permiten encontrar soluciones empíricas, que no necesariamente explican el porqué de las cosas, pero si ofrecen resultados útiles para la práctica.]]></description>
+</item><item>
+    <title>Descomposición matricial por valores singulares (SVD)</title>
+    <link>https://alejandrosanchezyali.vercel.app/20200212svd/</link>
+    <pubDate>Thu, 10 Feb 2022 23:31:34 &#43;0000</pubDate>
+    <author>Autor</author>
+    <guid>https://alejandrosanchezyali.vercel.app/20200212svd/</guid>
+    <description><![CDATA[En esta ocasión vamos a introducir la descomposición por valores singulares (SVD por sus siglas en inglés) y cómo aplicar la SVD mediante ejemplos prácticos desarrollados en Python, Rust y C++. Es importante entender la SVD porque es el fundamento otras técnicas de aprendizaje mecánico, como lo es los métodos de clasificación, la descomposición dinámica (DMD) y la descomposición ortogonal propia (POD).
+La alta dimensionalidad es un reto común en el procesamiento de datos que proviene de sistemas complejos.]]></description>
+</item></channel>
+</rss>

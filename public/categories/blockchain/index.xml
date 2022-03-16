@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Blockchain - Categoría - Alejandro Sánchez Yalí</title>
+        <link>https://alejandrosanchezyali.vercel.app/categories/blockchain/</link>
+        <description>Blockchain - Categoría - Alejandro Sánchez Yalí</description>
+        <generator>Hugo -- gohugo.io</generator><language>es</language><managingEditor>asanchezyali@gmail.com (Alejandro Sánchez Yalí)</managingEditor>
+            <webMaster>asanchezyali@gmail.com (Alejandro Sánchez Yalí)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 10 Mar 2022 08:19:27 -0500</lastBuildDate><atom:link href="https://alejandrosanchezyali.vercel.app/categories/blockchain/" rel="self" type="application/rss+xml" /><item>
+    <title>Programando Dapps sobre Solana</title>
+    <link>https://alejandrosanchezyali.vercel.app/20220310solana/</link>
+    <pubDate>Thu, 10 Mar 2022 08:19:27 -0500</pubDate>
+    <author>Autor</author>
+    <guid>https://alejandrosanchezyali.vercel.app/20220310solana/</guid>
+    <description><![CDATA[El objetivo de este artículo es proveer una guía completamente en español de cómo construir una aplicación descentralizada (dapp) en la cadena de bloques de Solana. En principio los voy a introducir en el ecosistema de herramientas más comunes para desarrollar en este Blockchain. Espero que el contenido que voy a presentar sea de su agrado y logren desarrollar sus propias aplicaciones.
+Una sugerencia acerca del desarrollo de dapps con Solana Antes de comenzar es importante señalar que el ecosistema de Solana es relativamente joven y que muchas de la herramientas que se emplean para el desarrollo se está constantemente actualizando, por lo que muchas veces la documentación oficial muchas veces no está actualizada, asi que mi recomendación es unirse a las comunidades del proyecto y en caso de tener dificultades para desarrollar sus productos, allí puedes encontrar respuesta a tus preguntas en conversaciones, además de participar dde las discusiones del comunidad.]]></description>
+</item><item>
+    <title>Fundamentos de la tecnología Blockchain</title>
+    <link>https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/</link>
+    <pubDate>Mon, 12 Jul 2021 08:19:27 -0500</pubDate>
+    <author>Autor</author>
+    <guid>https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/</guid>
+    <description><![CDATA[¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática.
+Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado que existe una amplia variedad de problemas que no se pueden resolver de forma analítica. En estas situaciones los datos nos permiten encontrar soluciones empíricas, que no necesariamente explican el porqué de las cosas, pero si ofrecen resultados útiles para la práctica.]]></description>
+</item></channel>
+</rss>

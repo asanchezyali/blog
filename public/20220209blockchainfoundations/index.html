@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Fundamentos de la tecnología Blockchain - Alejandro Sánchez Yalí</title><meta name="Description" content="Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes."><meta property="og:title" content="Fundamentos de la tecnología Blockchain" />
+<meta property="og:description" content="Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/" /><meta property="og:image" content="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-12T08:19:27-05:00" />
+<meta property="article:modified_time" content="2021-07-12T08:19:27-05:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/featured-image.png"/>
+<meta name="twitter:title" content="Fundamentos de la tecnología Blockchain"/>
+<meta name="twitter:description" content="Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes."/>
+<meta name="application-name" content="Alejandro Sánchez Yalí">
+<meta name="apple-mobile-web-app-title" content="Alejandro Sánchez Yalí"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/" /><link rel="prev" href="https://alejandrosanchezyali.vercel.app/20210712machinelearning/" /><link rel="next" href="https://alejandrosanchezyali.vercel.app/20220312precisionagriculture/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Fundamentos de la tecnología Blockchain",
+        "inLanguage": "es",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/alejandrosanchezyali.vercel.app\/20220209blockchainfoundations\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220209blockchainfoundations\/featured-image.png",
+                            "width":  3840 ,
+                            "height":  2160 
+                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  1671 ,
+        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220209blockchainfoundations\/","datePublished": "2021-07-12T08:19:27-05:00","dateModified": "2021-07-12T08:19:27-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Alejandro Sánchez Yalí","logo": "https:\/\/alejandrosanchezyali.vercel.app\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Alejandro Sánchez Yalí"
+            },"description": "Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes."
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Alejandro Sánchez Yalí">Alejandro Sánchez Yalí</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Artículos </a><a class="menu-item" href="/about/"> Bio </a><a class="menu-item" href="https://github.com/asanchezyali" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Selecciona el lenguage">Español<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/20220209blockchainfoundations/" selected>Español</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Alejandro Sánchez Yalí">Alejandro Sánchez Yalí</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Busca títulos o contenido..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Buscar">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Limpiar">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancelar
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Artículos</a><a class="menu-item" href="/about/" title="">Bio</a><a class="menu-item" href="https://github.com/asanchezyali" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Selecciona el lenguage">Español<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/20220209blockchainfoundations/" selected>Español</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contenido</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Fundamentos de la tecnología Blockchain</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Alejandro Sánchez Yalí</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/blockchain/"><i class="far fa-folder fa-fw"></i>Blockchain</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-12">2021-07-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1671 palabras&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;8 minutos&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/20220209blockchainfoundations/featured-image.png"
+        data-srcset="/20220209blockchainfoundations/featured-image.png, /20220209blockchainfoundations/featured-image.png 1.5x, /20220209blockchainfoundations/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/20220209blockchainfoundations/featured-image.png"
+        title="Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes." /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contenido</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#el-problema-del-aprendizaje">El problema del aprendizaje</a></li>
+    <li><a href="#tareas-de-predicción-y-clasificación">Tareas de predicción y clasificación</a></li>
+    <li><a href="#cómo-aprenden-las-maquinas">¿Cómo aprenden las maquinas?</a></li>
+    <li><a href="#imágenes">Imágenes</a></li>
+    <li><a href="#referencias">Referencias</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática.</p>
+<p>Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado que existe una amplia variedad de problemas que no se pueden resolver de forma analítica. En estas situaciones los datos nos permiten encontrar soluciones empíricas, que no necesariamente explican el porqué de las cosas, pero si ofrecen resultados útiles para la práctica. Por esta razón, la capacidad de aprender a partir de los datos es una técnica de mucha importancia para todas las profesiones y disciplinas.</p>
+<p>En esta ocasión vamos a tratar brevemente los principales elementos que constituyen <strong>el problema del aprendizaje a partir de los datos</strong>, para finalmente entender un poco cómo las máquinas también pueden aprender.</p>
+<h2 id="el-problema-del-aprendizaje">El problema del aprendizaje</h2>
+<p>El poder aprender a partir de los datos es un proceso que puede ser automatizado, es decir, se pueden elaborar algoritmos que realizan esta tarea. En este punto es importante entender que los algoritmos que aprenden de los datos solo tratan de encontrar la mejor solución para predecir resultados, y no necesariamente encuentran el porqué. Aquí los datos guían a los algoritmos para construir la fórmula que ofrece las mejores aplicaciones en el sentido práctico.</p>
+<p>En un sentido más matemático, el problema del aprendizaje se puede formular a partir de tres espacios medibles $\mathcal{X}$, $\mathcal{Y}$ y $\mathcal{Z}$, en donde el conjunto $\mathcal{Z}$ es un subconjunto de $\mathcal{X} \times \mathcal{Y}$ que representa a una <strong>relación</strong> entre los datos de $\mathcal{X}$ e $\mathcal{Y}$. En principio, <strong>la tarea de aprendizaje</strong> consiste en tratar de describir la relación $\mathcal{Z}$ a partir de una <strong>muestra de datos</strong> $S=(s_{i})_{i\in [m]}$ y alguna <strong>función de perdida</strong> $\mathcal{L}: \mathcal{M}( \mathcal{X}, \mathcal{Y} )\times \mathcal{Z} \to \mathbb{R}$ definida sobre el producto cartesiano entre el conjunto $\mathcal{M}( \mathcal{X}, \mathcal{Y} )$ de todas las funciones medibles de $\mathcal{X}$ a $\mathcal{Y}$ y el conjunto $\mathcal{Z}$, y con imagen en los número reales. La función $\mathcal{L}$ se emplea principalmente para medir cúal es el <em>performance</em> del aprendizaje en el algoritmo.</p>
+<p>Resolver esta tarea implica hacer la elección de un conjunto de <strong>hipótesis</strong> $\mathcal{H} \subset \mathcal{M}( \mathcal{X}, \mathcal{Y} )$ y la construcción de un <strong>algoritmo de aprendizaje</strong>, es decir, encontrar un mapeo:</p>
+<p>\begin{equation}
+\mathcal{A}: \bigcup_{ m\in \mathbb{N} } \mathcal{Z}^{m} \to \mathcal{H}
+\end{equation}</p>
+<p>que a partir de una <strong>muestra de datos</strong> $S = (s_i)_{i\in[m]}$ de cierto tamaño $m$ logre encontrar un <strong>modelo</strong> $h_S = \mathcal{A}(S)\in \mathcal{H}$ con «<em>buen comportamiento</em>» en $S$ y «<em>capacidad de generalizar</em>» para los datos desconocidos en $\mathcal{Z} \setminus \{s_i\}_{i\in[m]}$. Aquí, el buen comportamiento se mide via la función de perdida $\mathcal{L}$ y corresponde a la perdida $\mathcal{L}(h_S, z)$, mientras la capacidad de generalizar quiere decir que el comportamiento de $h_S$ en $z\in \mathcal{Z} \setminus \{s_i\}_{i\in[m]}$ es similar a $z\in \mathcal{S}$.</p>
+<p>Creo que en este punto, estamos de acuerdo con que las nociones de «<em>buen comportamiento</em>» y «<em>la capacidad de generalizar</em>» son bastante vagas, sin embargo, veamos como mejorar estas ideas, para lograr esto vamos a centrar la atención en los conceptos de <strong>riesgo ideal</strong>  y de <strong>riesgo empírico</strong> cómo veremos a continuación.</p>
+<p>El <strong>riesgo ideal</strong> de una hipótesis $h\in \mathcal{H}$ con respecto a la distribucción de probabilidad $\mathcal{D}$ sobre $\mathcal{Z}$, se define como:</p>
+<p>\begin{equation}\tag{1}
+L_{D}(h) = \mathbb{E}_{z\sim \mathcal{D}}[\mathcal{L}(h, z)].
+\end{equation}</p>
+<p>Observe que para esta definición, la esperanza de la función de perdida de $h$ es sobre los datos de $z$ muestreados aleatoriamente de acuerdo con la distribucción $\mathcal{D}$. Hay que señalar que en la práctica la distribución $\mathcal{D}$ es esencialmente desconocida.</p>
+<p>Por otro lado, el <strong>riesgo empírico</strong> es la perdida esperada sobre una muestra de datos  $S = (s_i)_{i \in[m]}$, es decir:</p>
+<p>\begin{equation}\tag{2}
+L_{S}(h) = \frac{1}{m}\sum_{i=1}^{m}\mathcal{L}(h, s_i).
+\end{equation}</p>
+<p>Ahora bien, si existiera el modelo $h^*\in \mathcal{H}$ tal que el <strong>riesgo ideal</strong> es cero,  $L_{D}(h^*)=0$, entonces  el <strong>riesgo empírico</strong> también sería cero,  $L_{S}(h^*)=0$, pues el modelo no presentaría ningún error en su tarea de predicción, aunque esto es lo esperado, por lo general, no es posible encontrar un modelo con las características de $h^*$. En la práctica para encontrar el mejor modelo, los esfuerzos se centran en una muestra de datos $S = (s_i)_{i \in[m]}$ y un conjunto de hipótesis $\mathcal{H}$, de tal manera que el objetivo ahora es encontrar un modelo $h_s\in \mathcal{H}$ que satisface la siguiente condición:</p>
+<p>\begin{equation}\tag{3}
+h_s \in \operatorname*{argmin}_{h\in \mathcal{H}} L_{S}(h).
+\end{equation}</p>
+<p>La condición anterior estaría asegurando el <em>buen comportamiento</em> de $h_{s}$ en $S$. Sin embargo, esta estrategia encierra un detalle con un gran demonio en su interior, el <strong>sobreentrenamiento</strong>. En la práctica es posible encontrar modelos en donde el riesgo empírico es cero, $L_{S}(h) = 0$ y la perdida fuera de la muestra es $\mathcal{L}(h, z) \neq 0$ para todo $z\in Z \setminus \{s_i\}_{i\in[m]}$; un modelo con estas características carece de <em>la capacidad de generalizar</em>. Este es un error frecuente, que ocurre cuando se utiliza un solo conjunto de datos para entrenar el algoritmo $\mathcal{A}$. Para evitar esto, es usual dividir el conjunto $S$ en dos conjuntos $S_{train}$ y $S_{test}$, un conjunto para realizar el entrenamiento del algoritmo y el otro para medir su <em>capacidad de generalizar</em>. El objetivo es que el modelo encontrado tenga un comportamiento similar en ambos conjuntos, $L_{S_{train}}(h)\approx L_{S_{test}}(h)$.</p>
+<p>¿Cómo garantizar <em>la capacidad de generalizar</em>? Aquí hay un problema complejo, que en primer lugar consiste en hacer la elección adecuada de un conjunto de hipótesis $\mathcal{H}$, de manera que para cualquier $\epsilon &gt; 0$ exista una muestra $S$ que garantice que:
+\begin{equation}\tag(4)
+\forall h\in \mathcal{H}, \; \;|L_{S}(h) - L_{D}(h)| \leq \epsilon.
+\end{equation}
+Una vez se ha identificado la clase de hipótesis $\mathcal{H}$ que sastiface la ecuación (4), procedemos a encontrar la hipótesis $h$ en $\mathcal{H}$ que satisface la ecuación (3). Si se logra conseguir una clase hipótesis $\mathcal{H}$ y un modelo $h$ con estas características, podremos decir, que nuestro modelo tiene <em>la capacidad de generalizar</em> y por lo tanto tiene <em>buen comportamiento</em>.</p>
+<h2 id="tareas-de-predicción-y-clasificación">Tareas de predicción y clasificación</h2>
+<p>Veamos algunos ejemplos de problema de aprendizaje basados en datos:</p>
+<p><strong>Clasificación Multiclase</strong>. Consideremos la tarea de clasificar documentos. Nuestro deseo es diseñar un programa con la capacidad para clasificar una colección de documentos, de acuerdo a diferentes tópicos (e.g., noticias, deportes, biología, medicina). Un algoritmo de aprendizaje para esta tarea debería tener acceso a una colección de documentos correctamente clasificados, $S$, y con base a estos ejemplos, debería entregar una programa (modelo) que puede tomar un nuevo documento y clasificarlo. Aquí el <strong>dominio</strong>, $\mathcal{X}$, es el conjunto de todos los posibles documentos. Es importante señalar, que los documentos debería ser representados por un conjunto de características, que podría incluir el número de palabras diferentes en cada documento, el tamaño de cada documento, el autor, el origen, etc. Las <strong>etiquetas</strong>, $\mathcal{Y}$, es el conjunto de todos los posibles tópicos (en este caso, debería ser algún conjunto finito). Una vez hemos identificado el dominio y las etiquetas, el otro componente que hace falta es determinar una función de perdida adecuada para medir el <em>performance</em> de nuestro algoritmo.</p>
+<p>Para el caso de la clasificación multiclase se puede considerar la variable aleatoria $z$  en $\mathcal{X}\times \mathcal{Y}$ con la siguiente función de perdida:</p>
+<p>\begin{equation}
+\mathcal{L}(h, (x, y)) = \begin{cases}
+0 \mbox{ si } h(x) = y, \newline \newline
+1 \mbox{ si } h(x)\neq y.
+\end{cases}
+\end{equation}</p>
+<p>Esta función se usa en general para problemas de clasificación binaria o multiclase.</p>
+<p><strong>Regresión</strong>. En esta tarea, el objetivo es encontrar algún patrón simple en los datos &ndash;una relación funcional entre los componentes de los datos $\mathcal{X}$ e $\mathcal{Y}$&ndash;. Por ejemplo, encontrar la mejor función que predice el peso de nacimiento de un bebe en relación con las medidas obtenidas por ultrasonido del diámetro de su cabeza, el diámetro abdominal y la longitud de su fémur. Aquí el dominio es algún subconjunto de $\mathbb{R}^{3}$ (las tres medidas obtenidas por el ultrasonido) y las etiquetas es el conjunto de los números reales (el peso en gramos). En este caso el conjunto de entrenamiento es igual que antes, un subconjunto $S\subseteq \mathcal{X}\times \mathcal{Y}$. Sin embargo, la medida de éxito es diferente. En este ejemplo, se podría evaluar la calidad de la hipótesis $h:\mathcal{X}\to \mathcal{Y}$ por el valor esperado del cuadrado de la diferencia entre las etiquetas correctas y su predicción, es decir:</p>
+<p>\begin{equation}
+\mathcal{L}(h, (x,y)) = (h(x)-y)^2.
+\end{equation}</p>
+<h2 id="cómo-aprenden-las-maquinas">¿Cómo aprenden las maquinas?</h2>
+<p>Como vimos anteriormente, el problema del aprendizaje involucra la elección de un conjunto de hipótesis $\mathcal{H}$ y la búsqueda de la hipótesis $h_{s}$ tal que:
+\begin{equation}
+h_s \in \operatorname*{argmin}_{h\in \mathcal{H}} L_{S}(h).
+\end{equation}
+En otras palabras, el problema del aprendizaje se reduce a un problema de optimización del riesgo empírico $\mathcal{L}_{S}(h)$. Para resolver este tipo de problemas existe una amplia variedad de algoritmos de optimización de funciones, en particular para estas tareas el algoritmo por excelencia es el <strong>algoritmo del descenso del gradiente</strong>, este consiste en general en realizar la siguiente iteración
+\begin{equation}
+h \leftarrow h - \lambda \nabla L_{D}(h)
+\end{equation}
+para encontrar una hipótesis $h_s$. Este es un proceso que puede ser automatizable en casi cualquier computadora. Por lo tanto, en principio  cualquier máquina con la capacidad de ejecutar este tipo de iteraciones, estaría en la capacidad de aprender a clasificar y predecir a partir de los datos. Sin embargo, hay que indicarle a la computadora cómo debe aprender, para esto se debe programar una serie de órdenes en las que se le indica como optimizar las diferentes funciones de perdida, según la tarea de aprendizaje que le deseamos enseñarle, una vez los algoritmos se haya ejecutado, la computadora debería estar en la capacidad de clasificar y predecir, obviamente esto no es una tarea sencilla, pero no es imposible.</p>
+<p>Dejaré por el momento esta publicación hasta aquí, para no hacerla más extensa, espero que la hayan disfrutado. Nos vemos pronto.</p>
+<h2 id="imágenes">Imágenes</h2>
+<p><a href="https://unsplash.com" target="_blank" rel="noopener noreffer">Unplash</a> - <a href="https://unsplash.com/photos/T9rKvI3N0NM" target="_blank" rel="noopener noreffer">blockchain concept illustration in 3d, connected blocks in blockchain</a>. 「 LOGO / BRAND / 3D design 」 WhatsApp: +917559305753 Email: <a href="mailto:shubhamdhage000@gmail.com" rel="">shubhamdhage000@gmail.com</a>.</p>
+<h2 id="referencias">Referencias</h2>
+<ol>
+<li><a href="https://deepai.org/publication/the-modern-mathematics-of-deep-learning" target="_blank" rel="noopener noreffer">Julius Berner. 2021. The Modern Mathematics of deep learning.</a></li>
+<li><a href="https://work.caltech.edu/telecourse" target="_blank" rel="noopener noreffer">Yaser Abu-Mostafa Data. 2012 - 2015. Learning From Data.</a></li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Actualizado el 2021-07-12</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/20220209blockchainfoundations/index.md" target="_blank">Leer Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Compartir en Twitter" data-sharer="twitter" data-url="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/" data-title="Fundamentos de la tecnología Blockchain" data-via="asanchezyali" data-hashtags="Sistemas distribuidos"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Facebook" data-sharer="facebook" data-url="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/" data-hashtag="Sistemas distribuidos"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Linkedin" data-sharer="linkedin" data-url="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en WhatsApp" data-sharer="whatsapp" data-url="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/" data-title="Fundamentos de la tecnología Blockchain" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Hacker News" data-sharer="hackernews" data-url="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/" data-title="Fundamentos de la tecnología Blockchain"><i class="fab fa-hacker-news fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/sistemas-distribuidos/">Sistemas distribuidos</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Regresar</a></span>&nbsp;|&nbsp;<span><a href="/">Inicio</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20210712machinelearning/" class="prev" rel="prev" title="Aprendiendo de los datos"><i class="fas fa-angle-left fa-fw"></i>Aprendiendo de los datos</a>
+            <a href="/20220312precisionagriculture/" class="next" rel="next" title="Agricultura de precisión">Agricultura de precisión<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Alejandro Sánchez Yalí</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Volver arriba">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="Ver comentarios">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copiar al portapapeles","maxShownLines":10},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No se encontraron resultados","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
