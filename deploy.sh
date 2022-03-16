@@ -2,7 +2,7 @@
 
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
-msg="$1 - $(date)"
+msg="rebuilding site $(date)"
 
 if [ -n "$*" ]; then
 	msg="$*"
