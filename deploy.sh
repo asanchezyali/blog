@@ -1,7 +1,8 @@
 #!/bin/bash
 
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
-msg= "$(date) - $1"
+
+msg="rebuilding site $(date)"
 
 if [ -n "$*" ]; then
 	msg="$*"
