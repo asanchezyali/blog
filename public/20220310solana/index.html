@@ -62,7 +62,7 @@
                             "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220310solana\/featured-image.webp",
                             "width":  1332 ,
                             "height":  749 
-                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  4950 ,
+                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  5080 ,
         "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220310solana\/","datePublished": "2022-03-10T08:19:27-05:00","dateModified": "2022-03-10T08:19:27-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Alejandro Sánchez Yalí","logo": "https:\/\/alejandrosanchezyali.vercel.app\/images\/avatar.png"},"author": {
@@ -143,7 +143,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Programando Dapps sobre Solana</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Alejandro Sánchez Yalí</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/blockchain/"><i class="far fa-folder fa-fw"></i>Blockchain</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-10">2022-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4950 palabras&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-10">2022-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;5080 palabras&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;24 minutos&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -159,7 +159,7 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#una-sugerencia-acerca-del-desarrollo-de-dapps-con-solana">Una sugerencia acerca del desarrollo de dapps con Solana</a></li>
+    <li><a href="#comunidades-de-programadores-de-dapps-con-solana">Comunidades de programadores de dapps con Solana</a></li>
     <li><a href="#introducción-a-las-herramientas-del-ecosistema-de-solana">Introducción a las herramientas del ecosistema de Solana</a></li>
     <li><a href="#prerequisitos">Prerequisitos</a></li>
     <li><a href="#solana-cli">Solana CLI</a></li>
@@ -168,12 +168,14 @@
     <li><a href="#construyento-la-react-app">Construyento la React App</a></li>
     <li><a href="#configurar-la-red-local-en-la-wallet">Configurar la red local en la Wallet</a></li>
     <li><a href="#despliegue-en-la-devnet">Despliegue en la Devnet</a></li>
+    <li><a href="#el-siguiente-paso-para-no-parar-de-aprender">El siguiente paso para no parar de aprender</a></li>
+    <li><a href="#patrocinio">Patrocinio</a></li>
     <li><a href="#imágenes">Imágenes</a></li>
     <li><a href="#referencias">Referencias</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>El objetivo de este artículo es proveer una guía completamente en español de cómo construir una aplicación descentralizada (dapp) en la cadena de bloques de Solana. En principio los voy a introducir en el ecosistema de herramientas más comunes para desarrollar en este Blockchain. Espero que el contenido que voy a presentar sea de su agrado y logren desarrollar sus propias aplicaciones.</p>
-<h2 id="una-sugerencia-acerca-del-desarrollo-de-dapps-con-solana">Una sugerencia acerca del desarrollo de dapps con Solana</h2>
+<h2 id="comunidades-de-programadores-de-dapps-con-solana">Comunidades de programadores de dapps con Solana</h2>
 <p>Antes de comenzar es importante señalar que el ecosistema de Solana es relativamente joven y que muchas de la herramientas que se emplean para el desarrollo se está constantemente actualizando, por lo que muchas veces la documentación oficial muchas veces no está actualizada, asi que mi recomendación es unirse a las comunidades del proyecto y en caso de tener dificultades para desarrollar sus productos, allí puedes encontrar respuesta a tus preguntas en conversaciones, además de participar dde las discusiones del comunidad. A continuación les dejo algunos de los canales de discord que me han sido de mucha utilidad:</p>
 <ol>
 <li><a href="https://discord.gg/ZCHmqvXgDw" target="_blank" rel="noopener noreffer">Anchor</a></li>
@@ -190,7 +192,6 @@
 <p>Si quieres aprender más sobre Solana y cómo funciona, aquí hay algunos artículos muy buenos:</p>
 <ol>
 <li><a href="https://docs.solana.com/introduction" target="_blank" rel="noopener noreffer">Documentación oficial de Solana</a>.</li>
-<li><a href="https://2501babe.github.io/posts/solana101.html" target="_blank" rel="noopener noreffer">ok so what the fuck is the deal with solana anyway an introduction to the solana blockchain</a>.</li>
 <li><a href="https://www.notboring.co/p/solana-summer?s=r" target="_blank" rel="noopener noreffer">Solana Summer</a>.</li>
 </ol>
 <p>*** Hacer una breve descripción del proyecto que vamos a construir.</p>
@@ -1806,37 +1807,33 @@ yarn add @project-serum/anchor @solana/web3.js
 </div></li>
 <li>
 <p>Luego editar el archivo package.json. En lugar de <code>react-scripts</code> remplazar esto por <code>react-app-rewired</code>:</p>
-<p>Antes:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="s2">&#34;scripts&#34;</span><span class="err">:</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">/*</span> <span class="err">antes</span> <span class="err">*/</span>
+<span class="s2">&#34;scripts&#34;</span><span class="err">:</span> <span class="p">{</span>
     <span class="nt">&#34;start&#34;</span><span class="p">:</span> <span class="s2">&#34;react-scripts start&#34;</span><span class="p">,</span>
     <span class="nt">&#34;build&#34;</span><span class="p">:</span> <span class="s2">&#34;react-scripts build&#34;</span><span class="p">,</span>
     <span class="nt">&#34;test&#34;</span><span class="p">:</span> <span class="s2">&#34;react-scripts test&#34;</span><span class="p">,</span>
     <span class="nt">&#34;eject&#34;</span><span class="p">:</span> <span class="s2">&#34;react-scripts eject&#34;</span>
 <span class="p">}</span><span class="err">,</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Luego:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="s2">&#34;scripts&#34;</span><span class="err">:</span> <span class="p">{</span>
+<span class="err">/*</span> <span class="err">despues</span> <span class="err">*/</span>
+<span class="s2">&#34;scripts &#34;</span><span class="err">:</span> <span class="p">{</span>
     <span class="nt">&#34;start&#34;</span><span class="p">:</span> <span class="s2">&#34;react-app-rewired start&#34;</span><span class="p">,</span>
     <span class="nt">&#34;build&#34;</span><span class="p">:</span> <span class="s2">&#34;react-app-rewired build&#34;</span><span class="p">,</span>
     <span class="nt">&#34;test&#34;</span><span class="p">:</span> <span class="s2">&#34;react-app-rewired test&#34;</span><span class="p">,</span>
@@ -1932,8 +1929,58 @@ yarn add @project-serum/anchor @solana/web3.js
 </code></pre></td></tr></table>
 </div>
 </div></li>
-<li></li>
+<li>Actualizar el monedero para usar <code>devnet</code>.</li>
+<li>En el archivo <code>Anchor.toml</code> actualizar el cluster de <code>localnet</code> a <code>devnet</code>.</li>
+<li>Compilar el programa nuevamente. Asegurate que el ID del programa en <code>Anchor.toml</code> se igual al ID actual del programa.</li>
+<li>En archivo <code>app/src/App.js</code>, también es necesario actualizar la red, para esto debemos remplazar la red de localhost: <code>http://127.0.0.1:8899</code> por la red de desarrollo: <code>devnet</code>.
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/* antes */</span>
+<span class="o">&lt;</span><span class="nx">ConnectionProvider</span> <span class="nx">endpoint</span><span class="o">=</span><span class="s2">&#34;http://127.0.0.1:8899&#34;</span><span class="o">&gt;</span>
+
+<span class="cm">/* despues */</span>
+<span class="kr">import</span> <span class="p">{</span>
+  <span class="p">...,</span>
+  <span class="nx">clusterApiUrl</span>
+<span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@solana/web3.js&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">network</span> <span class="o">=</span> <span class="nx">clusterApiUrl</span><span class="p">(</span><span class="s1">&#39;devnet&#39;</span><span class="p">);</span>
+
+<span class="o">&lt;</span><span class="nx">ConnectionProvider</span> <span class="nx">endpoint</span><span class="o">=</span><span class="p">{</span><span class="nx">network</span><span class="p">}</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
+<p>A partir de aquí, deberías poder desplegar y probar como hemos hecho en los pasos anteriores.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>Nota<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">El código se encuentra alojado en el github.</div>
+        </div>
+    </div>
+<h2 id="el-siguiente-paso-para-no-parar-de-aprender">El siguiente paso para no parar de aprender</h2>
+<p>Te sugiero continuar aprendiendo sobre NFTs sobre el proyecto de Metaplex.</p>
+<h2 id="patrocinio">Patrocinio</h2>
+<p>₿itcoin:</p>
+<p>Solana:</p>
+<p>Ethereum:</p>
+<p>Paypal:</p>
 <h2 id="imágenes">Imágenes</h2>
 <ul>
 <li>

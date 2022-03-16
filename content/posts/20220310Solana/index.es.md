@@ -28,7 +28,7 @@ lightgallery: true
 
 El objetivo de este artículo es proveer una guía completamente en español de cómo construir una aplicación descentralizada (dapp) en la cadena de bloques de Solana. En principio los voy a introducir en el ecosistema de herramientas más comunes para desarrollar en este Blockchain. Espero que el contenido que voy a presentar sea de su agrado y logren desarrollar sus propias aplicaciones. 
 
-## Una sugerencia acerca del desarrollo de dapps con Solana
+## Comunidades de programadores de dapps con Solana
 
 Antes de comenzar es importante señalar que el ecosistema de Solana es relativamente joven y que muchas de la herramientas que se emplean para el desarrollo se está constantemente actualizando, por lo que muchas veces la documentación oficial muchas veces no está actualizada, asi que mi recomendación es unirse a las comunidades del proyecto y en caso de tener dificultades para desarrollar sus productos, allí puedes encontrar respuesta a tus preguntas en conversaciones, además de participar dde las discusiones del comunidad. A continuación les dejo algunos de los canales de discord que me han sido de mucha utilidad:
 
@@ -48,8 +48,7 @@ En artículo futuros trataré de explicar en que consiste la tecnología Blockch
 Si quieres aprender más sobre Solana y cómo funciona, aquí hay algunos artículos muy buenos:
 
 1. [Documentación oficial de Solana](https://docs.solana.com/introduction).
-2. [ok so what the fuck is the deal with solana anyway an introduction to the solana blockchain](https://2501babe.github.io/posts/solana101.html).
-3. [Solana Summer](https://www.notboring.co/p/solana-summer?s=r).
+2. [Solana Summer](https://www.notboring.co/p/solana-summer?s=r).
 
 *** Hacer una breve descripción del proyecto que vamos a construir.
 
@@ -956,18 +955,16 @@ Si estas haciendo uso de React.js versión 17.0.0, es posible que tengas problem
     ```
 3. Luego editar el archivo package.json. En lugar de `react-scripts` remplazar esto por `react-app-rewired`:
    
-    Antes:
     ```json
+    /* antes */
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
-    ```
-    Luego:
-    ```json
-    "scripts": {
+    /* despues */
+    "scripts ": {
         "start": "react-app-rewired start",
         "build": "react-app-rewired build",
         "test": "react-app-rewired test",
@@ -1026,8 +1023,41 @@ A partir de aquí, el despliegue en una red activa es bastante sencillo. Las pri
    ```shell 
    solana config set --url devnet
    ```
-2. 
+2. Actualizar el monedero para usar `devnet`.
+3. En el archivo `Anchor.toml` actualizar el cluster de `localnet` a `devnet`.
+4. Compilar el programa nuevamente. Asegurate que el ID del programa en `Anchor.toml` se igual al ID actual del programa.
+5. En archivo `app/src/App.js`, también es necesario actualizar la red, para esto debemos remplazar la red de localhost: `http://127.0.0.1:8899` por la red de desarrollo: `devnet`.
+    ```javascript
+    /* antes */
+    <ConnectionProvider endpoint="http://127.0.0.1:8899">
 
+    /* despues */
+    import {
+      ...,
+      clusterApiUrl
+    } from '@solana/web3.js';
+
+    const network = clusterApiUrl('devnet');
+
+    <ConnectionProvider endpoint={network}>
+    ```
+A partir de aquí, deberías poder desplegar y probar como hemos hecho en los pasos anteriores. 
+
+{{< admonition >}}
+El código se encuentra alojado en el github.
+{{< /admonition >}}
+## El siguiente paso para no parar de aprender
+
+Te sugiero continuar aprendiendo sobre NFTs sobre el proyecto de Metaplex.
+
+## Patrocinio 
+₿itcoin:
+
+Solana:
+
+Ethereum:
+
+Paypal:
 ## Imágenes
 
   * [Unplash](https://unsplash.com/) - [3D illustration of blocks in a blockchain](https://unsplash.com/photos/_rZnChsIFuQ)
