@@ -26,40 +26,42 @@ keywords:
 lightgallery: true
 ---
 
-El objetivo de este artículo es proveer una guía completamente en español de cómo construir una aplicación descentralizada (dapp) en la cadena de bloques de Solana. En principio los voy a introducir en el ecosistema de herramientas más comunes para desarrollar en este Blockchain. Espero que el contenido que voy a presentar sea de su agrado y logren desarrollar sus propias aplicaciones. 
+El objetivo de este artículo es introducir el desarrollo de aplicaciones descentralizadas (_dapps_) en la cadena de bloques de Solana. En principio, vamos a explorar las herramientas que hay disponibles, para luego desarrollar una _dapp_ de ejemplo y entender cómo interactúan todos los elementos del ecosistema de Solana. 
 
-## Comunidades de programadores de dapps con Solana
+Espero que el contenido que voy a presentar a continuación sea de su agrado y les permita incrementar su _Qi_ como desarrolladores de _Blockchain_.
 
-Antes de comenzar es importante señalar que el ecosistema de Solana es relativamente joven y que muchas de la herramientas que se emplean para el desarrollo se está constantemente actualizando, por lo que muchas veces la documentación oficial muchas veces no está actualizada, asi que mi recomendación es unirse a las comunidades del proyecto y en caso de tener dificultades para desarrollar sus productos, allí puedes encontrar respuesta a tus preguntas en conversaciones, además de participar dde las discusiones del comunidad. A continuación les dejo algunos de los canales de discord que me han sido de mucha utilidad:
+## Comunidades de Solana
+
+Antes de comenzar es importante señalar que el ecosistema de Solana es relativamente nuevo y está en constante evolución, por esta razón el contenido que se produce acerca de esta tecnología se desactualiza con rapidez. Por lo tanto, una de mis recomendaciones es procurar seguir la documentación oficial de Solana y unirse a las comunidades que desarrollan y participan del proyecto, allí puedes encontrar la solución a muchas de tus preguntas, con solo seguir el hilo de las conversaciones antiguas, además estoy seguro que muchos desarrolladores que participan de estas comunidades son muy amables y están dispuestos a ayudar. Así que si te interesa ser parte de estas comunidades, te dejo algunos de los canales de discord que me ha sido de mucha utilidad: 
 
 1. [Anchor](https://discord.gg/ZCHmqvXgDw)
+2. [Stractors](https://discord.gg/ebsJrabneZ)
+3. [Metaplex](https://discord.gg/rpn5wM8Ry3)
+4. [Solana Tech](https://discord.gg/solana)
 
-## Introducción a las herramientas del ecosistema de Solana
+También te dejo mi canal: [CODE & MATH](https://discord.gg/eeZgZaWNRu).
 
-La herramientas que vamos a incluir en este artículo son:
+## Prerequisitos
 
-1. [Solana Tool Suite](https://docs.solana.com/cli/install-solana-cli-tools) - Esta es la CLI de Solana. La documentación es muy completa y allí encontrarán todos los detalles para aprender a utilizarla. A la fecha de escribir este artículo, yo estaba utilizando la version 1.8.16.
-2. [Anchor Framework](https://project-serum.github.io/anchor/getting-started/introduction.html) - Seguramente si has desarrollado dapps sobre Ethereum, habrás utilizado [Hardhat](https://hardhat.org/). Bueno, Anchor es un framework parecido a Hardhat que se utiliza para desarrollar dapps sobre Solana. La versión que utilzaré para este artículo sera la 0.21.0.
-3. [solana/web3.js](https://solana-labs.github.io/solana-web3.js/) - Es una version de [web3.js](https://web3js.readthedocs.io/) para solona, sin embargo la documentación no es muy buena, así que si tienes dificultades con ellas busques apoyo en las comunidades de discord. 
-4. [React.js](https://reactjs.org/) - Framework para el desarrollo de Front-end. Bastante popular y con muy buena documentación.
+A continuación, enumeraré los herramientas y la respectivas versiones que utilicé al momento de escribir este articulo. También enlazaré cada herramienta con la documentación para instalarlas, ya que cada proyecto explica estas cosas mejor de lo que yo podría, además de mantener actualizados los procedimientos:
 
-En artículo futuros trataré de explicar en que consiste la tecnología Blockchain y cuáles son las características principales de Solana. Por ahora solo nos centraremos en construir un ejemplo que sirva de ilustración para entender cómo desarrollar una dapp sobre Solana.
+1. [Solana Tool Suite (1.8.16)](https://docs.solana.com/cli/install-solana-cli-tools) - Esta es la CLI de Solana. La documentación es muy completa y allí encontrarás todos los detalles para aprender a utilizarla. 
+2. [Anchor (0.21.0)](https://project-serum.github.io/anchor/getting-started/introduction.html) - Seguramente si has desarrollado dapps sobre Ethereum, habrás utilizado [Hardhat](https://hardhat.org/). Bueno, Anchor es un _framework_ parecido a Hardhat que se utiliza para desarrollar _dapps_ sobre Solana. 
+3. [solana/web3.js (1.36.0)](https://solana-labs.github.io/solana-web3.js/) - Es una version de [web3.js](https://web3js.readthedocs.io/) para solana, sin embargo la documentación no es muy buena, así que si tienes dificultades con ellas busca apoyo en las comunidades de discord. 
+4. [React.js (17.0.2)](https://reactjs.org/) - _Framework_ para el desarrollo de Front-end. Bastante popular y con muy buena documentación.
+
+5. [Node.js (16.04)](https://nodejs.org/en/) - Para instalarla puedes usar [nvm](https://github.com/nvm-sh/nvm).
+
+6. [Phantom](https://project-serum.github.io/anchor/getting-started/installation.html). Es la billetera digital que emplearemos para guardar las criptomonedas de Solana.
+
+En otro artículo trataré de explicar en que consiste la tecnología Blockchain y cuáles son las características principales de Solana. Por ahora solo nos centraremos en construir un ejemplo que sirva de ilustración para entender cómo desarrollar una _dapp_ sobre Solana.
 
 Si quieres aprender más sobre Solana y cómo funciona, aquí hay algunos artículos muy buenos:
 
 1. [Documentación oficial de Solana](https://docs.solana.com/introduction).
 2. [Solana Summer](https://www.notboring.co/p/solana-summer?s=r).
 
-*** Hacer una breve descripción del proyecto que vamos a construir.
-
-## Prerequisitos
-
-A continuación, enumeraré las dependencias y enlazaré con la documentación para instalarlas, ya que cada proyecto explica y tiene documentado estas cosas mejor de lo que yo podría, además de mantenerlas actualizadas.
-
-1. Node.js - Yo recomiendo utilizar la version 16.04. Para instalarla pueden usar [nvm](https://github.com/nvm-sh/nvm).
-2. Solana Tool Suite. La instrucciones de instalación se encuentran en la documentación oficial de [Solana](https://docs.solana.com/cli/install-solana-cli-tools). Yo estoy usando actualmente el sistema operativo Manjaro.
-3. Anchor (incluyendo la instalación de [Mocha](https://project-serum.github.io/anchor/getting-started/installation.html#install-mocha)) - La instrucciones de instalación se encuentran [aqui](https://project-serum.github.io/anchor/getting-started/installation.html).
-4. Solana browser wallet - Te recomiendo usar [Phantom](https://project-serum.github.io/anchor/getting-started/installation.html). En el desarrollo de nuestro proyecto vamos a probarlo utilizando esta wallet.
+## ¿Qué vamos a construir?
 
 ## Solana CLI
 
@@ -1057,7 +1059,7 @@ Solana:
 
 Ethereum:
 
-Paypal:
+Paypal: alejandro.driveyali@gmail.com
 ## Imágenes
 
   * [Unplash](https://unsplash.com/) - [3D illustration of blocks in a blockchain](https://unsplash.com/photos/_rZnChsIFuQ)
