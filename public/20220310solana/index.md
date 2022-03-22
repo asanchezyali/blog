@@ -27,7 +27,7 @@ A continuación, enumeraré los herramientas y la respectivas versiones que util
 
 5. [Node.js (16.04)](https://nodejs.org/en/) - Para instalarla puedes usar [nvm](https://github.com/nvm-sh/nvm).
 
-6. [Phantom](https://project-serum.github.io/anchor/getting-started/installation.html). Es la billetera digital que emplearemos para guardar las criptomonedas de Solana.
+6. [Phantom](https://project-serum.github.io/anchor/getting-started/installation.html) - Es la billetera digital que emplearemos para guardar las criptomonedas de Solana.
 
 En otro artículo trataré de explicar en que consiste la tecnología Blockchain y cuáles son las características principales de Solana. Por ahora solo nos centraremos en construir un ejemplo que sirva de ilustración para entender cómo desarrollar una _dapp_ sobre Solana.
 
@@ -40,14 +40,73 @@ Si quieres aprender más sobre Solana y cómo funciona, aquí hay algunos artíc
 
 ## Solana CLI
 
-Las principales cosas que haremos con el CLI de Solana serán configurar nuestra red (entre localhost y una red de prueba para desarrolladores) así como lanzar tokens a nuestras carteras, prácticamente todo lo demás lo haremos con el CLI de Anchor.
+El CLI de Solana nos permite principalmente configurar nuestra red (entre localhost, testnet, devnet o mainnet-beta) y obtener algunos tokens en nuestro criptocartera para realizar pruebas, para todo lo demás se suele usar el CLI de Anchor. 
+### Generando un criptocartera de papel 
+
+Para poder probar nuestro programa de Solana vamos a necesitar una criptocartera. Una criptocartera de criptomonedas almacena colecciones de claves que son utilizadas para enviar y recibir criptomonedas. A continuación vamos a generar un [criptocartera de papel](https://docs.solana.com/wallet-guide/paper-wallet) usando la línea de comandos de Solana. 
+
+Para generar una criptocartera de papel, utilizaremos el comando  `solana-keygen`, que se debería haber sido instalado cuando instalamos el CLI de solana. Sin embargo, para verificar que se instaló correctamente, ejecute el siguiente comando:
+
+```shell
+solana --version
+
+# Output
+solana-cli 1.8.16 (src:23af37fe; feat:1886190546)
+```
+
+Si ves la versión de `solana-keygen`, significa que podemos empezar a usarla. Ejecuta el siguiente comando para generar un par de claves:
+
+```shell
+solana-keygen new --outfile ~/.config/solana/«MY_PAPER_WALLET».json
+
+# Output
+Generating a new keypair
+
+For added security, enter a BIP39 passphrase
+
+NOTE! This passphrase improves security of the recovery seed phrase NOT the
+keypair file itself, which is stored as insecure plain text
+
+BIP39 Passphrase (empty for none): 
+
+Wrote new keypair to /home/alejandro/.config/solana/«MY_PAPER_WALLET».json
+==============================================================================
+pubkey: A9exxqnew6bbovMLt8ZDA2CyUVEKP6Y2uGkT8EGE2q7J
+==============================================================================
+Save this seed phrase and your BIP39 passphrase to recover your new keypair:
+surface pride wild second judge where episode wire enforce trial upgrade music
+```
+Esto generará una frase semilla aleatoria y le pedirá que añada una frase de contraseña opcional. Siéntase libre de añadir una frase de contraseña si lo desea, está bien no hacerlo para los propósitos de este tutorial.
+
+Una vez que hayas rellenado la información, el terminal debería mostrar la clave pública y la frase semilla generada. Copie y guarde la frase semilla en un lugar seguro.
+
+El par de claves se generará en la siguiente ubicación:
+
+```shell
+/home/<your user>/.config/solana/«MY_PAPER_WALLET».json
+```
+
+El archivo json puede llamarse como usted quiera Asegúrese de recordar que debe almacenar su frase semilla en algún lugar seguro.
+
+Para usar tu nueva criptocartera, entonces escribimos el siguiente comando:
+
+```shell 
+solana config set --keypair ~/.config/solana/«MY_PAPER_WALLET».json
+
+# Output
+Config File: /home/alejandro/.config/solana/cli/config.yml
+RPC URL: https://api.devnet.solana.com 
+WebSocket URL: wss://api.devnet.solana.com/ (computed)
+Keypair Path: /home/alejandro/.config/solana/«MY_PAPER_WALLET».json 
+Commitment: confirmed 
+```
 
 Por ejemplo, podemos comprobar la configuración actual de la red (y otras) con este comando:
 
 ```shell
 solana config get
 
-#output
+# Output
 Config File: /home/user/.config/solana/cli/config.yml
 RPC URL: https://api.devnet.solana.com 
 WebSocket URL: wss://api.devnet.solana.com/ (computed)

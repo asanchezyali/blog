@@ -12,7 +12,7 @@ theme = "LoveIt"
 # whether to use robots.txt
 enableRobotsTXT = true
 # whether to use git commit log
-enableGitInfo = false
+enableGitInfo = true
 # whether to use emoji code
 enableEmoji = true
 
@@ -28,7 +28,7 @@ enableEmoji = true
     # default amount of posts in each pages
     paginate = 12
     # [UA-XXXXXXXX-X] google analytics code
-    googleAnalytics = ""
+    googleAnalytics = "UA-223589152-1"
     # copyright description used only for seo schema
     copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
     # Menu config
@@ -64,7 +64,7 @@ enableEmoji = true
       # site description
       description = "programo luego existo"
       # site keywords
-      keywords = ["Machine Learning", "Inteligencia Artificla"]
+      keywords = ["Machine Learning", "Inteligencia Artificial", "Matemáticas", "Blockchain", "Programación"]
       # App icon config
       [languages.es.params.app]
         # optional site title override for the app when added to an iOS home screen or Android launcher
@@ -87,7 +87,7 @@ enableEmoji = true
         # max index length of the chunked content
         contentLength = 4000
         # placeholder of the search bar
-        placeholder = ""
+        placeholder = "Buscar"
         # max number of results length
         maxResultLength = 10
         # snippet length of the result
@@ -145,7 +145,7 @@ enableEmoji = true
         # default amount of posts in each pages
         paginate = 12
         # [UA-XXXXXXXX-X] google analytics code
-        googleAnalytics = ""
+        googleAnalytics = "UA-223589152-1"
         # copyright description used only for seo schema
         copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
         # Menu config
@@ -204,7 +204,7 @@ enableEmoji = true
             # max index length of the chunked content
             contentLength = 4000
             # placeholder of the search bar
-            placeholder = ""
+            placeholder = "Search"
             # max number of results length
             maxResultLength = 10
             # snippet length of the result
@@ -257,7 +257,7 @@ enableEmoji = true
   # site default theme ("light", "dark", "auto")
   defaultTheme = "dark"
   # public git repo url only then enableGitInfo is true
-  gitRepo = "https://github.com/asanchezyali"
+  gitRepo = "https://github.com/asanchezyali/blog"
   # date format
   dateFormat = "2006-01-02"
   # website images for Open Graph and Twitter Cards
@@ -418,7 +418,7 @@ enableEmoji = true
     # Page SEO config
     [params.page.seo]
       # image URL
-      images = []
+      images = ["/images/Apple-Devices-Preview.png"]
       # Publisher info
       [params.page.seo.publisher]
         name = "Alejandro Sánchez Yalí"
@@ -455,7 +455,7 @@ enableEmoji = true
     enable = false
     # Google Analytics
     [params.analytics.google]
-      id = ""
+      id = "UA-223589152-1"
       # whether to anonymize IP
       anonymizeIP = true
     # Fathom Analytics
@@ -466,7 +466,7 @@ enableEmoji = true
 
   # Cookie consent config
   [params.cookieconsent]
-    enable = false
+    enable = true
     # text strings used for Cookie consent banner
     [params.cookieconsent.content]
       message = ""
@@ -487,7 +487,7 @@ enableEmoji = true
     # whether to use Polyfill.io to be compatible with older browsers
     polyfill = false
     # whether to use object-fit-images to be compatible with older browsers
-    objectFit = false
+    objectFit = true
 
 # Markup related configuration in Hugo
 [markup]
