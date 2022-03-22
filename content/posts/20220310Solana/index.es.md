@@ -26,33 +26,33 @@ keywords:
 lightgallery: true
 ---
 
-El objetivo de este artículo es introducir el desarrollo de aplicaciones descentralizadas (_dapps_) en la cadena de bloques de Solana. En principio, vamos a explorar las herramientas que hay disponibles, para luego desarrollar una _dapp_ de ejemplo y entender cómo interactúan todos los elementos del ecosistema de Solana. 
+El objetivo de este artículo es introducir el desarrollo de aplicaciones descentralizadas (_dapps_) en la cadena de bloques de Solana. En principio, vamos a explorar las herramientas que hay disponibles para el trabajo, para luego desarrollar una _dapp_ de ejemplo y entender cómo interactúan todos los elementos del ecosistema de Solana. 
 
 Espero que el contenido que voy a presentar a continuación sea de su agrado y les permita incrementar su _Qi_ como desarrolladores de _Blockchain_.
 
 ## Comunidades de Solana
 
-Antes de comenzar es importante señalar que el ecosistema de Solana es relativamente nuevo y está en constante evolución, por esta razón el contenido que se produce acerca de esta tecnología se desactualiza con rapidez. Por lo tanto, una de mis recomendaciones es procurar seguir la documentación oficial de Solana y unirse a las comunidades que desarrollan y participan del proyecto, allí puedes encontrar la solución a muchas de tus preguntas, con solo seguir el hilo de las conversaciones antiguas, además estoy seguro que muchos desarrolladores que participan de estas comunidades son muy amables y están dispuestos a ayudar. Así que si te interesa ser parte de estas comunidades, te dejo algunos de los canales de discord que me ha sido de mucha utilidad: 
+Antes de comenzar es importante señalar que el ecosistema de Solana es relativamente nuevo y está en constante evolución, por esta razón el contenido que se produce acerca de esta tecnología se desactualiza con rapidez. Por lo tanto, una de mis recomendaciones es procurar seguir la documentación oficial de Solana y unirse a las comunidades que desarrollan y participan del proyecto, allí puedes encontrar la solución a muchas de tus preguntas, con solo seguir el hilo de las conversaciones antiguas, además estoy seguro que muchos desarrolladores que participan de estas comunidades son muy amables y están dispuestos a ayudarte en caso de ser necesario. Te dejo algunos de los canales de discord que me ha sido de mucha utilidad: 
 
 1. [Anchor](https://discord.gg/ZCHmqvXgDw)
 2. [Stractors](https://discord.gg/ebsJrabneZ)
 3. [Metaplex](https://discord.gg/rpn5wM8Ry3)
 4. [Solana Tech](https://discord.gg/solana)
 
-También te dejo mi canal: [CODE & MATH](https://discord.gg/eeZgZaWNRu).
+Y si te interesa, también te dejo mi canal: [CODE & MATH](https://discord.gg/eeZgZaWNRu).
 
 ## Prerequisitos
 
-A continuación, enumeraré los herramientas y la respectivas versiones que utilicé al momento de escribir este articulo. También enlazaré cada herramienta con la documentación para instalarlas, ya que cada proyecto explica estas cosas mejor de lo que yo podría, además de mantener actualizados los procedimientos:
+A continuación, enumeraré los herramientas y la respectivas versiones que utilicé al momento de escribir este articulo. En cada uno de los items encontrarás enlazada cada herramienta con la documentación para instalarlas, ya que cada proyecto explica como hacerlo y además de mantienen actualizados los procedimientos:
 
 1. [Solana Tool Suite (1.8.16)](https://docs.solana.com/cli/install-solana-cli-tools) - Esta es la CLI de Solana. La documentación es muy completa y allí encontrarás todos los detalles para aprender a utilizarla. 
 2. [Anchor (0.21.0)](https://project-serum.github.io/anchor/getting-started/introduction.html) - Seguramente si has desarrollado dapps sobre Ethereum, habrás utilizado [Hardhat](https://hardhat.org/). Bueno, Anchor es un _framework_ parecido a Hardhat que se utiliza para desarrollar _dapps_ sobre Solana. 
-3. [solana/web3.js (1.36.0)](https://solana-labs.github.io/solana-web3.js/) - Es una version de [web3.js](https://web3js.readthedocs.io/) para solana, sin embargo la documentación no es muy buena, así que si tienes dificultades con ellas busca apoyo en las comunidades de discord. 
+3. [solana/web3.js (1.36.0)](https://solana-labs.github.io/solana-web3.js/) - Es una version de [web3.js](https://web3js.readthedocs.io/) para solana, sin embargo la documentación no es muy buena, así que si tienes dificultades con ella busca apoyo en las comunidades de discord. 
 4. [React.js (17.0.2)](https://reactjs.org/) - _Framework_ para el desarrollo de Front-end. Bastante popular y con muy buena documentación.
 
 5. [Node.js (16.04)](https://nodejs.org/en/) - Para instalarla puedes usar [nvm](https://github.com/nvm-sh/nvm).
 
-6. [Phantom](https://project-serum.github.io/anchor/getting-started/installation.html) - Es la billetera digital que emplearemos para guardar las criptomonedas de Solana.
+6. [Phantom](https://project-serum.github.io/anchor/getting-started/installation.html) - Es la criptocartera que emplearemos para guardar las criptomonedas de Solana.
 
 En otro artículo trataré de explicar en que consiste la tecnología Blockchain y cuáles son las características principales de Solana. Por ahora solo nos centraremos en construir un ejemplo que sirva de ilustración para entender cómo desarrollar una _dapp_ sobre Solana.
 
@@ -65,7 +65,7 @@ Si quieres aprender más sobre Solana y cómo funciona, aquí hay algunos artíc
 
 ## Solana CLI
 
-El CLI de Solana nos permite principalmente configurar nuestra red (entre localhost, testnet, devnet o mainnet-beta) y obtener algunos tokens en nuestro criptocartera para realizar pruebas, para todo lo demás se suele usar el CLI de Anchor. 
+El CLI de Solana nos permite principalmente configurar nuestra red (entre localhost, testnet, devnet o mainnet-beta) y obtener algunos tokens en nuestro criptocartera para realizar pruebas, para todo lo demás  vamos a usar el CLI de Anchor. 
 ### Generando un criptocartera de papel 
 
 Para poder probar nuestro programa de Solana vamos a necesitar una criptocartera. Una criptocartera de criptomonedas almacena colecciones de claves que son utilizadas para enviar y recibir criptomonedas. A continuación vamos a generar un [criptocartera de papel](https://docs.solana.com/wallet-guide/paper-wallet) usando la línea de comandos de Solana. 
@@ -110,8 +110,10 @@ El par de claves se generará en la siguiente ubicación:
 ```shell
 /home/<your user>/.config/solana/«MY_PAPER_WALLET».json
 ```
+{{< admonition >}}
 
-El archivo json puede llamarse como usted quiera Asegúrese de recordar que debe almacenar su frase semilla en algún lugar seguro.
+El archivo json puede llamarse como usted quiera, asegúrese de recordar que debe almacenar su frase semilla en algún lugar seguro.
+{{< /admonition >}}
 
 Para usar tu nueva criptocartera, entonces escribimos el siguiente comando:
 
@@ -126,7 +128,20 @@ Keypair Path: /home/alejandro/.config/solana/«MY_PAPER_WALLET».json
 Commitment: confirmed 
 ```
 
-Por ejemplo, podemos comprobar la configuración actual de la red (y otras) con este comando:
+Ahora vamos a conseguir algunos tokens de prueba, para esto nos aseguramos primero de usar la red de pruebas `devnet`:
+
+```shell
+solana config set --url devnet
+
+# Output
+Config File: /home/alejandro/.config/solana/cli/config.yml
+RPC URL: https://api.devnet.solana.com 
+WebSocket URL: wss://api.devnet.solana.com/ (computed)
+Keypair Path: /home/alejandro/.config/solana/«MY_PAPER_WALLET».json 
+Commitment: confirmed 
+```
+
+Pora comprobar la configuración actual de la red (y otras) podemos emplear este comando:
 
 ```shell
 solana config get
@@ -135,17 +150,66 @@ solana config get
 Config File: /home/user/.config/solana/cli/config.yml
 RPC URL: https://api.devnet.solana.com 
 WebSocket URL: wss://api.devnet.solana.com/ (computed)
-Keypair Path: /home/user/.config/solana/devnet.json 
+Keypair Path: /home/user/.config/solana/«MY_PAPER_WALLET».json 
 Commitment: confirmed 
 ```
-{{< admonition >}}
-Si no tiene una ruta de acceso a Keypair, configure una siguiendo las instrucciones [aquí](https://docs.solana.com/wallet-guide/paper-wallet#seed-phrase-generation).
-{{< /admonition >}}
 
-Para utilizar las redes  localhost, devnet o mainnet, podemos hacer lo siguiente:
+con el CLI podemos ver la dirección de nuestra criptocartera:
+
+```shell
+solana address
+
+# Output is something like this:
+4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+```
+
+A continuación vamos a conseguir algo de token de Solana, para hacer esto, asegurate de que te encuentras en la devnet, ya que nuestra dapp va funcionar en esta red. Para conseguir los tokens hacemos:
+
+```shell
+solana airdrop 2 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9 --url devnet
+
+# Output is something like this:
+Requesting airdrop of 2 SOL
+
+Signature: 3KsFBCULmso5Lc7CAQdqF8rzsBXb3xaVrG3cup19n3P2paw3ryvovWQ9MsMB8GMiQkXJWyHXGrni63BsNrxVfHP2
+
+2 SOL
+```
+
+Para obtener la información completa de nuestra cuenta:
+```shell
+solana account «YOUR_ADDRESS»
+
+# Output is something like this:
+Public Key: 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+Balance: 4.956381584 SOL
+Owner: 11111111111111111111111111111111
+Executable: false
+Rent Epoch: 277
+```
+
+
+Para verificar el balance de nuestro monedero hacemos:
+
+```shell
+solana balance 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+
+# Output
+2 SOL
+```
+
+Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con un 2 SOL, tokens que utilizaremos más adelante para probar nuestra aplicación. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).
+
+### Gestionando las diferentes redes de solana
+
+
+Para utilizar las redes  localhost, testnet, devnet o mainnet-beta, podemos hacer lo siguiente:
 
 ```shell
 # set to localhost 
+solana config set --url localhost
+
+# set to testnet 
 solana config set --url localhost
 
 # set config devnet
@@ -161,48 +225,14 @@ WebSocket URL: wss://api.devnet.solana.com/ (computed)
 Keypair Path: /home/user/.config/solana/devnet.json 
 Commitment: confirmed 
 ```
-Esto es importante ya que es importante estar al tanto de qué red estás usando mientras construyes, pruebas y despliegas tus programas. Asegurate de que tu cartera está usando la misma red que tu entorno local. Vamos a desarrollar nuestra aplicación en la red de devnet, para esto ejecutamos:
+Esto es importante estar al tanto de qué red estás usando mientras construyes, pruebas y despliegas tus programas. Asegurate de que tu cirptocartera está usando la misma red que de tu entorno local. Por ejemplo, si vamos a desarrollar nuestra aplicación en la red de devnet,  entonces ejecutamos:
 
 ```shell
 # set config devnet
 solana config set --url devnet
 ```
 
-También podemos usar el CLI para ver la dirección de nuestro monedero local actual:
-
-```shell
-solana address
-
-# Output is something like this:
-4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
-```
-
-Para obtener la información completa de la cuenta:
-```shell
-solana account «YOUR ADDRESS»
-
-# Output is something like this:
-Public Key: 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
-Balance: 4.956381584 SOL
-Owner: 11111111111111111111111111111111
-Executable: false
-Rent Epoch: 277
-```
-
-A continuación vamos a conseguir algo de Solana, para hacer esto, asegurate de que te encuentras en la devnet, ya que nuestra dapp va funcionar en esta red. Para conseguir solanas hacemos:
-
-```shell
-solana airdrop 2 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9 --url devnet
-
-# Output is something like this:
-Requesting airdrop of 2 SOL
-
-Signature: 3KsFBCULmso5Lc7CAQdqF8rzsBXb3xaVrG3cup19n3P2paw3ryvovWQ9MsMB8GMiQkXJWyHXGrni63BsNrxVfHP2
-
-2 SOL
-```
-
-Si deseas trabajar con la red en localhost, primero deberás inicial el nodo local de Solana para realizar la pruebas:
+Si en cambio, deseas trabajar con la red en localhost, primero deberás iniciar el nodo local de Solana para realizar la pruebas:
 
 ```shell
 solana-test-validator
@@ -222,6 +252,12 @@ JSON RPC URL: http://127.0.0.1:8899
 Y luego
 
 ```shell
+# set config devnet
+solana config set --url localhost
+```
+Además de obtener algo de tokens para está red: 
+
+```shell
 solana airdrop 2 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9 --url localhost
 
 # Output is something like this:
@@ -232,15 +268,9 @@ Signature: 3KsFBCULmso5Lc7CAQdqF8rzsBXb3xaVrG3cup19n3P2paw3ryvovWQ9MsMB8GMiQkXJW
 1 SOL
 ```
 
-Para verificar el balance de nuestro monedero hacemos:
+Ahora que ya tienes solanas en tu criptocartera, podemos continuar con la siguiente fase de nuestro proyecto.
 
-```shell
-solana balance «YOUR ADDRESS»
-```
-
-Ahora que ya tienes solanas en tu monedero, podemos continuar con la siguiente fase de nuestro proyecto.
-
-## Empezando a construir una dapp con Anchor
+## Configuración inicial de una dapp con Anchor
 
 Para iniciar, creamos un nuevo proyecto de Anchor y cambiamos al nuevo directorio:
 

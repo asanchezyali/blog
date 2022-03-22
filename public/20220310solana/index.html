@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://alejandrosanchezyali.vercel.app/20220310solana/" /><meta property="og:image" content="https://alejandrosanchezyali.vercel.app/20220310solana/featured-image.webp"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-10T08:19:27-05:00" />
-<meta property="article:modified_time" content="2022-03-17T23:55:07-05:00" />
+<meta property="article:modified_time" content="2022-03-21T23:10:52-05:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://alejandrosanchezyali.vercel.app/20220310solana/featured-image.webp"/>
@@ -62,8 +62,8 @@
                             "url": "https:\/\/alejandrosanchezyali.vercel.app\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  5393 ,
-        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220310solana\/","datePublished": "2022-03-10T08:19:27-05:00","dateModified": "2022-03-17T23:55:07-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  5518 ,
+        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220310solana\/","datePublished": "2022-03-10T08:19:27-05:00","dateModified": "2022-03-21T23:10:52-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Alejandro Sánchez Yalí","logo": "https:\/\/alejandrosanchezyali.vercel.app\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -143,7 +143,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Programando Dapps sobre Solana</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Alejandro Sánchez Yalí</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/blockchain/"><i class="far fa-folder fa-fw"></i>Blockchain</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-10">2022-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;5393 palabras&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-10">2022-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;5518 palabras&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;26 minutos&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -165,9 +165,10 @@
     <li><a href="#solana-cli">Solana CLI</a>
       <ul>
         <li><a href="#generando-un-criptocartera-de-papel">Generando un criptocartera de papel</a></li>
+        <li><a href="#gestionando-las-diferentes-redes-de-solana">Gestionando las diferentes redes de solana</a></li>
       </ul>
     </li>
-    <li><a href="#empezando-a-construir-una-dapp-con-anchor">Empezando a construir una dapp con Anchor</a></li>
+    <li><a href="#configuración-inicial-de-una-dapp-con-anchor">Configuración inicial de una dapp con Anchor</a></li>
     <li><a href="#hello-world">Hello World</a></li>
     <li><a href="#construyento-la-react-app">Construyento la React App</a></li>
     <li><a href="#configurar-la-red-local-en-la-wallet">Configurar la red local en la Wallet</a></li>
@@ -178,19 +179,19 @@
     <li><a href="#referencias">Referencias</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>El objetivo de este artículo es introducir el desarrollo de aplicaciones descentralizadas (<em>dapps</em>) en la cadena de bloques de Solana. En principio, vamos a explorar las herramientas que hay disponibles, para luego desarrollar una <em>dapp</em> de ejemplo y entender cómo interactúan todos los elementos del ecosistema de Solana.</p>
+            </div><div class="content" id="content"><p>El objetivo de este artículo es introducir el desarrollo de aplicaciones descentralizadas (<em>dapps</em>) en la cadena de bloques de Solana. En principio, vamos a explorar las herramientas que hay disponibles para el trabajo, para luego desarrollar una <em>dapp</em> de ejemplo y entender cómo interactúan todos los elementos del ecosistema de Solana.</p>
 <p>Espero que el contenido que voy a presentar a continuación sea de su agrado y les permita incrementar su <em>Qi</em> como desarrolladores de <em>Blockchain</em>.</p>
 <h2 id="comunidades-de-solana">Comunidades de Solana</h2>
-<p>Antes de comenzar es importante señalar que el ecosistema de Solana es relativamente nuevo y está en constante evolución, por esta razón el contenido que se produce acerca de esta tecnología se desactualiza con rapidez. Por lo tanto, una de mis recomendaciones es procurar seguir la documentación oficial de Solana y unirse a las comunidades que desarrollan y participan del proyecto, allí puedes encontrar la solución a muchas de tus preguntas, con solo seguir el hilo de las conversaciones antiguas, además estoy seguro que muchos desarrolladores que participan de estas comunidades son muy amables y están dispuestos a ayudar. Así que si te interesa ser parte de estas comunidades, te dejo algunos de los canales de discord que me ha sido de mucha utilidad:</p>
+<p>Antes de comenzar es importante señalar que el ecosistema de Solana es relativamente nuevo y está en constante evolución, por esta razón el contenido que se produce acerca de esta tecnología se desactualiza con rapidez. Por lo tanto, una de mis recomendaciones es procurar seguir la documentación oficial de Solana y unirse a las comunidades que desarrollan y participan del proyecto, allí puedes encontrar la solución a muchas de tus preguntas, con solo seguir el hilo de las conversaciones antiguas, además estoy seguro que muchos desarrolladores que participan de estas comunidades son muy amables y están dispuestos a ayudarte en caso de ser necesario. Te dejo algunos de los canales de discord que me ha sido de mucha utilidad:</p>
 <ol>
 <li><a href="https://discord.gg/ZCHmqvXgDw" target="_blank" rel="noopener noreffer">Anchor</a></li>
 <li><a href="https://discord.gg/ebsJrabneZ" target="_blank" rel="noopener noreffer">Stractors</a></li>
 <li><a href="https://discord.gg/rpn5wM8Ry3" target="_blank" rel="noopener noreffer">Metaplex</a></li>
 <li><a href="https://discord.gg/solana" target="_blank" rel="noopener noreffer">Solana Tech</a></li>
 </ol>
-<p>También te dejo mi canal: <a href="https://discord.gg/eeZgZaWNRu" target="_blank" rel="noopener noreffer">CODE &amp; MATH</a>.</p>
+<p>Y si te interesa, también te dejo mi canal: <a href="https://discord.gg/eeZgZaWNRu" target="_blank" rel="noopener noreffer">CODE &amp; MATH</a>.</p>
 <h2 id="prerequisitos">Prerequisitos</h2>
-<p>A continuación, enumeraré los herramientas y la respectivas versiones que utilicé al momento de escribir este articulo. También enlazaré cada herramienta con la documentación para instalarlas, ya que cada proyecto explica estas cosas mejor de lo que yo podría, además de mantener actualizados los procedimientos:</p>
+<p>A continuación, enumeraré los herramientas y la respectivas versiones que utilicé al momento de escribir este articulo. En cada uno de los items encontrarás enlazada cada herramienta con la documentación para instalarlas, ya que cada proyecto explica como hacerlo y además de mantienen actualizados los procedimientos:</p>
 <ol>
 <li>
 <p><a href="https://docs.solana.com/cli/install-solana-cli-tools" target="_blank" rel="noopener noreffer">Solana Tool Suite (1.8.16)</a> - Esta es la CLI de Solana. La documentación es muy completa y allí encontrarás todos los detalles para aprender a utilizarla.</p>
@@ -199,7 +200,7 @@
 <p><a href="https://project-serum.github.io/anchor/getting-started/introduction.html" target="_blank" rel="noopener noreffer">Anchor (0.21.0)</a> - Seguramente si has desarrollado dapps sobre Ethereum, habrás utilizado <a href="https://hardhat.org/" target="_blank" rel="noopener noreffer">Hardhat</a>. Bueno, Anchor es un <em>framework</em> parecido a Hardhat que se utiliza para desarrollar <em>dapps</em> sobre Solana.</p>
 </li>
 <li>
-<p><a href="https://solana-labs.github.io/solana-web3.js/" target="_blank" rel="noopener noreffer">solana/web3.js (1.36.0)</a> - Es una version de <a href="https://web3js.readthedocs.io/" target="_blank" rel="noopener noreffer">web3.js</a> para solana, sin embargo la documentación no es muy buena, así que si tienes dificultades con ellas busca apoyo en las comunidades de discord.</p>
+<p><a href="https://solana-labs.github.io/solana-web3.js/" target="_blank" rel="noopener noreffer">solana/web3.js (1.36.0)</a> - Es una version de <a href="https://web3js.readthedocs.io/" target="_blank" rel="noopener noreffer">web3.js</a> para solana, sin embargo la documentación no es muy buena, así que si tienes dificultades con ella busca apoyo en las comunidades de discord.</p>
 </li>
 <li>
 <p><a href="https://reactjs.org/" target="_blank" rel="noopener noreffer">React.js (17.0.2)</a> - <em>Framework</em> para el desarrollo de Front-end. Bastante popular y con muy buena documentación.</p>
@@ -208,7 +209,7 @@
 <p><a href="https://nodejs.org/en/" target="_blank" rel="noopener noreffer">Node.js (16.04)</a> - Para instalarla puedes usar <a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener noreffer">nvm</a>.</p>
 </li>
 <li>
-<p><a href="https://project-serum.github.io/anchor/getting-started/installation.html" target="_blank" rel="noopener noreffer">Phantom</a> - Es la billetera digital que emplearemos para guardar las criptomonedas de Solana.</p>
+<p><a href="https://project-serum.github.io/anchor/getting-started/installation.html" target="_blank" rel="noopener noreffer">Phantom</a> - Es la criptocartera que emplearemos para guardar las criptomonedas de Solana.</p>
 </li>
 </ol>
 <p>En otro artículo trataré de explicar en que consiste la tecnología Blockchain y cuáles son las características principales de Solana. Por ahora solo nos centraremos en construir un ejemplo que sirva de ilustración para entender cómo desarrollar una <em>dapp</em> sobre Solana.</p>
@@ -219,7 +220,7 @@
 </ol>
 <h2 id="qué-vamos-a-construir">¿Qué vamos a construir?</h2>
 <h2 id="solana-cli">Solana CLI</h2>
-<p>El CLI de Solana nos permite principalmente configurar nuestra red (entre localhost, testnet, devnet o mainnet-beta) y obtener algunos tokens en nuestro criptocartera para realizar pruebas, para todo lo demás se suele usar el CLI de Anchor.</p>
+<p>El CLI de Solana nos permite principalmente configurar nuestra red (entre localhost, testnet, devnet o mainnet-beta) y obtener algunos tokens en nuestro criptocartera para realizar pruebas, para todo lo demás  vamos a usar el CLI de Anchor.</p>
 <h3 id="generando-un-criptocartera-de-papel">Generando un criptocartera de papel</h3>
 <p>Para poder probar nuestro programa de Solana vamos a necesitar una criptocartera. Una criptocartera de criptomonedas almacena colecciones de claves que son utilizadas para enviar y recibir criptomonedas. A continuación vamos a generar un <a href="https://docs.solana.com/wallet-guide/paper-wallet" target="_blank" rel="noopener noreffer">criptocartera de papel</a> usando la línea de comandos de Solana.</p>
 <p>Para generar una criptocartera de papel, utilizaremos el comando  <code>solana-keygen</code>, que se debería haber sido instalado cuando instalamos el CLI de solana. Sin embargo, para verificar que se instaló correctamente, ejecute el siguiente comando:</p>
@@ -291,7 +292,14 @@
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/home/&lt;your user&gt;/.config/solana/«MY_PAPER_WALLET».json
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>El archivo json puede llamarse como usted quiera Asegúrese de recordar que debe almacenar su frase semilla en algún lugar seguro.</p>
+</div><div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>Nota<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">El archivo json puede llamarse como usted quiera, asegúrese de recordar que debe almacenar su frase semilla en algún lugar seguro.</div>
+        </div>
+    </div>
 <p>Para usar tu nueva criptocartera, entonces escribimos el siguiente comando:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -315,7 +323,30 @@
 </span></span><span class="line"><span class="cl">Commitment: confirmed 
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Por ejemplo, podemos comprobar la configuración actual de la red (y otras) con este comando:</p>
+</div><p>Ahora vamos a conseguir algunos tokens de prueba, para esto nos aseguramos primero de usar la red de pruebas <code>devnet</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana config <span class="nb">set</span> --url devnet
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
+</span></span><span class="line"><span class="cl">Config File: /home/alejandro/.config/solana/cli/config.yml
+</span></span><span class="line"><span class="cl">RPC URL: https://api.devnet.solana.com 
+</span></span><span class="line"><span class="cl">WebSocket URL: wss://api.devnet.solana.com/ <span class="o">(</span>computed<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Keypair Path: /home/alejandro/.config/solana/«MY_PAPER_WALLET».json 
+</span></span><span class="line"><span class="cl">Commitment: confirmed 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Pora comprobar la configuración actual de la red (y otras) podemos emplear este comando:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -334,67 +365,11 @@
 </span></span><span class="line"><span class="cl">Config File: /home/user/.config/solana/cli/config.yml
 </span></span><span class="line"><span class="cl">RPC URL: https://api.devnet.solana.com 
 </span></span><span class="line"><span class="cl">WebSocket URL: wss://api.devnet.solana.com/ <span class="o">(</span>computed<span class="o">)</span>
-</span></span><span class="line"><span class="cl">Keypair Path: /home/user/.config/solana/devnet.json 
+</span></span><span class="line"><span class="cl">Keypair Path: /home/user/.config/solana/«MY_PAPER_WALLET».json 
 </span></span><span class="line"><span class="cl">Commitment: confirmed 
 </span></span></code></pre></td></tr></table>
 </div>
-</div><div class="details admonition note open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-pencil-alt fa-fw"></i>Nota<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">Si no tiene una ruta de acceso a Keypair, configure una siguiendo las instrucciones <a href="https://docs.solana.com/wallet-guide/paper-wallet#seed-phrase-generation" target="_blank" rel="noopener noreffer">aquí</a>.</div>
-        </div>
-    </div>
-<p>Para utilizar las redes  localhost, devnet o mainnet, podemos hacer lo siguiente:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># set to localhost </span>
-</span></span><span class="line"><span class="cl">solana config <span class="nb">set</span> --url localhost
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># set config devnet</span>
-</span></span><span class="line"><span class="cl">solana config <span class="nb">set</span> --url devnet
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># set config mainnet</span>
-</span></span><span class="line"><span class="cl">solana config <span class="nb">set</span> --url mainnet
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
-</span></span><span class="line"><span class="cl">Config File: /home/user/.config/solana/cli/config.yml
-</span></span><span class="line"><span class="cl">RPC URL: https://api.devnet.solana.com 
-</span></span><span class="line"><span class="cl">WebSocket URL: wss://api.devnet.solana.com/ <span class="o">(</span>computed<span class="o">)</span>
-</span></span><span class="line"><span class="cl">Keypair Path: /home/user/.config/solana/devnet.json 
-</span></span><span class="line"><span class="cl">Commitment: confirmed 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Esto es importante ya que es importante estar al tanto de qué red estás usando mientras construyes, pruebas y despliegas tus programas. Asegurate de que tu cartera está usando la misma red que tu entorno local. Vamos a desarrollar nuestra aplicación en la red de devnet, para esto ejecutamos:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># set config devnet</span>
-</span></span><span class="line"><span class="cl">solana config <span class="nb">set</span> --url devnet
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>También podemos usar el CLI para ver la dirección de nuestro monedero local actual:</p>
+</div><p>con el CLI podemos ver la dirección de nuestra criptocartera:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -409,30 +384,7 @@
 </span></span><span class="line"><span class="cl">4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Para obtener la información completa de la cuenta:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana account «YOUR ADDRESS»
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
-</span></span><span class="line"><span class="cl">Public Key: 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
-</span></span><span class="line"><span class="cl">Balance: 4.956381584 SOL
-</span></span><span class="line"><span class="cl">Owner: <span class="m">11111111111111111111111111111111</span>
-</span></span><span class="line"><span class="cl">Executable: <span class="nb">false</span>
-</span></span><span class="line"><span class="cl">Rent Epoch: <span class="m">277</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>A continuación vamos a conseguir algo de Solana, para hacer esto, asegurate de que te encuentras en la devnet, ya que nuestra dapp va funcionar en esta red. Para conseguir solanas hacemos:</p>
+</div><p>A continuación vamos a conseguir algo de token de Solana, para hacer esto, asegurate de que te encuentras en la devnet, ya que nuestra dapp va funcionar en esta red. Para conseguir los tokens hacemos:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -455,7 +407,101 @@
 </span></span><span class="line"><span class="cl"><span class="m">2</span> SOL
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Si deseas trabajar con la red en localhost, primero deberás inicial el nodo local de Solana para realizar la pruebas:</p>
+</div><p>Para obtener la información completa de nuestra cuenta:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana account «YOUR_ADDRESS»
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
+</span></span><span class="line"><span class="cl">Public Key: 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+</span></span><span class="line"><span class="cl">Balance: 4.956381584 SOL
+</span></span><span class="line"><span class="cl">Owner: <span class="m">11111111111111111111111111111111</span>
+</span></span><span class="line"><span class="cl">Executable: <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">Rent Epoch: <span class="m">277</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Para verificar el balance de nuestro monedero hacemos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana balance 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
+</span></span><span class="line"><span class="cl"><span class="m">2</span> SOL
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con un 2 SOL, tokens que utilizaremos más adelante para probar nuestra aplicación. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).</p>
+<h3 id="gestionando-las-diferentes-redes-de-solana">Gestionando las diferentes redes de solana</h3>
+<p>Para utilizar las redes  localhost, testnet, devnet o mainnet-beta, podemos hacer lo siguiente:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># set to localhost </span>
+</span></span><span class="line"><span class="cl">solana config <span class="nb">set</span> --url localhost
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># set to testnet </span>
+</span></span><span class="line"><span class="cl">solana config <span class="nb">set</span> --url localhost
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># set config devnet</span>
+</span></span><span class="line"><span class="cl">solana config <span class="nb">set</span> --url devnet
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># set config mainnet</span>
+</span></span><span class="line"><span class="cl">solana config <span class="nb">set</span> --url mainnet
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
+</span></span><span class="line"><span class="cl">Config File: /home/user/.config/solana/cli/config.yml
+</span></span><span class="line"><span class="cl">RPC URL: https://api.devnet.solana.com 
+</span></span><span class="line"><span class="cl">WebSocket URL: wss://api.devnet.solana.com/ <span class="o">(</span>computed<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Keypair Path: /home/user/.config/solana/devnet.json 
+</span></span><span class="line"><span class="cl">Commitment: confirmed 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Esto es importante estar al tanto de qué red estás usando mientras construyes, pruebas y despliegas tus programas. Asegurate de que tu cirptocartera está usando la misma red que de tu entorno local. Por ejemplo, si vamos a desarrollar nuestra aplicación en la red de devnet,  entonces ejecutamos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># set config devnet</span>
+</span></span><span class="line"><span class="cl">solana config <span class="nb">set</span> --url devnet
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Si en cambio, deseas trabajar con la red en localhost, primero deberás iniciar el nodo local de Solana para realizar la pruebas:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -493,6 +539,17 @@
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># set config devnet</span>
+</span></span><span class="line"><span class="cl">solana config <span class="nb">set</span> --url localhost
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Además de obtener algo de tokens para está red:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
@@ -511,17 +568,8 @@
 </span></span><span class="line"><span class="cl"><span class="m">1</span> SOL
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Para verificar el balance de nuestro monedero hacemos:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana balance «YOUR ADDRESS»
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Ahora que ya tienes solanas en tu monedero, podemos continuar con la siguiente fase de nuestro proyecto.</p>
-<h2 id="empezando-a-construir-una-dapp-con-anchor">Empezando a construir una dapp con Anchor</h2>
+</div><p>Ahora que ya tienes solanas en tu criptocartera, podemos continuar con la siguiente fase de nuestro proyecto.</p>
+<h2 id="configuración-inicial-de-una-dapp-con-anchor">Configuración inicial de una dapp con Anchor</h2>
 <p>Para iniciar, creamos un nuevo proyecto de Anchor y cambiamos al nuevo directorio:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2111,8 +2159,8 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Actualizado el 2022-03-17&nbsp;<a class="git-hash" href="https://github.com/asanchezyali/blog/commit/dc11e79708da3781381d973b2bcf1a3b73b6366f" target="_blank" title="commit by asanchezyali(alejandro.sanchezy@udea.edu.co) dc11e79708da3781381d973b2bcf1a3b73b6366f: rebuilding site jue 17 mar 2022 23:55:07 -05">
-                                    <i class="fas fa-hashtag fa-fw"></i>dc11e79</a></span>
+                <span>Actualizado el 2022-03-21&nbsp;<a class="git-hash" href="https://github.com/asanchezyali/blog/commit/cc0bc40bb34b2ab1cf2bae8837444a2e7fab7ccb" target="_blank" title="commit by asanchezyali(alejandro.sanchezy@udea.edu.co) cc0bc40bb34b2ab1cf2bae8837444a2e7fab7ccb: rebuilding site lun 21 mar 2022 23:10:52 -05">
+                                    <i class="fas fa-hashtag fa-fw"></i>cc0bc40</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
