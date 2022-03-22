@@ -65,7 +65,11 @@ Si quieres aprender más sobre Solana y cómo funciona, aquí hay algunos artíc
 
 ## Solana CLI
 
-El CLI de Solana nos permite principalmente configurar nuestra red (entre localhost, testnet, devnet o mainnet-beta) y obtener algunas criptomonedas en nuestro criptocartera para realizar pruebas.
+El CLI de Solana nos permite principalmente configurar nuestra red (entre `localhost`, `testnet`, `devnet` o `mainnet-beta`) además de obtener algunas criptomonedas en nuestro criptocartera para realizar pruebas.
+
+{{< admonition >}}
+Las criptomonedas de las redes `localhost`, `testnet` y `devnet` no tiene ningún valor comercial, son solo para probar las dapp en ambientes de desarrollo.
+{{< /admonition >}}
 ### Generando un criptocartera de papel 
 
 Para poder probar nuestro programa de Solana vamos a necesitar una criptocartera. Una criptocartera de criptomonedas almacena colecciones de claves que son utilizadas para enviar y recibir criptomonedas. A continuación vamos a generar un [criptocartera de papel](https://docs.solana.com/wallet-guide/paper-wallet) usando la línea de comandos de Solana. 
