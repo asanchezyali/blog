@@ -1,4 +1,4 @@
-# Programando Dapps sobre Solana
+# Programando Dapps en Solana
 
 
 El objetivo de este artículo es introducir el desarrollo de aplicaciones descentralizadas (_dapps_) en la cadena de bloques de Solana. En principio, vamos a explorar las herramientas que hay disponibles para el trabajo, para luego desarrollar una _dapp_ de ejemplo y entender cómo interactúan todos los elementos del ecosistema de Solana. 

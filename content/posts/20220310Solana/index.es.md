@@ -1,9 +1,9 @@
 ---
 weight: 1
-title: "Programando Dapps sobre Solana"
+title: "Programando Dapps en Solana"
 date: 2022-03-10T08:19:27-05:00
 draft: false
-excerpt: Programando Dapps sobre Solana
+excerpt: Programando Dapps en Solana
 hero: /images/ml-01.jpg
 timeToRead: 4
 authors:

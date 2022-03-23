@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/" /><meta property="og:image" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/featured-image.webp"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-23T08:19:27-05:00" />
-<meta property="article:modified_time" content="2022-03-23T08:19:27-05:00" />
+<meta property="article:modified_time" content="2022-03-23T16:34:08-05:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/featured-image.webp"/>
@@ -62,8 +62,8 @@
                             "url": "https:\/\/alejandrosanchezyali.vercel.app\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  340 ,
-        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220323solananftandipfs\/","datePublished": "2022-03-23T08:19:27-05:00","dateModified": "2022-03-23T08:19:27-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  783 ,
+        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220323solananftandipfs\/","datePublished": "2022-03-23T08:19:27-05:00","dateModified": "2022-03-23T16:34:08-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Alejandro Sánchez Yalí","logo": "https:\/\/alejandrosanchezyali.vercel.app\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -143,8 +143,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">¿Cómo crear un NFT en Solana con IPFS?</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Alejandro Sánchez Yalí</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/blockchain/"><i class="far fa-folder fa-fw"></i>Blockchain</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-23">2022-03-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;340 palabras&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutos&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-23">2022-03-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;783 palabras&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutos&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -160,6 +160,7 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#configuración-del-ambiente-de-trabajo">Configuración del ambiente de trabajo</a></li>
+    <li><a href="#preparando-los-activos">Preparando los activos</a></li>
     <li><a href="#patrocinio">Patrocinio</a></li>
     <li><a href="#imágenes">Imágenes</a></li>
     <li><a href="#referencias">Referencias</a></li>
@@ -178,7 +179,61 @@
 <li><a href="https://docs.solana.com/cli/install-solana-cli-tools" target="_blank" rel="noopener noreffer">Solana CLI</a> version 1.8.16 o la más reciente.</li>
 </ul>
 <p>Por si sirve de algo, seguiremos gran parte de las instrucciones de la página web de <a href="https://docs.metaplex.com/candy-machine-v2/getting-started" target="_blank" rel="noopener noreffer">Metaplex</a> con algunas modificaciones que nos permitan subir contenidos a IPFS a través de Pinata.</p>
-<p>Continuará &hellip;</p>
+<h2 id="preparando-los-activos">Preparando los activos</h2>
+<p>Este tutorial no va a pasar por el proceso de generar los activos para su proyecto  de NFTs. Ese es un esfuerzo totalmente separado que tiene que ocurrir antes de que el contrato puede ser desplegado en Solana. Así que, asumiendo que usted tiene el arte creado, vamos a caminar a través de cómo preparar esto para subir a IPFS a través de Metaplex.</p>
+<p>El primer paso es crear una carpeta para los activos de su proyecto NFT. Desde la línea de comandos, que se verá así:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir nft-project
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Dentro de esa carpeta, crea otra carpeta llamada <code>assets</code>. En la carpeta <code>assets</code>, añadirás todas tus imágenes. Es importante que cada una de tus imágenes esté etiquetada en un formato de índice base 0. Eso significa que la primera imagen sería <code>0.png</code> y la segunda sería <code>1.png</code> y así sucesivamente.</p>
+<p>Una vez que sus imágenes estén en la carpeta, tendrá que crear los metadatos para estas imágenes. Si tiene alguna experiencia con los metadatos NFT de Ethereum, se sentirá como en casa con los metadatos NFT de Solana. La estructura es casi idéntica. Echemos un vistazo a una estructura básica de archivo de metadatos JSON para NFTs en Solana:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Number #0001&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;symbol&#34;</span><span class="p">:</span> <span class="s2">&#34;NB&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Collection of 10 numbers on the blockchain. This is the number 1/10.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;image&#34;</span><span class="p">:</span> <span class="s2">&#34;0.png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nt">&#34;trait_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Layer-1&#34;</span><span class="p">,</span> <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;0&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nt">&#34;trait_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Layer-2&#34;</span><span class="p">,</span> <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;0&#34;</span><span class="p">},</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nt">&#34;trait_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Layer-3&#34;</span><span class="p">,</span> <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;0&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nt">&#34;trait_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Layer-4&#34;</span><span class="p">,</span> <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;1&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;properties&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;creators&#34;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="s2">&#34;N4f6zftYsuu4yT7icsjLwh4i6pB1zvvKbseHj2NmSQw&#34;</span><span class="p">,</span> <span class="nt">&#34;share&#34;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}],</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;files&#34;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&#34;uri&#34;</span><span class="p">:</span> <span class="s2">&#34;0.png&#34;</span><span class="p">,</span> <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;image/png&#34;</span><span class="p">}]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;collection&#34;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;numbers&#34;</span><span class="p">,</span> <span class="nt">&#34;family&#34;</span><span class="p">:</span> <span class="s2">&#34;numbers&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Al igual que con el estándar de metadatos de Ethereum, el estándar de metadatos de Solana tiene un nombre, una imagen y una descripción. Además, se pueden incluir atributos (al igual que con ETH), un símbolo y detalles de cobro. En los proyectos de Ethereum, el símbolo del token se asigna generalmente en la implementación del contrato y no en los metadatos. Otra diferencia es la parte de propiedades de los metadatos de Solana. Esto es necesario y le permite incluir una serie de archivos para sus NFT. Tiene que tener al menos un archivo en esa matriz que apunte al mismo activo que la propiedad de la imagen, pero puede incluir otros archivos que conformen su NFT completa. Este es un concepto realmente interesante que debe ser explorado más a fondo, pero por el bien de este post, sólo vamos a operar con NFTs de un solo activo.</p>
+<p>Si desea profundizar en la norma de los metadatos de Solana para los NFTs, puede hacerlo <a href="https://docs.metaplex.com/candy-machine-v2/preparing-assets" target="_blank" rel="noopener noreffer">aquí</a>.</p>
 <h2 id="patrocinio">Patrocinio</h2>
 <p>₿itcoin:</p>
 <p>Solana:</p>
@@ -199,12 +254,16 @@
 <li>
 <p><a href="https://github.com/ChainSafe/web3.js" target="_blank" rel="noopener noreffer">Web3.js</a></p>
 </li>
+<li>
+<p><a href="https://metaboss.rs/update.html" target="_blank" rel="noopener noreffer">Metaboss</a></p>
+</li>
 </ol>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Actualizado el 2022-03-23</span>
+                <span>Actualizado el 2022-03-23&nbsp;<a class="git-hash" href="https://github.com/asanchezyali/blog/commit/3d013c79e323ecf656e65f61c923fcadf516f30f" target="_blank" title="commit by asanchezyali(alejandro.sanchezy@udea.edu.co) 3d013c79e323ecf656e65f61c923fcadf516f30f: rebuilding site mié 23 mar 2022 16:34:08 -05">
+                                    <i class="fas fa-hashtag fa-fw"></i>3d013c7</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -225,7 +284,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/20220310solana/" class="prev" rel="prev" title="Programando Dapps sobre Solana"><i class="fas fa-angle-left fa-fw"></i>Programando Dapps sobre Solana</a></div>
+    <div class="post-nav"><a href="/20220310solana/" class="prev" rel="prev" title="Programando Dapps en Solana"><i class="fas fa-angle-left fa-fw"></i>Programando Dapps en Solana</a></div>
 </div>
 </article></div>
             </main><footer class="footer">
