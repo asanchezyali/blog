@@ -181,6 +181,8 @@ tilador diseñado para refrigerar ordenadores portátiles que, debido a su tama�
 tación.
 
 
+Continuará ...
+
 ## Imágenes
 
   [Unplash](https://unsplash.com) - [Sunset over Limuru tea farm](https://unsplash.com/photos/PvwdlXqo85k).

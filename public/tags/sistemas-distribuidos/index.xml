@@ -4,7 +4,15 @@
         <link>https://alejandrosanchezyali.vercel.app/tags/sistemas-distribuidos/</link>
         <description>Sistemas distribuidos - Etiqueta - Alejandro Sánchez Yalí</description>
         <generator>Hugo -- gohugo.io</generator><language>es</language><managingEditor>asanchezyali@gmail.com (Alejandro Sánchez Yalí)</managingEditor>
-            <webMaster>asanchezyali@gmail.com (Alejandro Sánchez Yalí)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 10 Mar 2022 08:19:27 -0500</lastBuildDate><atom:link href="https://alejandrosanchezyali.vercel.app/tags/sistemas-distribuidos/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>asanchezyali@gmail.com (Alejandro Sánchez Yalí)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 23 Mar 2022 08:19:27 -0500</lastBuildDate><atom:link href="https://alejandrosanchezyali.vercel.app/tags/sistemas-distribuidos/" rel="self" type="application/rss+xml" /><item>
+    <title>¿Cómo crear un NFT en Solana con IPFS?</title>
+    <link>https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/</link>
+    <pubDate>Wed, 23 Mar 2022 08:19:27 -0500</pubDate>
+    <author>Autor</author>
+    <guid>https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/</guid>
+    <description><![CDATA[Los NFTs son mucho más que images generadas aleatoriamente, esto promete ser la revolución en los títulos de propiedad digital en la web tal y como la conocemos. Si quieres aprender más acerca de esto, te recomiendo leer el articulo de Nick Szabo, Secure Property Titles with Owner Authority, allí encontrarás las primeras ideas acerca de todo este asunto de los NFTs.
+A continuación vamos a ver cómo crear una colección de NFTs en Solana usando Pinata e IPFS.]]></description>
+</item><item>
     <title>Programando Dapps sobre Solana</title>
     <link>https://alejandrosanchezyali.vercel.app/20220310solana/</link>
     <pubDate>Thu, 10 Mar 2022 08:19:27 -0500</pubDate>
@@ -26,7 +34,6 @@ Por lo tanto, el principal objetivo es desarrollar un bot que sea capaz de comun
     <pubDate>Mon, 12 Jul 2021 08:19:27 -0500</pubDate>
     <author>Autor</author>
     <guid>https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/</guid>
-    <description><![CDATA[¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática.
-Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado que existe una amplia variedad de problemas que no se pueden resolver de forma analítica. En estas situaciones los datos nos permiten encontrar soluciones empíricas, que no necesariamente explican el porqué de las cosas, pero si ofrecen resultados útiles para la práctica.]]></description>
+    <description><![CDATA[Comming soon &hellip;]]></description>
 </item></channel>
 </rss>

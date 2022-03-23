@@ -5,17 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Fundamentos de la tecnología Blockchain - Alejandro Sánchez Yalí</title><meta name="Description" content="Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes."><meta property="og:title" content="Fundamentos de la tecnología Blockchain" />
-<meta property="og:description" content="Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes." />
+        <title>¿Cómo crear un NFT en Solana con IPFS? - Alejandro Sánchez Yalí</title><meta name="Description" content="Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes"><meta property="og:title" content="¿Cómo crear un NFT en Solana con IPFS?" />
+<meta property="og:description" content="Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/" /><meta property="og:image" content="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/featured-image.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-07-12T08:19:27-05:00" />
-<meta property="article:modified_time" content="2022-03-15T22:03:38-05:00" />
+<meta property="og:url" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/" /><meta property="og:image" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/featured-image.webp"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-23T08:19:27-05:00" />
+<meta property="article:modified_time" content="2022-03-23T08:19:27-05:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/featured-image.png"/>
-<meta name="twitter:title" content="Fundamentos de la tecnología Blockchain"/>
-<meta name="twitter:description" content="Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes."/>
+<meta name="twitter:image" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/featured-image.webp"/>
+<meta name="twitter:title" content="¿Cómo crear un NFT en Solana con IPFS?"/>
+<meta name="twitter:description" content="Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes"/>
 <meta name="application-name" content="Alejandro Sánchez Yalí">
 <meta name="apple-mobile-web-app-title" content="Alejandro Sánchez Yalí"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><script>
   MathJax = {
@@ -41,7 +41,7 @@
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/" /><link rel="prev" href="https://alejandrosanchezyali.vercel.app/20210712machinelearning/" /><link rel="next" href="https://alejandrosanchezyali.vercel.app/20220312precisionagriculture/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/" /><link rel="prev" href="https://alejandrosanchezyali.vercel.app/20220310solana/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
@@ -52,23 +52,23 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Fundamentos de la tecnología Blockchain",
+        "headline": "¿Cómo crear un NFT en Solana con IPFS?",
         "inLanguage": "es",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/alejandrosanchezyali.vercel.app\/20220209blockchainfoundations\/"
+            "@id": "https:\/\/alejandrosanchezyali.vercel.app\/20220323solananftandipfs\/"
         },"image": [{
                             "@type": "ImageObject",
                             "url": "https:\/\/alejandrosanchezyali.vercel.app\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  3 ,
-        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220209blockchainfoundations\/","datePublished": "2021-07-12T08:19:27-05:00","dateModified": "2022-03-15T22:03:38-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  340 ,
+        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220323solananftandipfs\/","datePublished": "2022-03-23T08:19:27-05:00","dateModified": "2022-03-23T08:19:27-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Alejandro Sánchez Yalí","logo": "https:\/\/alejandrosanchezyali.vercel.app\/images\/avatar.png"},"author": {
                 "@type": "Person",
                 "name": "Alejandro Sánchez Yalí"
-            },"description": "Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes."
+            },"description": "Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes"
     }
     </script></head>
     <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -80,7 +80,7 @@
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> Artículos </a><a class="menu-item" href="/about/"> Bio </a><a class="menu-item" href="https://github.com/asanchezyali" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Selecciona el lenguage">Español<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/20220209blockchainfoundations/" selected>Español</option></select>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/20220323solananftandipfs/" selected>Español</option></select>
                     </a><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Buscar" id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Buscar">
@@ -127,7 +127,7 @@
                 </div><a class="menu-item" href="/posts/" title="">Artículos</a><a class="menu-item" href="/about/" title="">Bio</a><a class="menu-item" href="https://github.com/asanchezyali" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Cambia el tema">
                 <i class="fas fa-adjust fa-fw"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="Selecciona el lenguage">Español<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/20220209blockchainfoundations/" selected>Español</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/20220323solananftandipfs/" selected>Español</option></select>
                 </a></div>
     </div>
 </header>
@@ -141,39 +141,79 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contenido</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Fundamentos de la tecnología Blockchain</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">¿Cómo crear un NFT en Solana con IPFS?</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Alejandro Sánchez Yalí</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/blockchain/"><i class="far fa-folder fa-fw"></i>Blockchain</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-12">2021-07-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3 palabras&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;Un minuto&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-23">2022-03-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;340 palabras&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutos&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/20220209blockchainfoundations/featured-image.png"
-        data-srcset="/20220209blockchainfoundations/featured-image.png, /20220209blockchainfoundations/featured-image.png 1.5x, /20220209blockchainfoundations/featured-image.png 2x"
+        data-src="/20220323solananftandipfs/featured-image.webp"
+        data-srcset="/20220323solananftandipfs/featured-image.webp, /20220323solananftandipfs/featured-image.webp 1.5x, /20220323solananftandipfs/featured-image.webp 2x"
         data-sizes="auto"
-        alt="/20220209blockchainfoundations/featured-image.png"
-        title="Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes." /></div><div class="details toc" id="toc-static"  kept="">
+        alt="/20220323solananftandipfs/featured-image.webp"
+        title="Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes" /></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contenido</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>Comming soon &hellip;</p>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#configuración-del-ambiente-de-trabajo">Configuración del ambiente de trabajo</a></li>
+    <li><a href="#patrocinio">Patrocinio</a></li>
+    <li><a href="#imágenes">Imágenes</a></li>
+    <li><a href="#referencias">Referencias</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Los NFTs son mucho más que images generadas aleatoriamente, esto promete ser la revolución en los títulos de propiedad digital en la web tal y como la conocemos. Si quieres aprender más acerca de esto, te recomiendo leer el articulo de Nick Szabo, <a href="https://nakamotoinstitute.org/secure-property-titles/" target="_blank" rel="noopener noreffer"><em>Secure Property Titles with Owner Authority</em></a>, allí encontrarás las primeras ideas acerca de todo este asunto de los NFTs.</p>
+<p>A continuación vamos a ver cómo crear una colección de NFTs en Solana usando Pinata e IPFS. Este es un tutorial especialmente interesante porque Solana ha estado estrechamente vinculado Arweave, pero muchos proyectos prefieren IPFS por su rápido acceso al contenido y su fiabilidad. Metaplex, es un proyecto construido para hacer más fácil la creación de proyectos NFT en Solana y tiene soporte para IPFS, y esto incluye la capacidad para usar Pinata para almacenar contenido y servir este contenido a través de una puerta de enlace IPFS dedicada.</p>
+<h2 id="configuración-del-ambiente-de-trabajo">Configuración del ambiente de trabajo</h2>
+<p>Para empezar, asegúrate de registrarte en <a href="https://www.pinata.cloud/" target="_blank" rel="noopener noreffer">Pinata</a>. Usted puede hacer pruebas con una cuenta gratuita, pero para el lanzamiento de NFTs en la red principal, debes considerar el plan professional con una puerta de enlace IPFS dedicada.</p>
+<p>Una vez que te hayas inscrito en una cuenta, sólo tienes que asegurarte de que tienes instalados los siguientes elementos (cada uno de ellos está vinculado a las instrucciones de instalación en caso de que tengas que instalarlos):</p>
+<ul>
+<li><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreffer">Node.js</a> version 16.13.0 o la más reciente.</li>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank" rel="noopener noreffer">Git</a> versión 2.32.0 o la más reciente.</li>
+<li><a href="https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable" target="_blank" rel="noopener noreffer">Yarn</a> versión 1.22.17 o la más reciente.</li>
+<li><a href="https://www.npmjs.com/package/ts-node#installation" target="_blank" rel="noopener noreffer">ts-node</a> versión 10.4.0 o la más reciente.</li>
+<li><a href="https://docs.solana.com/cli/install-solana-cli-tools" target="_blank" rel="noopener noreffer">Solana CLI</a> version 1.8.16 o la más reciente.</li>
+</ul>
+<p>Por si sirve de algo, seguiremos gran parte de las instrucciones de la página web de <a href="https://docs.metaplex.com/candy-machine-v2/getting-started" target="_blank" rel="noopener noreffer">Metaplex</a> con algunas modificaciones que nos permitan subir contenidos a IPFS a través de Pinata.</p>
+<p>Continuará &hellip;</p>
+<h2 id="patrocinio">Patrocinio</h2>
+<p>₿itcoin:</p>
+<p>Solana:</p>
+<p>Ethereum:</p>
+<p>Paypal: <a href="mailto:alejandro.driveyali@gmail.com" rel="">alejandro.driveyali@gmail.com</a></p>
+<h2 id="imágenes">Imágenes</h2>
+<ul>
+<li><a href="https://unsplash.com/" target="_blank" rel="noopener noreffer">Unplash</a> - <a href="https://unsplash.com/photos/yscrM1AOEKI" target="_blank" rel="noopener noreffer">NTF inscription on cubes against the background of dollars and microcircuits</a></li>
+</ul>
+<h2 id="referencias">Referencias</h2>
+<ol>
+<li>
+<p><a href="https://deepai.org/publication/the-modern-mathematics-of-deep-learning" target="_blank" rel="noopener noreffer">Julius Berner. 2021. The Modern Mathematics of deep learning.</a></p>
+</li>
+<li>
+<p><a href="https://work.caltech.edu/telecourse" target="_blank" rel="noopener noreffer">Yaser Abu-Mostafa Data. 2012 - 2015. Learning From Data.</a></p>
+</li>
+<li>
+<p><a href="https://github.com/ChainSafe/web3.js" target="_blank" rel="noopener noreffer">Web3.js</a></p>
+</li>
+</ol>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Actualizado el 2022-03-15&nbsp;<a class="git-hash" href="https://github.com/asanchezyali/blog/commit/a7fd82fcfc4f167ed42880c764ef07b36e8276cc" target="_blank" title="commit by asanchezyali(alejandro.sanchezy@udea.edu.co) a7fd82fcfc4f167ed42880c764ef07b36e8276cc: rebuilding site mar 15 mar 2022 22:03:37 -05">
-                                    <i class="fas fa-hashtag fa-fw"></i>a7fd82f</a></span>
+                <span>Actualizado el 2022-03-23</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/20220209blockchainfoundations/index.md" target="_blank">Leer Markdown</a>
+                            <a class="link-to-markdown" href="/20220323solananftandipfs/index.md" target="_blank">Leer Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Compartir en Twitter" data-sharer="twitter" data-url="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/" data-title="Fundamentos de la tecnología Blockchain" data-via="asanchezyali" data-hashtags="Sistemas distribuidos"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Facebook" data-sharer="facebook" data-url="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/" data-hashtag="Sistemas distribuidos"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Linkedin" data-sharer="linkedin" data-url="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en WhatsApp" data-sharer="whatsapp" data-url="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/" data-title="Fundamentos de la tecnología Blockchain" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Hacker News" data-sharer="hackernews" data-url="https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/" data-title="Fundamentos de la tecnología Blockchain"><i class="fab fa-hacker-news fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="Compartir en Twitter" data-sharer="twitter" data-url="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/" data-title="¿Cómo crear un NFT en Solana con IPFS?" data-via="asanchezyali" data-hashtags="Sistemas distribuidos"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Facebook" data-sharer="facebook" data-url="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/" data-hashtag="Sistemas distribuidos"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Linkedin" data-sharer="linkedin" data-url="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en WhatsApp" data-sharer="whatsapp" data-url="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/" data-title="¿Cómo crear un NFT en Solana con IPFS?" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Hacker News" data-sharer="hackernews" data-url="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/" data-title="¿Cómo crear un NFT en Solana con IPFS?"><i class="fab fa-hacker-news fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -185,8 +225,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/20210712machinelearning/" class="prev" rel="prev" title="Aprendiendo de los datos"><i class="fas fa-angle-left fa-fw"></i>Aprendiendo de los datos</a>
-            <a href="/20220312precisionagriculture/" class="next" rel="next" title="Agricultura de precisión">Agricultura de precisión<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/20220310solana/" class="prev" rel="prev" title="Programando Dapps sobre Solana"><i class="fas fa-angle-left fa-fw"></i>Programando Dapps sobre Solana</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

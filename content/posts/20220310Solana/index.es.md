@@ -68,7 +68,7 @@ Si quieres aprender más sobre Solana y cómo funciona, aquí hay algunos artíc
 El CLI de Solana nos permite principalmente configurar nuestra red (entre `localhost`, `testnet`, `devnet` o `mainnet-beta`) además de obtener algunas criptomonedas en nuestro criptocartera para realizar pruebas.
 
 {{< admonition >}}
-Las criptomonedas de las redes `localhost`, `testnet` y `devnet` no tiene ningún valor comercial, son solo para probar las dapp en ambientes de desarrollo.
+Las criptomonedas de las redes `localhost`, `testnet` y `devnet` no tiene ningún valor comercial, son solo para probar las dapps en ambientes de desarrollo.
 {{< /admonition >}}
 ### Generando un criptocartera de papel 
 
