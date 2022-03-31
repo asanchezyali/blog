@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/" /><meta property="og:image" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/featured-image.webp"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-23T08:19:27-05:00" />
-<meta property="article:modified_time" content="2022-03-23T16:34:08-05:00" />
+<meta property="article:modified_time" content="2022-03-23T18:46:54-05:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/featured-image.webp"/>
@@ -62,8 +62,8 @@
                             "url": "https:\/\/alejandrosanchezyali.vercel.app\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  783 ,
-        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220323solananftandipfs\/","datePublished": "2022-03-23T08:19:27-05:00","dateModified": "2022-03-23T16:34:08-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  1756 ,
+        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220323solananftandipfs\/","datePublished": "2022-03-23T08:19:27-05:00","dateModified": "2022-03-23T18:46:54-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Alejandro Sánchez Yalí","logo": "https:\/\/alejandrosanchezyali.vercel.app\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -143,8 +143,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">¿Cómo crear un NFT en Solana con IPFS?</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Alejandro Sánchez Yalí</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/blockchain/"><i class="far fa-folder fa-fw"></i>Blockchain</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-23">2022-03-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;783 palabras&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutos&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-23">2022-03-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1756 palabras&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;9 minutos&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -161,6 +161,8 @@
   <ul>
     <li><a href="#configuración-del-ambiente-de-trabajo">Configuración del ambiente de trabajo</a></li>
     <li><a href="#preparando-los-activos">Preparando los activos</a></li>
+    <li><a href="#metaplex">Metaplex</a></li>
+    <li><a href="#_drop-configuration_"><em>Drop configuration</em></a></li>
     <li><a href="#patrocinio">Patrocinio</a></li>
     <li><a href="#imágenes">Imágenes</a></li>
     <li><a href="#referencias">Referencias</a></li>
@@ -172,15 +174,15 @@
 <p>Para empezar, asegúrate de registrarte en <a href="https://www.pinata.cloud/" target="_blank" rel="noopener noreffer">Pinata</a>. Usted puede hacer pruebas con una cuenta gratuita, pero para el lanzamiento de NFTs en la red principal, debes considerar el plan professional con una puerta de enlace IPFS dedicada.</p>
 <p>Una vez que te hayas inscrito en una cuenta, sólo tienes que asegurarte de que tienes instalados los siguientes elementos (cada uno de ellos está vinculado a las instrucciones de instalación en caso de que tengas que instalarlos):</p>
 <ul>
-<li><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreffer">Node.js</a> version 16.13.0 o la más reciente.</li>
-<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank" rel="noopener noreffer">Git</a> versión 2.32.0 o la más reciente.</li>
-<li><a href="https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable" target="_blank" rel="noopener noreffer">Yarn</a> versión 1.22.17 o la más reciente.</li>
-<li><a href="https://www.npmjs.com/package/ts-node#installation" target="_blank" rel="noopener noreffer">ts-node</a> versión 10.4.0 o la más reciente.</li>
-<li><a href="https://docs.solana.com/cli/install-solana-cli-tools" target="_blank" rel="noopener noreffer">Solana CLI</a> version 1.8.16 o la más reciente.</li>
+<li><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreffer">Node.js</a> - version 16.13.0 o la más reciente.</li>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank" rel="noopener noreffer">Git</a> - versión 2.32.0 o la más reciente.</li>
+<li><a href="https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable" target="_blank" rel="noopener noreffer">Yarn</a> - versión 1.22.17 o la más reciente.</li>
+<li><a href="https://www.npmjs.com/package/ts-node#installation" target="_blank" rel="noopener noreffer">ts-node</a> - versión 10.4.0 o la más reciente.</li>
+<li><a href="https://docs.solana.com/cli/install-solana-cli-tools" target="_blank" rel="noopener noreffer">Solana CLI</a> - version 1.8.16 o la más reciente.</li>
 </ul>
 <p>Por si sirve de algo, seguiremos gran parte de las instrucciones de la página web de <a href="https://docs.metaplex.com/candy-machine-v2/getting-started" target="_blank" rel="noopener noreffer">Metaplex</a> con algunas modificaciones que nos permitan subir contenidos a IPFS a través de Pinata.</p>
 <h2 id="preparando-los-activos">Preparando los activos</h2>
-<p>Este tutorial no va a pasar por el proceso de generar los activos para su proyecto  de NFTs. Ese es un esfuerzo totalmente separado que tiene que ocurrir antes de que el contrato puede ser desplegado en Solana. Así que, asumiendo que usted tiene el arte creado, vamos a caminar a través de cómo preparar esto para subir a IPFS a través de Metaplex.</p>
+<p>Este tutorial no va a pasar por el proceso de generar los activos para su proyecto  de NFTs. Ese es un esfuerzo totalmente separado que tiene que ocurrir antes de que el contrato puede ser desplegado en Solana. Así que, asumiendo que usted ya tiene las imágenes creadas, vamos a ver cómo prepararlas para subirlas a IPFS a través de Metaplex.</p>
 <p>El primer paso es crear una carpeta para los activos de su proyecto NFT. Desde la línea de comandos, que se verá así:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -234,6 +236,273 @@
 </div>
 </div><p>Al igual que con el estándar de metadatos de Ethereum, el estándar de metadatos de Solana tiene un nombre, una imagen y una descripción. Además, se pueden incluir atributos (al igual que con ETH), un símbolo y detalles de cobro. En los proyectos de Ethereum, el símbolo del token se asigna generalmente en la implementación del contrato y no en los metadatos. Otra diferencia es la parte de propiedades de los metadatos de Solana. Esto es necesario y le permite incluir una serie de archivos para sus NFT. Tiene que tener al menos un archivo en esa matriz que apunte al mismo activo que la propiedad de la imagen, pero puede incluir otros archivos que conformen su NFT completa. Este es un concepto realmente interesante que debe ser explorado más a fondo, pero por el bien de este post, sólo vamos a operar con NFTs de un solo activo.</p>
 <p>Si desea profundizar en la norma de los metadatos de Solana para los NFTs, puede hacerlo <a href="https://docs.metaplex.com/candy-machine-v2/preparing-assets" target="_blank" rel="noopener noreffer">aquí</a>.</p>
+<p>Ahora que tenemos las imágenes en la carpeta. Sabemos que esas imágenes necesitan ser nombradas de una manera específica. Y sabemos que necesitamos archivos de metadatos JSON. ¿Cómo vamos a conseguir ahora esos archivos JSON creados y añadidos a la carpeta de activos. Podrías hacerlo manualmente, pero con un proyecto de 10.000 NFT, eso sería casi imposible.</p>
+<p>Vamos a escribir un script para crear los archivos de metadatos.</p>
+<p>Desde tu línea de comandos, asegúrate de que estás en la carpeta <code>nft-project</code>. Crearemos un nuevo archivo llamado <code>metadata-generator.js</code> ejecutando este comando: <code>touch metadata-generator.js</code>.</p>
+<p>En tu editor de código, abre ese nuevo archivo. Está vacío, pero lo rellenaremos ahora. Tenemos que recorrer todas las imágenes en nuestra carpeta de activos y crear un único archivo JSON para cada uno. Necesitamos nombrar y guardar ese archivo JSON en la misma carpeta de activos. Para hacer esto, haremos uso del Node.js <code>fs</code> que está incorporado en Node.js.</p>
+<p>En su archivo <code>metadata-generator.js</code> añada este código:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">imageDir</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="s2">&#34;./assets&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">imageDir</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">img</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">metadata</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="o">:</span> <span class="sb">`Image </span><span class="si">${</span><span class="nx">img</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">description</span><span class="o">:</span> <span class="s2">&#34;An image in the NFT collection&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">symbol</span><span class="o">:</span> <span class="s2">&#34;YOUR_NFT_COLLECTION_SHORT_SYMBOL&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">image</span><span class="o">:</span> <span class="nx">img</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">seller_fee_basis_points</span><span class="o">:</span> <span class="s2">&#34;ROYALTIES_PERCENTAGE_BASIS_POINTS&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">files</span><span class="o">:</span> <span class="p">[{</span> <span class="nx">uri</span><span class="o">:</span> <span class="nx">img</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;image/png&#34;</span> <span class="p">}],</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">category</span><span class="o">:</span> <span class="s2">&#34;image&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">creators</span><span class="o">:</span> <span class="p">[{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">address</span><span class="o">:</span> <span class="s2">&#34;YOUR_SOL_WALLET_ADDRESS&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">share</span><span class="o">:</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="sb">`./assets/</span><span class="si">${</span><span class="nx">img</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="sb">.json`</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">metadata</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Por supuesto, usted podría personalizar esto para su proyecto. Dar a sus imágenes diferentes nombres, añadir la matriz de atributos, etc. Este es un ejemplo muy básico, pero te servirá para empezar.</p>
+<p>Para ejecutar tu script y generar los metadatos, debes ejecutar este comando desde la raíz de tu carpeta de proyecto: <code>node metadata-generator.js</code>.</p>
+<p>Cuando el script esté terminado, tendrás una carpeta de activos que tiene imágenes y archivos JSON juntos. Debería tener este aspecto:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">tree
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
+</span></span><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── assets
+</span></span><span class="line"><span class="cl">│   ├── 0.json
+</span></span><span class="line"><span class="cl">│   ├── 0.png
+</span></span><span class="line"><span class="cl">│   ├── 1.json
+</span></span><span class="line"><span class="cl">│   ├── 1.png
+</span></span><span class="line"><span class="cl">│   ├── 2.json
+</span></span><span class="line"><span class="cl">│   └── 2.png
+</span></span><span class="line"><span class="cl">└── metadata-generator.js
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Bien, ya tenemos nuestros activos listos para empezar. Es hora de empezar a usar Metaplex para ponernos en marcha con Solana.</p>
+<h2 id="metaplex">Metaplex</h2>
+<p><a href="https://www.metaplex.com/" target="_blank" rel="noopener noreffer">Metaplex</a> es una herramienta que facilita el lanzamiento de un proyecto NFT en Solana. En lugar de tener que escribir tu propio contrato inteligente como tendrías que hacer con Ethereum, Metaplex tiene contratos pre-escritos que los proyectos pueden conectar. Para que esto funcione, Metaplex tiene que ser capaz de acceder a los archivos asociados a los NFTs, luego tiene que ser capaz de subir esos archivos y asociarlos a cada token que se va a acuñar.</p>
+<p>Metaplex tiene soporte para IPFS a través de algunos servicios, pero nos centraremos en el uso de Pinata.</p>
+<p>Vamos a seguir la guía estándar de Metaplex Candy Machine que se encuentra <a href="https://docs.metaplex.com/candy-machine-v2/getting-started" target="_blank" rel="noopener noreffer">aquí</a>. El primer paso va a ser clonar Metaplex. Ejecute el siguiente comando en su terminal:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.com/metaplex-foundation/metaplex.git ~/metaplex
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Estamos clonando el directorio en el directorio <code>home</code> para que no tengamos que recordar dónde se clonó el proyecto. Dentro del nuevo repositorio de metaplex hay un código para soportar la CLI de JavaScript que vamos a utilizar. Por lo tanto, tenemos que instalar las dependencias para ese código CLI.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yarn install --cwd ~/metaplex/js/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ahora, asegurémonos de que la instalación ha funcionado. ¿Recuerdas que instalamos <code>ts-node</code>? Vamos a usar eso ahora para ejecutar un comando para el cli de metaplex</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">candymachine</span><span class="o">=</span>«YOUR_ROOT_PATH»/metaplex/js/packages/cli/src/candy-machine-v2-cli.ts
+</span></span><span class="line"><span class="cl">ts-node <span class="nv">$candymachine</span> --version
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
+</span></span><span class="line"><span class="cl">0.0.2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Esto debería imprimir una versión si todo fue instalado correctamente. Ahora, necesitamos asegurarnos de que el CLI de Solana está funcionando. Ejecute este comando para obtener el número de versión:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana --version
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
+</span></span><span class="line"><span class="cl">solana-cli 1.8.16 <span class="o">(</span>src:23af37fe<span class="p">;</span> feat:188619054
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Si eso funciona, está listo. Si no es así, comprueba que has instalado el <a href="https://docs.solana.com/cli/install-solana-cli-tools" target="_blank" rel="noopener noreffer">Solana CLI Toolkit</a>. A continuación, vamos a utilizar ese CLI para crear la cartera <code>devnet</code>. El <code>devnet</code> de Solana es donde podemos experimentar sin temor a incurrir en ningún impacto financiero real.</p>
+<p>Ejecute este comando para crear una nueva criptcartera de papel y almacenar las credenciales</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana-keygen new --outfile ~/.config/solana/«MY_WALLET_PAPER».json
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ahora, podemos establecer el par de claves por defecto para nuestras interacciones de Solana CLI:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana config <span class="nb">set</span> --keypair ~/.config/solana/«MY_WALLET_PAPER».json
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Por último, hagamos saber a la CLI que pretendemos interactuar con la devnet:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana config <span class="nb">set</span> --url devnet
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Pora comprobar la configuración actual de la red (y otras) podemos emplear este comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana config get
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
+</span></span><span class="line"><span class="cl">Config File: /home/user/.config/solana/cli/config.yml
+</span></span><span class="line"><span class="cl">RPC URL: https://api.devnet.solana.com 
+</span></span><span class="line"><span class="cl">WebSocket URL: wss://api.devnet.solana.com/ <span class="o">(</span>computed<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Keypair Path: /home/user/.config/solana/«MY_PAPER_WALLET».json 
+</span></span><span class="line"><span class="cl">Commitment: confirmed 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>con el CLI podemos ver la dirección de nuestra criptocartera:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana address
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
+</span></span><span class="line"><span class="cl">4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A continuación vamos a conseguir algo de token de Solana, para hacer esto, asegurate de que te encuentras en la devnet, ya que nuestra dapp va funcionar en esta red. Para conseguir los tokens hacemos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana airdrop <span class="m">2</span> 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9 --url devnet
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
+</span></span><span class="line"><span class="cl">Requesting airdrop of <span class="m">2</span> SOL
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Signature: 3KsFBCULmso5Lc7CAQdqF8rzsBXb3xaVrG3cup19n3P2paw3ryvovWQ9MsMB8GMiQkXJWyHXGrni63BsNrxVfHP2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="m">2</span> SOL
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Para obtener la información completa de nuestra cuenta:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana account «YOUR_ADDRESS»
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
+</span></span><span class="line"><span class="cl">Public Key: 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+</span></span><span class="line"><span class="cl">Balance: 4.956381584 SOL
+</span></span><span class="line"><span class="cl">Owner: <span class="m">11111111111111111111111111111111</span>
+</span></span><span class="line"><span class="cl">Executable: <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">Rent Epoch: <span class="m">277</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Para verificar el balance de nuestro monedero hacemos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana balance 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
+</span></span><span class="line"><span class="cl"><span class="m">2</span> SOL
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con un 2 SOL, tokens que utilizaremos más adelante para probar nuestra aplicación. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).</p>
+<h2 id="_drop-configuration_"><em>Drop configuration</em></h2>
 <h2 id="patrocinio">Patrocinio</h2>
 <p>₿itcoin:</p>
 <p>Solana:</p>
@@ -262,8 +531,8 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Actualizado el 2022-03-23&nbsp;<a class="git-hash" href="https://github.com/asanchezyali/blog/commit/3d013c79e323ecf656e65f61c923fcadf516f30f" target="_blank" title="commit by asanchezyali(alejandro.sanchezy@udea.edu.co) 3d013c79e323ecf656e65f61c923fcadf516f30f: rebuilding site mié 23 mar 2022 16:34:08 -05">
-                                    <i class="fas fa-hashtag fa-fw"></i>3d013c7</a></span>
+                <span>Actualizado el 2022-03-23&nbsp;<a class="git-hash" href="https://github.com/asanchezyali/blog/commit/2f2285721d24f73e866ab048cc9bf71b9af29187" target="_blank" title="commit by asanchezyali(alejandro.sanchezy@udea.edu.co) 2f2285721d24f73e866ab048cc9bf71b9af29187: rebuilding site mié 23 mar 2022 18:46:54 -05">
+                                    <i class="fas fa-hashtag fa-fw"></i>2f22857</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
