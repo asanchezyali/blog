@@ -253,6 +253,47 @@ solana balance 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
 Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con un 2 SOL, tokens que utilizaremos más adelante para probar nuestra aplicación. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).
 
 ## _Drop configuration_
+Esta es la parte más importante de todo el desarrollo, por lo que podrás ver los detalles en la [documentación oficial](https://docs.metaplex.com/candy-machine-v2/configuration). Metaplex usan una herramienta llamada _Candy Machine_ para generar los NFT, y es importante asegurarse de que su proyecto esté perfectamente configurado. En la raíz de su proyecto, cree un archivo JSON llamado config.json. Luego, ingrese una configuración como esta:
+
+```json
+{
+  "price": 0.05,
+  "number": 3,
+  "gatekeeper": null,
+  "solTreasuryAccount": "YOUR_DEVNET_WALLET_ADDRESS",
+  "splTokenAccount": null,
+  "splToken": null,
+  "goLiveDate": "01 Jan 2022 00:00:00 GMT",
+  "endSettings": null,
+  "whitelistMintSettings": null,
+  "hiddenSettings": null,
+  "storage": "pinata",
+  "ipfsInfuraProjectId": null,
+  "ipfsInfuraSecret": null,
+  "pinataJwt": "YOUR_PINATA_JWT_TOKEN",
+  "pinataGateway": "YOUR_PINATA_GATEWAY_URL",
+  "awsS3Bucket": null,
+  "noRetainAuthority": false,
+  "noMutable": false
+}
+```
+
+Esto puede parecer mucho, pero en realidad es sola configuración mínima requerida. Hay mucho más que puedes agregar. Sin embargo, no te preocupes. La matendremos simple. Solo se necesita cambiar cinco cosas en este archivo. El primer cambio es establecer la propiedad de `storage` para que apunte a `pinata`.
+
+Luego, debe decidir si va a utilizar una [_Pinata Dedicated Gateway_](https://knowledge.pinata.cloud/en/articles/5666429-dedicated-gateways) o no. Si lo hace, le dará a usted y a cualquier persona que cargue sus NFT el mejor rendimiento posible. Pero, aunque se recomienda, no es obligatorio. Si se decide por una _Pinata Dedicated Gateway_, deberá actualizar su cuenta al [plan profesional](https://www.pinata.cloud/pricing) en _Pinata_.
+
+
+A continuación, debe obtener un JWT para acceder a la API de _Pinata_. Para hacerlo, haga clic en el menú desplegable en la parte superior derecha, haga clic en _API Keys_, y luego genere una nueva _API key_. Puedes seleccionar los _endpoints_ específicos a los que la clave debe tener acceso (_pinFileToIPFS_) o puede convertirla en una clave de administrador que tenga acceso completo. Esto depende de sus preferencias de seguridad, pero la clave debe tener acceso a _pinFileToIPFS_. Puede leer más sobre las _API Key_ [aquí](https://medium.com/pinata/introducing-scoped-api-keys-48e808623d5d).
+
+Cuando haya creado su clave, un modal mostrará su _API KEY_, _API Secret_ y su JWT. Solo necesitamos el JWT, así que cópielo y péguelo en el valor de la propiedad _pinataJwt_ del archivo de configuración.
+
+Si creó una _Dedicated Gateway_, usted debe pegar la URL de su _Dedicated Gateway_ en la propiedad _pinataGateway_ del archivo de configuración. Si no tiene una _Dedicated Gateway_, debe actualizar esa propiedad para que se vea así:
+
+```json
+pinataGateway: null
+```
+
+Finalmente, solo necesita establecer la cantidad de artículos en su colección NFT en la propiedad `number` y el precio en SOL en la propiedad `price`.
 
 
 ## Patrocinio 
