@@ -246,13 +246,13 @@ Para verificar el balance de nuestro monedero hacemos:
 ```shell
 solana balance 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
 
-# Output
+# Output is something like this:
 2 SOL
 ```
 
 Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con un 2 SOL, tokens que utilizaremos más adelante para probar nuestra aplicación. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).
 
-## _Drop configuration_
+## Configuración de la colección NFT
 Esta es la parte más importante de todo el desarrollo, por lo que podrás ver los detalles en la [documentación oficial](https://docs.metaplex.com/candy-machine-v2/configuration). Metaplex usan una herramienta llamada _Candy Machine_ para generar los NFT, y es importante asegurarse de que su proyecto esté perfectamente configurado. En la raíz de su proyecto, cree un archivo JSON llamado config.json. Luego, ingrese una configuración como esta:
 
 ```json
@@ -295,7 +295,47 @@ pinataGateway: null
 
 Finalmente, solo necesita establecer la cantidad de artículos en su colección NFT en la propiedad `number` y el precio en SOL en la propiedad `price`.
 
+Eso es todo lo que necesitas. Ahora, hay mucho más que hacer, pero quiero señalar algo que muchos proyectos probablemente quieran hacer, y eso es ocultar los activos de NFT hasta después de una fecha de revelación. Esto es posible con Metaplex y CandyMachine con configuraciones ocultas. Puedes leer sobre esto  [aqui](https://docs.metaplex.com/candy-machine-v2/configuration#hidden-settings). No haremos eso en este tutorial. El proyecto NFT en este tutorial consiste en apostillar una NFT con revelación inmediata.
 
+Lo último que querrá cambiar en el archivo de configuración es la propiedad `solTreasuryAccount`. Esto probablemente debería apuntar a la dirección de su criptocartera en la red `devnet`, pero puede ser la dirección de cualquier criptocartera de Solana. Para obtener la dirección de sus criptocartera en la red `devnet`, puede ejecutar esto en la línea de comandos:
+
+```bash
+solana address
+```
+
+Ya estamos listo para cargar algunos activos y crear nuestra colección de NFT.
+
+## Cargando activos a Pinata y Solana
+
+Hemos terminado todo el trabajo de preparación. Es hora de subir los activos. Afortunadamente esto es realmente simple.
+
+En la raíz del directorio del proyecto, ejecute este comando en la línea de comandos:
+
+```bash
+ts-node $candymachine upload -e devnet -k ~/.config/solana/devnet.json -cp config.json -c nft-project ./assets
+
+# Output is something like this:
+wallet public key: "YOUR_DEVNET_WALLET_ADDRESS"
+(node:106595) ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Beginning the upload for 3 (img+json) pairs
+started at: 1649966708807
+config for a candy machine with publickey: HcaRg2A7FqoFqHTCtrsUmu9QDEMno1Pw3S6HVt2wo2LD has been already initialized
+[3] out of [3] items have been uploaded
+Writing all indices in 0 transactions...
+Progress: [████████████████████████████████████████] 100% | 0/0
+Done. Successful = true.
+ended at: 2022-04-14T20:05:08.814Z. time taken: 00:00:00
+
+```
+
+Este comando tomará su archivo de configuración y lo analizará para que Metaplex sepa cómo cargar sus archivos y cómo obtener la información del NFT apostillado en Solana. Verá en su línea de comando cada carga de los metadatos de su carpeta de activos y las imágenes de su carpeta de activos. Dependiendo de la cantidad de archivos que cargue, este proceso puede tardar unos minutos. Así que rompa una cerveza y espere.
+
+Cuando termine el proceso, deberá hacer una cosa más. Deberá verificar la carga. Esto le ayuda a saber si todo está listo y si sus NFT se pueden acuñar. Solo necesitas ejecutar este comando:
+
+```bash
+ts-node $candymachine verify_upload -e devnet -k ~/.config/solana/devnet.json -c nft-project
+```
 ## Patrocinio 
 ₿itcoin:
 

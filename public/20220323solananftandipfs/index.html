@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/" /><meta property="og:image" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/featured-image.webp"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-23T08:19:27-05:00" />
-<meta property="article:modified_time" content="2022-03-30T23:55:24-05:00" />
+<meta property="article:modified_time" content="2022-04-11T21:44:44-05:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/featured-image.webp"/>
@@ -62,8 +62,8 @@
                             "url": "https:\/\/alejandrosanchezyali.vercel.app\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  2172 ,
-        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220323solananftandipfs\/","datePublished": "2022-03-23T08:19:27-05:00","dateModified": "2022-03-30T23:55:24-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  2592 ,
+        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220323solananftandipfs\/","datePublished": "2022-03-23T08:19:27-05:00","dateModified": "2022-04-11T21:44:44-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Alejandro Sánchez Yalí","logo": "https:\/\/alejandrosanchezyali.vercel.app\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -143,8 +143,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">¿Cómo crear un NFT en Solana con IPFS?</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Alejandro Sánchez Yalí</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/blockchain/"><i class="far fa-folder fa-fw"></i>Blockchain</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-23">2022-03-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2172 palabras&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;11 minutos&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-23">2022-03-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2592 palabras&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;13 minutos&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -162,7 +162,8 @@
     <li><a href="#configuración-del-ambiente-de-trabajo">Configuración del ambiente de trabajo</a></li>
     <li><a href="#preparando-los-activos">Preparando los activos</a></li>
     <li><a href="#metaplex">Metaplex</a></li>
-    <li><a href="#_drop-configuration_"><em>Drop configuration</em></a></li>
+    <li><a href="#configuración-de-la-colección-nft">Configuración de la colección NFT</a></li>
+    <li><a href="#cargando-activos-a-pinata-y-solana">Cargando activos a Pinata y Solana</a></li>
     <li><a href="#patrocinio">Patrocinio</a></li>
     <li><a href="#imágenes">Imágenes</a></li>
     <li><a href="#referencias">Referencias</a></li>
@@ -497,12 +498,12 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana balance 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
 </span></span><span class="line"><span class="cl"><span class="m">2</span> SOL
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con un 2 SOL, tokens que utilizaremos más adelante para probar nuestra aplicación. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).</p>
-<h2 id="_drop-configuration_"><em>Drop configuration</em></h2>
+<h2 id="configuración-de-la-colección-nft">Configuración de la colección NFT</h2>
 <p>Esta es la parte más importante de todo el desarrollo, por lo que podrás ver los detalles en la <a href="https://docs.metaplex.com/candy-machine-v2/configuration" target="_blank" rel="noopener noreffer">documentación oficial</a>. Metaplex usan una herramienta llamada <em>Candy Machine</em> para generar los NFT, y es importante asegurarse de que su proyecto esté perfectamente configurado. En la raíz de su proyecto, cree un archivo JSON llamado config.json. Luego, ingrese una configuración como esta:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -564,7 +565,65 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Finalmente, solo necesita establecer la cantidad de artículos en su colección NFT en la propiedad <code>number</code> y el precio en SOL en la propiedad <code>price</code>.</p>
-<h2 id="patrocinio">Patrocinio</h2>
+<p>Eso es todo lo que necesitas. Ahora, hay mucho más que hacer, pero quiero señalar algo que muchos proyectos probablemente quieran hacer, y eso es ocultar los activos de NFT hasta después de una fecha de revelación. Esto es posible con Metaplex y CandyMachine con configuraciones ocultas. Puedes leer sobre esto  <a href="https://docs.metaplex.com/candy-machine-v2/configuration#hidden-settings" target="_blank" rel="noopener noreffer">aqui</a>. No haremos eso en este tutorial. El proyecto NFT en este tutorial consiste en apostillar una NFT con revelación inmediata.</p>
+<p>Lo último que querrá cambiar en el archivo de configuración es la propiedad <code>solTreasuryAccount</code>. Esto probablemente debería apuntar a la dirección de su criptocartera en la red <code>devnet</code>, pero puede ser la dirección de cualquier criptocartera de Solana. Para obtener la dirección de sus criptocartera en la red <code>devnet</code>, puede ejecutar esto en la línea de comandos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">solana address
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ya estamos listo para cargar algunos activos y crear nuestra colección de NFT.</p>
+<h2 id="cargando-activos-a-pinata-y-solana">Cargando activos a Pinata y Solana</h2>
+<p>Hemos terminado todo el trabajo de preparación. Es hora de subir los activos. Afortunadamente esto es realmente simple.</p>
+<p>En la raíz del directorio del proyecto, ejecute este comando en la línea de comandos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ts-node <span class="nv">$candymachine</span> upload -e devnet -k ~/.config/solana/devnet.json -cp config.json -c nft-project ./assets
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
+</span></span><span class="line"><span class="cl">wallet public key: <span class="s2">&#34;YOUR_DEVNET_WALLET_ADDRESS&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">(</span>node:106595<span class="o">)</span> ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any <span class="nb">time</span>
+</span></span><span class="line"><span class="cl"><span class="o">(</span>Use <span class="sb">`</span>node --trace-warnings ...<span class="sb">`</span> to show where the warning was created<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Beginning the upload <span class="k">for</span> <span class="m">3</span> <span class="o">(</span>img+json<span class="o">)</span> pairs
+</span></span><span class="line"><span class="cl">started at: <span class="m">1649966708807</span>
+</span></span><span class="line"><span class="cl">config <span class="k">for</span> a candy machine with publickey: HcaRg2A7FqoFqHTCtrsUmu9QDEMno1Pw3S6HVt2wo2LD has been already initialized
+</span></span><span class="line"><span class="cl"><span class="o">[</span>3<span class="o">]</span> out of <span class="o">[</span>3<span class="o">]</span> items have been uploaded
+</span></span><span class="line"><span class="cl">Writing all indices in <span class="m">0</span> transactions...
+</span></span><span class="line"><span class="cl">Progress: <span class="o">[</span>████████████████████████████████████████<span class="o">]</span> 100% <span class="p">|</span> 0/0
+</span></span><span class="line"><span class="cl">Done. <span class="nv">Successful</span> <span class="o">=</span> true.
+</span></span><span class="line"><span class="cl">ended at: 2022-04-14T20:05:08.814Z. <span class="nb">time</span> taken: 00:00:00
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Este comando tomará su archivo de configuración y lo analizará para que Metaplex sepa cómo cargar sus archivos y cómo obtener la información del NFT apostillado en Solana. Verá en su línea de comando cada carga de los metadatos de su carpeta de activos y las imágenes de su carpeta de activos. Dependiendo de la cantidad de archivos que cargue, este proceso puede tardar unos minutos. Así que rompa una cerveza y espere.</p>
+<p>Cuando termine el proceso, deberá hacer una cosa más. Deberá verificar la carga. Esto le ayuda a saber si todo está listo y si sus NFT se pueden acuñar. Solo necesitas ejecutar este comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ts-node <span class="nv">$candymachine</span> verify_upload -e devnet -k ~/.config/solana/devnet.json -c nft-project
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="patrocinio">Patrocinio</h2>
 <p>₿itcoin:</p>
 <p>Solana:</p>
 <p>Ethereum:</p>
@@ -592,8 +651,8 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Actualizado el 2022-03-30&nbsp;<a class="git-hash" href="https://github.com/asanchezyali/blog/commit/77ea2647be66eba90b23a04bb41b3ac2bf510eab" target="_blank" title="commit by asanchezyali(alejandro.sanchezy@udea.edu.co) 77ea2647be66eba90b23a04bb41b3ac2bf510eab: rebuilding site mié 30 mar 2022 23:55:24 -05">
-                                    <i class="fas fa-hashtag fa-fw"></i>77ea264</a></span>
+                <span>Actualizado el 2022-04-11&nbsp;<a class="git-hash" href="https://github.com/asanchezyali/blog/commit/3c07f3c7cd6a48c9b4dce81f4daa4ba2d09ce118" target="_blank" title="commit by asanchezyali(alejandro.sanchezy@udea.edu.co) 3c07f3c7cd6a48c9b4dce81f4daa4ba2d09ce118: rebuilding site lun 11 abr 2022 21:44:44 -05">
+                                    <i class="fas fa-hashtag fa-fw"></i>3c07f3c</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
