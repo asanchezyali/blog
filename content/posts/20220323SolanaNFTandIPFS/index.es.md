@@ -316,17 +316,32 @@ ts-node $candymachine upload -e devnet -k ~/.config/solana/devnet.json -cp confi
 
 # Output is something like this:
 wallet public key: "YOUR_DEVNET_WALLET_ADDRESS"
-(node:106595) ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any time
+(node:118433) ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 Beginning the upload for 3 (img+json) pairs
-started at: 1649966708807
-config for a candy machine with publickey: HcaRg2A7FqoFqHTCtrsUmu9QDEMno1Pw3S6HVt2wo2LD has been already initialized
-[3] out of [3] items have been uploaded
-Writing all indices in 0 transactions...
-Progress: [████████████████████████████████████████] 100% | 0/0
+started at: 1649969093666
+initializing candy machine
+No collection set
+initialized config for a candy machine with publickey: 3jK1rQHqJD6RAsYxaoLakiSxAjdZGefnz8XCChP1azjc
+[0] out of [3] items have been uploaded
+Starting upload for [3] items, format {"mediaExt":".png","index":"0"}
+Progress: [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 0% | 0/3uploaded image:  https://ipfs.io/ipfs/undefined
+waiting
+uploaded image:  https://ipfs.io/ipfs/undefined
+waiting
+uploaded image:  https://ipfs.io/ipfs/undefined
+waiting
+waiting
+waiting
+waiting
+uploaded manifest:  https://ipfs.io/ipfs/undefined
+Progress: [█████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░] 33% | 1/3uploaded manifest:  https://ipfs.io/ipfs/undefined
+Progress: [███████████████████████████░░░░░░░░░░░░░] 66% | 2/3uploaded manifest:  https://ipfs.io/ipfs/undefined
+Progress: [████████████████████████████████████████] 100% | 3/3
+Writing all indices in 1 transactions...
+Progress: [████████████████████████████████████████] 100% | 1/1
 Done. Successful = true.
-ended at: 2022-04-14T20:05:08.814Z. time taken: 00:00:00
-
+ended at: 2022-04-14T20:45:33.808Z. time taken: 00:00:40
 ```
 
 Este comando tomará su archivo de configuración y lo analizará para que Metaplex sepa cómo cargar sus archivos y cómo obtener la información del NFT apostillado en Solana. Verá en su línea de comando cada carga de los metadatos de su carpeta de activos y las imágenes de su carpeta de activos. Dependiendo de la cantidad de archivos que cargue, este proceso puede tardar unos minutos. Así que rompa una cerveza y espere.
@@ -335,6 +350,17 @@ Cuando termine el proceso, deberá hacer una cosa más. Deberá verificar la car
 
 ```bash
 ts-node $candymachine verify_upload -e devnet -k ~/.config/solana/devnet.json -c nft-project
+
+# Output is something like this:
+wallet public key: "YOUR_DEVNET_WALLET_ADDRESS"
+(node:118910) ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Key size 3
+Looking at key  0
+Looking at key  1
+Looking at key  2
+uploaded (3) out of (3)
+ready to deploy!
 ```
 ## Patrocinio 
 ₿itcoin:
