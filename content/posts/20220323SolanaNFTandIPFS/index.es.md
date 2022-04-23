@@ -362,6 +362,56 @@ Looking at key  2
 uploaded (3) out of (3)
 ready to deploy!
 ```
+
+Si todo va bien, debería ver un mensaje que dice `ready to deploy!`. Esto significa que su proyecto está listo para funcionar. Si desea confirmar las cosas puede encontrar la carpeta `.cache` en su directorio de trabajo. Ábralo y verá un archivo JSON que contiene la información de cada activo cargado. El archivo se deber parecer a la siguiente estructura de datos:
+
+```json
+{
+  "program":{
+    "uuid":"HcaRg2",
+    "candyMachine":"HcaRg2A7FqoFqHTCtrsUmu9QDEMno1Pw3S6HVt2wo2LD"
+  },
+  "items":{
+    "0":{
+      "link":"https://ipfs.io/ipfs/undefined",
+      "name":"Image 0",
+      "onChain":true,
+      "verifyRun":false
+    },
+    "1":{
+      "link":"https://ipfs.io/ipfs/undefined",
+      "name":"Image 1",
+      "onChain":true,
+      "verifyRun":false
+    },
+    "2":{
+      "link":"https://ipfs.io/ipfs/undefined",
+      "name":"Image 2",
+      "onChain":true,
+      "verifyRun":false
+    }
+  },
+  "env":"devnet",
+  "cacheName":"nft-project"
+}
+```
+La propiedad `program.candyMachine` la dirección de su programa que puede buscar en el explorador de la blockchain de Solana, que encontrará [aquí](https://explorer.solana.com/). Solo asegúrese de configurar su rede en `devnet`.
+
+Perfecto, ahora puede empezar a acuñar sus NFT. Pero, ¿cómo? Probablemente desees construir un sitio web para permitir la acuñación de NFT. Afortunadamente, el código base de Metaplex nos tiene cubiertos. 
+
+## Construyendo un sitio web para acuñar NFT
+¿Recuerdas que clonamos el repositorio completo de Metaplex? Lo clonamos en la carpeta `nft-project`. Entonces, desde su línea de comandos, cambiamos a nuestro directorio de trabajo y al proyecto metaplex, directamente a la aplicación React de muestra: 
+
+```bash
+cd ~/metaplex/js/packages/candy-machine-ui
+```
+
+Deberá instalar las dependencias de esta manera:
+```bash
+yarn install
+```
+
+
 ## Patrocinio 
 ₿itcoin:
 
@@ -369,7 +419,7 @@ Solana:
 
 Ethereum:
 
-Paypal: alejandro.driveyali@gmail.com
+Paypal: [@asanchezyali](https://paypal.me/asanchezyali?country.x=CO&locale.x=es_XC)
 ## Imágenes
 
   - [Unplash](https://unsplash.com/) - [NTF inscription on cubes against the background of dollars and microcircuits](https://unsplash.com/photos/yscrM1AOEKI)
