@@ -385,6 +385,38 @@ Deberá instalar las dependencias de esta manera:
 ```bash
 yarn install
 ```
+ 
+ Luegon, abra el proyecto en su editor de preferencia. Verá un archivo `.env` que contiene la configuración de su proyecto. Deberías actualizarlo para que se vea así:
+
+ ```text
+  REACT_APP_CANDY_MACHINE_PUBLIC_KEY=YOUR_PUBLIC_KEY
+  REACT_APP_CANDY_MACHINE_ENV=devnet
+  REACT_APP_SOLANA_RPC_URL=https://api.devnet.solana.com
+  ```
+
+¿Recuerdas que usamos el `ID` de la Candy machine para buscar nuestro proyecto en Solana Explorer? Vamos a pegar ese mismo ID donde dice `YOUR_PUBLIC_KEY`.
+
+Ahora, puede ejecutar la aplicación de con:
+
+```bash
+yarn start
+```
+
+Cuando se cargue la aplicación, deberías ver:
+![CandiMachine](candymachine.png "Figura 1. User Interface")
+
+Podrá elegir una criptocartera para conectarse. Independientemente de la criptocartera que selecciones, deberá asegurarse de que algo de SOL de desarrollo. ¿Recuerdas cuando recibimos algunos SOL desde `devnet`? También podemos hacerlo con otra dirección. Conecte su billetera, asegúrese de estar en `devnet`, y luego copie la dirección de la criptocartera que desea usar. Desde la línea de comandos, escriba:
+
+```bash
+solana airdrop 2 YOUR_PUBLIC_KEY --url devnet
+```
+
+Una vez que esto esté completo, debería tener SOL en su criptocartera basada en navegador y ahora puede acuñar uno de sus nuevos NFT. Para hacerlo, simplemente haga clic en el botón de acuñar (Mint):
+![CandiMachine](candymachine1.png "Figura 2. Botón para acuñar un NFT")
+
+Deberás confirmar la transacción. Cuando lo haga, el proceso de acuñación solo debería tomar unos segundos. Una vez que esté completo, su nuevo NFT debería aparecer en la colección de NFTs de su criptocartera.
+
+La imagen que ve de su NFT se está cargando desde Pinata. Dependiendo de si proporcionó una URL de puerta de enlace dedicada en su archivo de configuración, el NFT ser carga a través de su puerta de enlace personalizada o una puerta de enlace IPFS pública. Nota: si proporcionó una URL de puerta de enlace dedicada, el NFT será cargado a través de su puerta de enlace personalizada, y si no, el NFT será cargado a través de una puerta de enlace IPFS pública. Puede ver esto en el siguiente ejemplo usando Phantom Wallet. Los dos NFT que están atascados en la carga están usando una puerta de enlace IPFS pública. Los dos que se cargan casi instantáneamente en la carga están usando una puerta de enlace personalizada.
 
 
 ## Patrocinio 

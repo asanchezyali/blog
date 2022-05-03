@@ -17,16 +17,31 @@
 <meta name="twitter:title" content="¿Cómo crear un NFT en Solana con IPFS?"/>
 <meta name="twitter:description" content="Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes"/>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V8Q3782W9K"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-V8Q3782W9K', { 'anonymize_ip': false });
+}
+</script>
+
+
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-223589152-1', 'auto');
+	ga('create', 'G-V8Q3782W9K', 'auto');
 	
 	ga('send', 'pageview');
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
 <meta name="application-name" content="Alejandro Sánchez Yalí">
 <meta name="apple-mobile-web-app-title" content="Alejandro Sánchez Yalí"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><script>
   MathJax = {
@@ -83,7 +98,7 @@ if (!doNotTrack) {
                             "url": "https:\/\/alejandrosanchezyali.vercel.app\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  2967 ,
+                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  3330 ,
         "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220323solananftandipfs\/","datePublished": "2022-03-23T08:19:27-05:00","dateModified": "2022-04-22T22:43:16-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Alejandro Sánchez Yalí","logo": "https:\/\/alejandrosanchezyali.vercel.app\/images\/avatar.png"},"author": {
@@ -164,8 +179,8 @@ if (!doNotTrack) {
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">¿Cómo crear un NFT en Solana con IPFS?</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Alejandro Sánchez Yalí</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/blockchain/"><i class="far fa-folder fa-fw"></i>Blockchain</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-23">2022-03-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2967 palabras&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;14 minutos&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-23">2022-03-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3330 palabras&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;16 minutos&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -783,7 +798,63 @@ if (!doNotTrack) {
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yarn install
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="patrocinio">Patrocinio</h2>
+</div><p>Luegon, abra el proyecto en su editor de preferencia. Verá un archivo <code>.env</code> que contiene la configuración de su proyecto. Deberías actualizarlo para que se vea así:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"> REACT_APP_CANDY_MACHINE_PUBLIC_KEY=YOUR_PUBLIC_KEY
+</span></span><span class="line"><span class="cl"> REACT_APP_CANDY_MACHINE_ENV=devnet
+</span></span><span class="line"><span class="cl"> REACT_APP_SOLANA_RPC_URL=https://api.devnet.solana.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>¿Recuerdas que usamos el <code>ID</code> de la Candy machine para buscar nuestro proyecto en Solana Explorer? Vamos a pegar ese mismo ID donde dice <code>YOUR_PUBLIC_KEY</code>.</p>
+<p>Ahora, puede ejecutar la aplicación de con:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yarn start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Cuando se cargue la aplicación, deberías ver:
+<figure><a class="lightgallery" href="/20220323solananftandipfs/candymachine.png" title="CandiMachine" data-thumbnail="/20220323solananftandipfs/candymachine.png" data-sub-html="<h2>Figura 1. User Interface</h2><p>CandiMachine</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="candymachine.png"
+            data-srcset="/20220323solananftandipfs/candymachine.png, candymachine.png 1.5x, /20220323solananftandipfs/candymachine.png 2x"
+            data-sizes="auto"
+            alt="/20220323solananftandipfs/candymachine.png" />
+    </a><figcaption class="image-caption">Figura 1. User Interface</figcaption>
+    </figure></p>
+<p>Podrá elegir una criptocartera para conectarse. Independientemente de la criptocartera que selecciones, deberá asegurarse de que algo de SOL de desarrollo. ¿Recuerdas cuando recibimos algunos SOL desde <code>devnet</code>? También podemos hacerlo con otra dirección. Conecte su billetera, asegúrese de estar en <code>devnet</code>, y luego copie la dirección de la criptocartera que desea usar. Desde la línea de comandos, escriba:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">solana airdrop <span class="m">2</span> YOUR_PUBLIC_KEY --url devnet
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Una vez que esto esté completo, debería tener SOL en su criptocartera basada en navegador y ahora puede acuñar uno de sus nuevos NFT. Para hacerlo, simplemente haga clic en el botón de acuñar (Mint):
+<figure><a class="lightgallery" href="/20220323solananftandipfs/candymachine1.png" title="CandiMachine" data-thumbnail="/20220323solananftandipfs/candymachine1.png" data-sub-html="<h2>Figura 2. Botón para acuñar un NFT</h2><p>CandiMachine</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="candymachine1.png"
+            data-srcset="/20220323solananftandipfs/candymachine1.png, candymachine1.png 1.5x, /20220323solananftandipfs/candymachine1.png 2x"
+            data-sizes="auto"
+            alt="/20220323solananftandipfs/candymachine1.png" />
+    </a><figcaption class="image-caption">Figura 2. Botón para acuñar un NFT</figcaption>
+    </figure></p>
+<p>Deberás confirmar la transacción. Cuando lo haga, el proceso de acuñación solo debería tomar unos segundos. Una vez que esté completo, su nuevo NFT debería aparecer en la colección de NFTs de su criptocartera.</p>
+<p>La imagen que ve de su NFT se está cargando desde Pinata. Dependiendo de si proporcionó una URL de puerta de enlace dedicada en su archivo de configuración, el NFT ser carga a través de su puerta de enlace personalizada o una puerta de enlace IPFS pública. Nota: si proporcionó una URL de puerta de enlace dedicada, el NFT será cargado a través de su puerta de enlace personalizada, y si no, el NFT será cargado a través de una puerta de enlace IPFS pública. Puede ver esto en el siguiente ejemplo usando Phantom Wallet. Los dos NFT que están atascados en la carga están usando una puerta de enlace IPFS pública. Los dos que se cargan casi instantáneamente en la carga están usando una puerta de enlace personalizada.</p>
+<h2 id="patrocinio">Patrocinio</h2>
 <p>₿itcoin:</p>
 <p>Solana:</p>
 <p>Ethereum:</p>
