@@ -454,10 +454,8 @@ Ethereum: [0x886ce8Cc54cd0964E6939c5290242b1135D10C7f](https://metamask.io/)
 Paypal: [@asanchezyali](https://paypal.me/asanchezyali?country.x=CO&locale.x=es_XC)
 ## Imágenes
 
-  - [Unplash](https://unsplash.com/) - [NTF inscription on cubes against the background of dollars and microcircuits](https://unsplash.com/photos/yscrM1AOEKI)
-  - [Unplash](https://unsplash.com/) - [Foto de Michael Dziedzic](https://unsplash.com/es/fotos/W6l35A_rxxU)
-  - [Unplash](https://unsplash.com/) - [Foto de Michael Dziedzic](https://unsplash.com/es/fotos/ir5gC4hlqT0)
-  - [Unplash](https://unsplash.com/) - [Foto de Michael Dziedzic](https://unsplash.com/es/fotos/0XkLAIrknco)
+  - [Unplash](https://unsplash.com/) - [NTF inscription on cubes against the background of dollars and microcircuits](https://unsplash.com/photos/yscrM1AOEKI).
+  - [Unplash](https://unsplash.com/) - Fotos de [Michael Dziedzic](https://unsplash.com/es/@lazycreekimages): [Foto 1](https://unsplash.com/es/fotos/W6l35A_rxxU), [Foto 2](https://unsplash.com/es/fotos/ir5gC4hlqT0) y [Foto 3](https://unsplash.com/es/fotos/0XkLAIrknco).
 
 ## Referencias
 
