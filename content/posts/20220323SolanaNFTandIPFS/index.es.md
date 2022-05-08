@@ -311,37 +311,50 @@ Hemos terminado todo el trabajo de preparación. Es hora de subir los activos. A
 
 En la raíz del directorio del proyecto, ejecute este comando en la línea de comandos:
 
-```bash
+```shell
 ts-node $candymachine upload -e devnet -k ~/.config/solana/devnet.json -cp config.json -c nft-project ./assets
+```
 
+```shell
 # Output is something like this:
-wallet public key: "YOUR_DEVNET_WALLET_ADDRESS"
-(node:118433) ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any time
+wallet public key: 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+(node:12028) ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 Beginning the upload for 3 (img+json) pairs
-started at: 1649969093666
+started at: 1652029177126
 initializing candy machine
-No collection set
-initialized config for a candy machine with publickey: 3jK1rQHqJD6RAsYxaoLakiSxAjdZGefnz8XCChP1azjc
+Candy machine address:  ENvMsi3pbpsHYbPRg3fKi6hrr8dGjFWNDTybXFGAhG2b
+Collection metadata address:  6fqwQEJGQGyGpovV6HmYoF5aB7RscoPCR8BmEjh8X4gG
+Collection metadata authority:  4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+Collection master edition address:  5xMAgL4HpjmwxMkJLsoyekQEGTbZCae1AW6NfTGpuKUZ
+Collection mint address:  Djp7ZCX2q2mJqmxCv1szirsxsA9N7YW77tEoRdASpp92
+Collection PDA address:  98NgHVcz9mV2AdZJCraTR2NHAC8BCvvbtj4ET8gBCijS
+Collection authority record address:  zkqyaNFVQsmsFyXVLYJ1Gt6s8jNHcEn6EHkDtehfBu3
+Collection:  {
+  collectionMetadata: '6fqwQEJGQGyGpovV6HmYoF5aB7RscoPCR8BmEjh8X4gG',
+  collectionPDA: '98NgHVcz9mV2AdZJCraTR2NHAC8BCvvbtj4ET8gBCijS',
+  txId: '3GkHsk7UANvX3aJugj5fs3LEWi8gvb5uFgUkot6rGTRDS5utXRL7tkKE5JVLnHm2EiHw75VfzFQz3bRDf3P3xbk'
+}
+initialized config for a candy machine with publickey: ENvMsi3pbpsHYbPRg3fKi6hrr8dGjFWNDTybXFGAhG2b
 [0] out of [3] items have been uploaded
 Starting upload for [3] items, format {"mediaExt":".png","index":"0"}
-Progress: [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 0% | 0/3uploaded image:  https://ipfs.io/ipfs/undefined
+Progress: [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 0% | 0/3uploaded image:  hs
 waiting
-uploaded image:  https://ipfs.io/ipfs/undefined
-waiting
-uploaded image:  https://ipfs.io/ipfs/undefined
+uploaded image:  https://ipfs.io/ipfs/QmcPEs45xLiUV4Wq8e8femHetEFcS6uvDKSn5rq6S3
 waiting
 waiting
 waiting
+uploaded image:  https://ipfs.io/ipfs/QmQEPmMzbSq4JZDSqtTgTDC9M7zrNvjRkaEej3UZga
 waiting
-uploaded manifest:  https://ipfs.io/ipfs/undefined
-Progress: [█████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░] 33% | 1/3uploaded manifest:  https://ipfs.io/ipfs/undefined
-Progress: [███████████████████████████░░░░░░░░░░░░░] 66% | 2/3uploaded manifest:  https://ipfs.io/ipfs/undefined
+uploaded manifest:  https://ipfs.io/ipfs/QmPSBJv34txUiuwBXrBXNErQuZTXu6AvjHLsm7D
+Progress: [█████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░] 33% | 1/3uploaded manifest8
+Progress: [███████████████████████████░░░░░░░░░░░░░] 66% | 2/3waiting
+uploaded manifest:  https://ipfs.io/ipfs/QmQSCDDskNTV9nFE1ysHJTedkup4jJ3Vzs4pbdJ
 Progress: [████████████████████████████████████████] 100% | 3/3
 Writing all indices in 1 transactions...
 Progress: [████████████████████████████████████████] 100% | 1/1
 Done. Successful = true.
-ended at: 2022-04-14T20:45:33.808Z. time taken: 00:00:40
+ended at: 2022-05-08T17:00:17.542Z. time taken: 00:00:40
 ```
 
 Este comando tomará su archivo de configuración y lo analizará para que Metaplex sepa cómo cargar sus archivos y cómo obtener la información del NFT apostillado en Solana. Verá en su línea de comando cada carga de los metadatos de su carpeta de activos y las imágenes de su carpeta de activos. Dependiendo de la cantidad de archivos que cargue, este proceso puede tardar unos minutos. Así que rompa una cerveza y espere.
@@ -368,28 +381,31 @@ Si todo va bien, debería ver un mensaje que dice `ready to deploy!`. Esto signi
 ```json
 {
   "program":{
-    "uuid":"HcaRg2",
-    "candyMachine":"HcaRg2A7FqoFqHTCtrsUmu9QDEMno1Pw3S6HVt2wo2LD"
-  },
+    "uuid":"ENvMsi",
+    "candyMachine":"ENvMsi3pbpsHYbPRg3fKi6hrr8dGjFWNDTybXFGAhG2b","collection":"6fqwQEJGQGyGpovV6HmYoF5aB7RscoPCR8BmEjh8X4gG"
+    },
   "items":{
     "0":{
-      "link":"https://ipfs.io/ipfs/undefined",
+      "link":"https://ipfs.io/ipfs/QmQSCDDskNTV9nFE1ysHJTedkup4jJ3Vzs4pbdrPExGHSJ",
+      "imageLink":"https://ipfs.io/ipfs/QmQEPmMzbSq4JZDSqtTgTDC9M7zrNvjRkaEej3UZgDjsaa",
       "name":"Image 0",
       "onChain":true,
-      "verifyRun":false
-    },
+      "verifyRun":true
+      },
     "1":{
-      "link":"https://ipfs.io/ipfs/undefined",
+      "link":"https://ipfs.io/ipfs/QmeinbfhRtbkegUf5c3xrYrUZ4TpN3nSZCuvqQNGTEN1r8",
+      "imageLink":"https://ipfs.io/ipfs/QmXKXd9bpH4rasEB4i3HLCoHbW76yYyxcmwvHpadgmeRZs",
       "name":"Image 1",
       "onChain":true,
-      "verifyRun":false
-    },
+      "verifyRun":true
+      },
     "2":{
-      "link":"https://ipfs.io/ipfs/undefined",
+      "link":"https://ipfs.io/ipfs/QmPSBJv34txUiuwBXrBXNErQuZTXu6AvjHLsm7U5cFRA6D",
+      "imageLink":"https://ipfs.io/ipfs/QmcPEs45xLiUV4Wq8e8femHetEFcS6uvDKSn5rq6SCrv63",
       "name":"Image 2",
       "onChain":true,
-      "verifyRun":false
-    }
+      "verifyRun":true
+      }
   },
   "env":"devnet",
   "cacheName":"nft-project"
@@ -443,23 +459,34 @@ Deberás confirmar la transacción. Cuando lo haga, el proceso de acuñación so
 
 La imagen que ve de su NFT se está cargando desde Pinata. Dependiendo de si proporcionó una URL de puerta de enlace dedicada en su archivo de configuración, el NFT ser carga a través de su puerta de enlace personalizada o una puerta de enlace IPFS pública. Nota: si proporcionó una URL de puerta de enlace dedicada, el NFT será cargado a través de su puerta de enlace personalizada, y si no, el NFT será cargado a través de una puerta de enlace IPFS pública. Puede ver esto en el siguiente ejemplo usando Phantom Wallet. Los dos NFT que están atascados en la carga están usando una puerta de enlace IPFS pública. Los dos que se cargan casi instantáneamente en la carga están usando una puerta de enlace personalizada.
 
+![Wallet](wallet.png "Figura 3. NFTs apostillados en la Wallet personalizada")
+
+Al ver su NFT en los mercados de Solana NFT, los activos también se cargarán a través de la puerta de enlace de IPFS. Esto permite que las personas puedan ver el contenido de la forma en que fue diseñado para ser experimentado. 
+
+## Conclusiones
+
+Los beneficios de usar IPFS para el almacenamiento de activos NFT están bien documentados. IPFS ofrece una recuperación rápida (especialmente cuando se usa una puerta de enlace dedicada de Pinata), IPFS ofrece la direccionalidad de contenido e IPFS es portátil. La propiedad del NFT puede transferirse tanto en el sentido simbólico como el en sentido dígital. 
+
+Sin embargo, no siempre ha sido fácil usar IPFS con proyectos de Solana NFT. Con suerte este tutorial ayudará a cambiaro eso.
 
 ## Patrocinio 
-₿itcoin:
+₿itcoin: [bc1qrcecrz47ywrcnyuqknzgzzz2t3lwawyjnl4t7f](https://www.exodus.com/)
 
-Solana:
+Solana: [Ft8A8t3UyGZHjWNvtgruADnUgrij3uaFe7pLj9QNG44N](https://phantom.app/)
 
-Ethereum:
+Ethereum: [0x886ce8Cc54cd0964E6939c5290242b1135D10C7f](https://metamask.io/)
 
 Paypal: [@asanchezyali](https://paypal.me/asanchezyali?country.x=CO&locale.x=es_XC)
 ## Imágenes
 
   - [Unplash](https://unsplash.com/) - [NTF inscription on cubes against the background of dollars and microcircuits](https://unsplash.com/photos/yscrM1AOEKI)
+  - [Unplash](https://unsplash.com/) - [Foto de Michael Dziedzic](https://unsplash.com/es/fotos/W6l35A_rxxU)
+  - [Unplash](https://unsplash.com/) - [Foto de Michael Dziedzic](https://unsplash.com/es/fotos/ir5gC4hlqT0)
+  - [Unplash](https://unsplash.com/) - [Foto de Michael Dziedzic](https://unsplash.com/es/fotos/0XkLAIrknco)
 
 ## Referencias
 
-1. [Julius Berner. 2021. The Modern Mathematics of deep learning.](https://deepai.org/publication/the-modern-mathematics-of-deep-learning)
-2. [Yaser Abu-Mostafa Data. 2012 - 2015. Learning From Data.](https://work.caltech.edu/telecourse)
-
+1. [Justin Hunter. How to create a Solana NFT with IPFS](https://medium.com/pinata/how-to-create-a-solana-nft-with-ipfs-59d87afbe206)
+2. [Metaplex Docs](https://docs.metaplex.com/)
 3. [Web3.js](https://github.com/ChainSafe/web3.js)
 4. [Metaboss](https://metaboss.rs/update.html)

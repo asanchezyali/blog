@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/" /><meta property="og:image" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/featured-image.webp"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-23T08:19:27-05:00" />
-<meta property="article:modified_time" content="2022-04-22T22:43:16-05:00" />
+<meta property="article:modified_time" content="2022-05-02T22:35:14-05:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/featured-image.webp"/>
@@ -98,8 +98,8 @@ if (!doNotTrack) {
                             "url": "https:\/\/alejandrosanchezyali.vercel.app\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  3330 ,
-        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220323solananftandipfs\/","datePublished": "2022-03-23T08:19:27-05:00","dateModified": "2022-04-22T22:43:16-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  3535 ,
+        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220323solananftandipfs\/","datePublished": "2022-03-23T08:19:27-05:00","dateModified": "2022-05-02T22:35:14-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Alejandro Sánchez Yalí","logo": "https:\/\/alejandrosanchezyali.vercel.app\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -179,8 +179,8 @@ if (!doNotTrack) {
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">¿Cómo crear un NFT en Solana con IPFS?</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Alejandro Sánchez Yalí</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/blockchain/"><i class="far fa-folder fa-fw"></i>Blockchain</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-23">2022-03-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3330 palabras&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;16 minutos&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-23">2022-03-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3535 palabras&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;17 minutos&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -201,6 +201,7 @@ if (!doNotTrack) {
     <li><a href="#configuración-de-la-colección-nft">Configuración de la colección NFT</a></li>
     <li><a href="#cargando-activos-a-pinata-y-solana">Cargando activos a Pinata y Solana</a></li>
     <li><a href="#construyendo-un-sitio-web-para-acuñar-nft">Construyendo un sitio web para acuñar NFT</a></li>
+    <li><a href="#conclusiones">Conclusiones</a></li>
     <li><a href="#patrocinio">Patrocinio</a></li>
     <li><a href="#imágenes">Imágenes</a></li>
     <li><a href="#referencias">Referencias</a></li>
@@ -618,6 +619,14 @@ if (!doNotTrack) {
 <p>En la raíz del directorio del proyecto, ejecute este comando en la línea de comandos:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ts-node <span class="nv">$candymachine</span> upload -e devnet -k ~/.config/solana/devnet.json -cp config.json -c nft-project ./assets
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -648,38 +657,56 @@ if (!doNotTrack) {
 </span><span class="lnt">28
 </span><span class="lnt">29
 </span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ts-node <span class="nv">$candymachine</span> upload -e devnet -k ~/.config/solana/devnet.json -cp config.json -c nft-project ./assets
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
-</span></span><span class="line"><span class="cl">wallet public key: <span class="s2">&#34;YOUR_DEVNET_WALLET_ADDRESS&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="o">(</span>node:118433<span class="o">)</span> ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any <span class="nb">time</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
+</span></span><span class="line"><span class="cl">wallet public key: 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+</span></span><span class="line"><span class="cl"><span class="o">(</span>node:12028<span class="o">)</span> ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any <span class="nb">time</span>
 </span></span><span class="line"><span class="cl"><span class="o">(</span>Use <span class="sb">`</span>node --trace-warnings ...<span class="sb">`</span> to show where the warning was created<span class="o">)</span>
 </span></span><span class="line"><span class="cl">Beginning the upload <span class="k">for</span> <span class="m">3</span> <span class="o">(</span>img+json<span class="o">)</span> pairs
-</span></span><span class="line"><span class="cl">started at: <span class="m">1649969093666</span>
+</span></span><span class="line"><span class="cl">started at: <span class="m">1652029177126</span>
 </span></span><span class="line"><span class="cl">initializing candy machine
-</span></span><span class="line"><span class="cl">No collection <span class="nb">set</span>
-</span></span><span class="line"><span class="cl">initialized config <span class="k">for</span> a candy machine with publickey: 3jK1rQHqJD6RAsYxaoLakiSxAjdZGefnz8XCChP1azjc
+</span></span><span class="line"><span class="cl">Candy machine address:  ENvMsi3pbpsHYbPRg3fKi6hrr8dGjFWNDTybXFGAhG2b
+</span></span><span class="line"><span class="cl">Collection metadata address:  6fqwQEJGQGyGpovV6HmYoF5aB7RscoPCR8BmEjh8X4gG
+</span></span><span class="line"><span class="cl">Collection metadata authority:  4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+</span></span><span class="line"><span class="cl">Collection master edition address:  5xMAgL4HpjmwxMkJLsoyekQEGTbZCae1AW6NfTGpuKUZ
+</span></span><span class="line"><span class="cl">Collection mint address:  Djp7ZCX2q2mJqmxCv1szirsxsA9N7YW77tEoRdASpp92
+</span></span><span class="line"><span class="cl">Collection PDA address:  98NgHVcz9mV2AdZJCraTR2NHAC8BCvvbtj4ET8gBCijS
+</span></span><span class="line"><span class="cl">Collection authority record address:  zkqyaNFVQsmsFyXVLYJ1Gt6s8jNHcEn6EHkDtehfBu3
+</span></span><span class="line"><span class="cl">Collection:  <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  collectionMetadata: <span class="s1">&#39;6fqwQEJGQGyGpovV6HmYoF5aB7RscoPCR8BmEjh8X4gG&#39;</span>,
+</span></span><span class="line"><span class="cl">  collectionPDA: <span class="s1">&#39;98NgHVcz9mV2AdZJCraTR2NHAC8BCvvbtj4ET8gBCijS&#39;</span>,
+</span></span><span class="line"><span class="cl">  txId: <span class="s1">&#39;3GkHsk7UANvX3aJugj5fs3LEWi8gvb5uFgUkot6rGTRDS5utXRL7tkKE5JVLnHm2EiHw75VfzFQz3bRDf3P3xbk&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">initialized config <span class="k">for</span> a candy machine with publickey: ENvMsi3pbpsHYbPRg3fKi6hrr8dGjFWNDTybXFGAhG2b
 </span></span><span class="line"><span class="cl"><span class="o">[</span>0<span class="o">]</span> out of <span class="o">[</span>3<span class="o">]</span> items have been uploaded
 </span></span><span class="line"><span class="cl">Starting upload <span class="k">for</span> <span class="o">[</span>3<span class="o">]</span> items, format <span class="o">{</span><span class="s2">&#34;mediaExt&#34;</span>:<span class="s2">&#34;.png&#34;</span>,<span class="s2">&#34;index&#34;</span>:<span class="s2">&#34;0&#34;</span><span class="o">}</span>
-</span></span><span class="line"><span class="cl">Progress: <span class="o">[</span>░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░<span class="o">]</span> 0% <span class="p">|</span> 0/3uploaded image:  https://ipfs.io/ipfs/undefined
+</span></span><span class="line"><span class="cl">Progress: <span class="o">[</span>░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░<span class="o">]</span> 0% <span class="p">|</span> 0/3uploaded image:  hs
 </span></span><span class="line"><span class="cl">waiting
-</span></span><span class="line"><span class="cl">uploaded image:  https://ipfs.io/ipfs/undefined
-</span></span><span class="line"><span class="cl">waiting
-</span></span><span class="line"><span class="cl">uploaded image:  https://ipfs.io/ipfs/undefined
+</span></span><span class="line"><span class="cl">uploaded image:  https://ipfs.io/ipfs/QmcPEs45xLiUV4Wq8e8femHetEFcS6uvDKSn5rq6S3
 </span></span><span class="line"><span class="cl">waiting
 </span></span><span class="line"><span class="cl">waiting
 </span></span><span class="line"><span class="cl">waiting
+</span></span><span class="line"><span class="cl">uploaded image:  https://ipfs.io/ipfs/QmQEPmMzbSq4JZDSqtTgTDC9M7zrNvjRkaEej3UZga
 </span></span><span class="line"><span class="cl">waiting
-</span></span><span class="line"><span class="cl">uploaded manifest:  https://ipfs.io/ipfs/undefined
-</span></span><span class="line"><span class="cl">Progress: <span class="o">[</span>█████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░<span class="o">]</span> 33% <span class="p">|</span> 1/3uploaded manifest:  https://ipfs.io/ipfs/undefined
-</span></span><span class="line"><span class="cl">Progress: <span class="o">[</span>███████████████████████████░░░░░░░░░░░░░<span class="o">]</span> 66% <span class="p">|</span> 2/3uploaded manifest:  https://ipfs.io/ipfs/undefined
+</span></span><span class="line"><span class="cl">uploaded manifest:  https://ipfs.io/ipfs/QmPSBJv34txUiuwBXrBXNErQuZTXu6AvjHLsm7D
+</span></span><span class="line"><span class="cl">Progress: <span class="o">[</span>█████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░<span class="o">]</span> 33% <span class="p">|</span> 1/3uploaded manifest8
+</span></span><span class="line"><span class="cl">Progress: <span class="o">[</span>███████████████████████████░░░░░░░░░░░░░<span class="o">]</span> 66% <span class="p">|</span> 2/3waiting
+</span></span><span class="line"><span class="cl">uploaded manifest:  https://ipfs.io/ipfs/QmQSCDDskNTV9nFE1ysHJTedkup4jJ3Vzs4pbdJ
 </span></span><span class="line"><span class="cl">Progress: <span class="o">[</span>████████████████████████████████████████<span class="o">]</span> 100% <span class="p">|</span> 3/3
 </span></span><span class="line"><span class="cl">Writing all indices in <span class="m">1</span> transactions...
 </span></span><span class="line"><span class="cl">Progress: <span class="o">[</span>████████████████████████████████████████<span class="o">]</span> 100% <span class="p">|</span> 1/1
 </span></span><span class="line"><span class="cl">Done. <span class="nv">Successful</span> <span class="o">=</span> true.
-</span></span><span class="line"><span class="cl">ended at: 2022-04-14T20:45:33.808Z. <span class="nb">time</span> taken: 00:00:40
+</span></span><span class="line"><span class="cl">ended at: 2022-05-08T17:00:17.542Z. <span class="nb">time</span> taken: 00:00:40
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Este comando tomará su archivo de configuración y lo analizará para que Metaplex sepa cómo cargar sus archivos y cómo obtener la información del NFT apostillado en Solana. Verá en su línea de comando cada carga de los metadatos de su carpeta de activos y las imágenes de su carpeta de activos. Dependiendo de la cantidad de archivos que cargue, este proceso puede tardar unos minutos. Así que rompa una cerveza y espere.</p>
@@ -745,32 +772,38 @@ if (!doNotTrack) {
 </span><span class="lnt">26
 </span><span class="lnt">27
 </span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;program&#34;</span><span class="p">:{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;uuid&#34;</span><span class="p">:</span><span class="s2">&#34;HcaRg2&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;candyMachine&#34;</span><span class="p">:</span><span class="s2">&#34;HcaRg2A7FqoFqHTCtrsUmu9QDEMno1Pw3S6HVt2wo2LD&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;uuid&#34;</span><span class="p">:</span><span class="s2">&#34;ENvMsi&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;candyMachine&#34;</span><span class="p">:</span><span class="s2">&#34;ENvMsi3pbpsHYbPRg3fKi6hrr8dGjFWNDTybXFGAhG2b&#34;</span><span class="p">,</span><span class="nt">&#34;collection&#34;</span><span class="p">:</span><span class="s2">&#34;6fqwQEJGQGyGpovV6HmYoF5aB7RscoPCR8BmEjh8X4gG&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;items&#34;</span><span class="p">:{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;0&#34;</span><span class="p">:{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="s2">&#34;https://ipfs.io/ipfs/undefined&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="s2">&#34;https://ipfs.io/ipfs/QmQSCDDskNTV9nFE1ysHJTedkup4jJ3Vzs4pbdrPExGHSJ&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;imageLink&#34;</span><span class="p">:</span><span class="s2">&#34;https://ipfs.io/ipfs/QmQEPmMzbSq4JZDSqtTgTDC9M7zrNvjRkaEej3UZgDjsaa&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;Image 0&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;onChain&#34;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;verifyRun&#34;</span><span class="p">:</span><span class="kc">false</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;verifyRun&#34;</span><span class="p">:</span><span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;1&#34;</span><span class="p">:{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="s2">&#34;https://ipfs.io/ipfs/undefined&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="s2">&#34;https://ipfs.io/ipfs/QmeinbfhRtbkegUf5c3xrYrUZ4TpN3nSZCuvqQNGTEN1r8&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;imageLink&#34;</span><span class="p">:</span><span class="s2">&#34;https://ipfs.io/ipfs/QmXKXd9bpH4rasEB4i3HLCoHbW76yYyxcmwvHpadgmeRZs&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;Image 1&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;onChain&#34;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;verifyRun&#34;</span><span class="p">:</span><span class="kc">false</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;verifyRun&#34;</span><span class="p">:</span><span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;2&#34;</span><span class="p">:{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="s2">&#34;https://ipfs.io/ipfs/undefined&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;link&#34;</span><span class="p">:</span><span class="s2">&#34;https://ipfs.io/ipfs/QmPSBJv34txUiuwBXrBXNErQuZTXu6AvjHLsm7U5cFRA6D&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;imageLink&#34;</span><span class="p">:</span><span class="s2">&#34;https://ipfs.io/ipfs/QmcPEs45xLiUV4Wq8e8femHetEFcS6uvDKSn5rq6SCrv63&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;Image 2&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;onChain&#34;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;verifyRun&#34;</span><span class="p">:</span><span class="kc">false</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;verifyRun&#34;</span><span class="p">:</span><span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;env&#34;</span><span class="p">:</span><span class="s2">&#34;devnet&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;cacheName&#34;</span><span class="p">:</span><span class="s2">&#34;nft-project&#34;</span>
@@ -854,36 +887,45 @@ if (!doNotTrack) {
     </figure></p>
 <p>Deberás confirmar la transacción. Cuando lo haga, el proceso de acuñación solo debería tomar unos segundos. Una vez que esté completo, su nuevo NFT debería aparecer en la colección de NFTs de su criptocartera.</p>
 <p>La imagen que ve de su NFT se está cargando desde Pinata. Dependiendo de si proporcionó una URL de puerta de enlace dedicada en su archivo de configuración, el NFT ser carga a través de su puerta de enlace personalizada o una puerta de enlace IPFS pública. Nota: si proporcionó una URL de puerta de enlace dedicada, el NFT será cargado a través de su puerta de enlace personalizada, y si no, el NFT será cargado a través de una puerta de enlace IPFS pública. Puede ver esto en el siguiente ejemplo usando Phantom Wallet. Los dos NFT que están atascados en la carga están usando una puerta de enlace IPFS pública. Los dos que se cargan casi instantáneamente en la carga están usando una puerta de enlace personalizada.</p>
+<p><figure><a class="lightgallery" href="/20220323solananftandipfs/wallet.png" title="Wallet" data-thumbnail="/20220323solananftandipfs/wallet.png" data-sub-html="<h2>Figura 3. NFTs apostillados en la Wallet personalizada</h2><p>Wallet</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="wallet.png"
+            data-srcset="/20220323solananftandipfs/wallet.png, wallet.png 1.5x, /20220323solananftandipfs/wallet.png 2x"
+            data-sizes="auto"
+            alt="/20220323solananftandipfs/wallet.png" />
+    </a><figcaption class="image-caption">Figura 3. NFTs apostillados en la Wallet personalizada</figcaption>
+    </figure></p>
+<p>Al ver su NFT en los mercados de Solana NFT, los activos también se cargarán a través de la puerta de enlace de IPFS. Esto permite que las personas puedan ver el contenido de la forma en que fue diseñado para ser experimentado.</p>
+<h2 id="conclusiones">Conclusiones</h2>
+<p>Los beneficios de usar IPFS para el almacenamiento de activos NFT están bien documentados. IPFS ofrece una recuperación rápida (especialmente cuando se usa una puerta de enlace dedicada de Pinata), IPFS ofrece la direccionalidad de contenido e IPFS es portátil. La propiedad del NFT puede transferirse tanto en el sentido simbólico como el en sentido dígital.</p>
+<p>Sin embargo, no siempre ha sido fácil usar IPFS con proyectos de Solana NFT. Con suerte este tutorial ayudará a cambiaro eso.</p>
 <h2 id="patrocinio">Patrocinio</h2>
-<p>₿itcoin:</p>
-<p>Solana:</p>
-<p>Ethereum:</p>
+<p>₿itcoin: <a href="https://www.exodus.com/" target="_blank" rel="noopener noreffer">bc1qrcecrz47ywrcnyuqknzgzzz2t3lwawyjnl4t7f</a></p>
+<p>Solana: <a href="https://phantom.app/" target="_blank" rel="noopener noreffer">Ft8A8t3UyGZHjWNvtgruADnUgrij3uaFe7pLj9QNG44N</a></p>
+<p>Ethereum: <a href="https://metamask.io/" target="_blank" rel="noopener noreffer">0x886ce8Cc54cd0964E6939c5290242b1135D10C7f</a></p>
 <p>Paypal: <a href="https://paypal.me/asanchezyali?country.x=CO&amp;locale.x=es_XC" target="_blank" rel="noopener noreffer">@asanchezyali</a></p>
 <h2 id="imágenes">Imágenes</h2>
 <ul>
 <li><a href="https://unsplash.com/" target="_blank" rel="noopener noreffer">Unplash</a> - <a href="https://unsplash.com/photos/yscrM1AOEKI" target="_blank" rel="noopener noreffer">NTF inscription on cubes against the background of dollars and microcircuits</a></li>
+<li><a href="https://unsplash.com/" target="_blank" rel="noopener noreffer">Unplash</a> - <a href="https://unsplash.com/es/fotos/W6l35A_rxxU" target="_blank" rel="noopener noreffer">Foto de Michael Dziedzic</a></li>
+<li><a href="https://unsplash.com/" target="_blank" rel="noopener noreffer">Unplash</a> - <a href="https://unsplash.com/es/fotos/ir5gC4hlqT0" target="_blank" rel="noopener noreffer">Foto de Michael Dziedzic</a></li>
+<li><a href="https://unsplash.com/" target="_blank" rel="noopener noreffer">Unplash</a> - <a href="https://unsplash.com/es/fotos/0XkLAIrknco" target="_blank" rel="noopener noreffer">Foto de Michael Dziedzic</a></li>
 </ul>
 <h2 id="referencias">Referencias</h2>
 <ol>
-<li>
-<p><a href="https://deepai.org/publication/the-modern-mathematics-of-deep-learning" target="_blank" rel="noopener noreffer">Julius Berner. 2021. The Modern Mathematics of deep learning.</a></p>
-</li>
-<li>
-<p><a href="https://work.caltech.edu/telecourse" target="_blank" rel="noopener noreffer">Yaser Abu-Mostafa Data. 2012 - 2015. Learning From Data.</a></p>
-</li>
-<li>
-<p><a href="https://github.com/ChainSafe/web3.js" target="_blank" rel="noopener noreffer">Web3.js</a></p>
-</li>
-<li>
-<p><a href="https://metaboss.rs/update.html" target="_blank" rel="noopener noreffer">Metaboss</a></p>
-</li>
+<li><a href="https://medium.com/pinata/how-to-create-a-solana-nft-with-ipfs-59d87afbe206" target="_blank" rel="noopener noreffer">Justin Hunter. How to create a Solana NFT with IPFS</a></li>
+<li><a href="https://docs.metaplex.com/" target="_blank" rel="noopener noreffer">Metaplex Docs</a></li>
+<li><a href="https://github.com/ChainSafe/web3.js" target="_blank" rel="noopener noreffer">Web3.js</a></li>
+<li><a href="https://metaboss.rs/update.html" target="_blank" rel="noopener noreffer">Metaboss</a></li>
 </ol>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Actualizado el 2022-04-22&nbsp;<a class="git-hash" href="https://github.com/asanchezyali/blog/commit/3bff4957e5332e1a33260723c366542b79790644" target="_blank" title="commit by asanchezyali(alejandro.sanchezy@udea.edu.co) 3bff4957e5332e1a33260723c366542b79790644: rebuilding site vie 22 abr 2022 22:43:16 -05">
-                                    <i class="fas fa-hashtag fa-fw"></i>3bff495</a></span>
+                <span>Actualizado el 2022-05-02&nbsp;<a class="git-hash" href="https://github.com/asanchezyali/blog/commit/b2a8b437aae006967a406068bb8a404a0a748dd8" target="_blank" title="commit by asanchezyali(alejandro.sanchezy@udea.edu.co) b2a8b437aae006967a406068bb8a404a0a748dd8: rebuilding site lun 02 may 2022 22:35:14 -05">
+                                    <i class="fas fa-hashtag fa-fw"></i>b2a8b43</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
