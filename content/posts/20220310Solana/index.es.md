@@ -1146,13 +1146,13 @@ El código se encuentra alojado en el github.
 Te sugiero continuar aprendiendo sobre NFTs sobre el proyecto de Metaplex.
 
 ## Patrocinio 
-₿itcoin:
+₿itcoin: [bc1qrcecrz47ywrcnyuqknzgzzz2t3lwawyjnl4t7f](https://www.exodus.com/)
 
-Solana:
+Solana: [Ft8A8t3UyGZHjWNvtgruADnUgrij3uaFe7pLj9QNG44N](https://phantom.app/)
 
-Ethereum:
+Ethereum: [0x886ce8Cc54cd0964E6939c5290242b1135D10C7f](https://metamask.io/)
 
-Paypal: alejandro.driveyali@gmail.com
+Paypal: [@asanchezyali](https://paypal.me/asanchezyali?country.x=CO&locale.x=es_XC)
 ## Imágenes
 
   * [Unplash](https://unsplash.com/) - [3D illustration of blocks in a blockchain](https://unsplash.com/photos/_rZnChsIFuQ)
@@ -1162,7 +1162,6 @@ Paypal: alejandro.driveyali@gmail.com
     Email: shubhamdhage000@gmail.com
 ## Referencias
 
-1. [Julius Berner. 2021. The Modern Mathematics of deep learning.](https://deepai.org/publication/the-modern-mathematics-of-deep-learning)
-2. [Yaser Abu-Mostafa Data. 2012 - 2015. Learning From Data.](https://work.caltech.edu/telecourse)
-
-3. [Web3.js](https://github.com/ChainSafe/web3.js)
+1. [Metaplex Docs](https://docs.metaplex.com/)
+2. [Web3.js](https://github.com/ChainSafe/web3.js)
+3. [Metaboss](https://metaboss.rs/update.html)

@@ -116,6 +116,15 @@ para encontrar una hipótesis $h\_s$. Este es un proceso que puede ser automatiz
 
 Dejaré por el momento esta publicación hasta aquí, para no hacerla más extensa, espero que la hayan disfrutado. Nos vemos pronto.
 
+## Patrocinio 
+₿itcoin: [bc1qrcecrz47ywrcnyuqknzgzzz2t3lwawyjnl4t7f](https://www.exodus.com/)
+
+Solana: [Ft8A8t3UyGZHjWNvtgruADnUgrij3uaFe7pLj9QNG44N](https://phantom.app/)
+
+Ethereum: [0x886ce8Cc54cd0964E6939c5290242b1135D10C7f](https://metamask.io/)
+
+Paypal: [@asanchezyali](https://paypal.me/asanchezyali?country.x=CO&locale.x=es_XC)
+
 
 ## Referencias
 
