@@ -10,7 +10,7 @@
     <pubDate>Wed, 23 Mar 2022 08:19:27 -0500</pubDate>
     <author>Autor</author>
     <guid>https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/</guid>
-    <description><![CDATA[Los NFTs son mucho más que imágenes generadas aleatoriamente, esto promete ser la revolución de los derechos de propiedad digital como la conocemos. Si quieres entender más sobre este concepto, te recomiendo leer el articulo de Nick Szabo, Secure Property Titles with Owner Authority, allí encontrarás algunas de las ideas que dieron origin a los NFTs. Por otro lado, en este artículo vamos a explicar cómo crear una colección de NFTs en Solana con IPFS.]]></description>
+    <description><![CDATA[Los NFTs son mucho más que imágenes generadas aleatoriamente, esto promete ser la revolución de los derechos de propiedad digital tal y como la conocemos. Si quieres aprender más sobre el concepto de NFT y el porqué de mi afirmación, te recomiendo leer el articulo de Nick Szabo, Secure Property Titles with Owner Authority, allí encontrarás algunas de las ideas que dieron origin a los NFTs. El objetivo de este artículo no es explicar qué es un NFT, sino cómo crear uno en Solana con IPFS.]]></description>
 </item><item>
     <title>Programando Dapps en Solana</title>
     <link>https://alejandrosanchezyali.vercel.app/20220310solana/</link>

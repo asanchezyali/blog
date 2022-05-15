@@ -26,20 +26,20 @@ keywords:
 lightgallery: true
 ---
 
-Los NFTs son mucho más que imágenes generadas aleatoriamente, esto promete ser la revolución de los derechos de propiedad digital como la conocemos. Si quieres entender más sobre este concepto, te recomiendo leer el articulo de Nick Szabo, [_Secure Property Titles with Owner Authority_](https://nakamotoinstitute.org/secure-property-titles/), allí encontrarás algunas de las ideas que dieron origin a los NFTs. Por otro lado, en este artículo vamos a explicar cómo crear una colección de  NFTs en Solana con IPFS. 
+Los NFTs son mucho más que imágenes generadas aleatoriamente, esto promete ser la revolución de los derechos de propiedad digital tal y como la conocemos. Si quieres aprender más sobre el concepto de NFT y el porqué de mi afirmación, te recomiendo leer el articulo de Nick Szabo, [_Secure Property Titles with Owner Authority_](https://nakamotoinstitute.org/secure-property-titles/), allí encontrarás algunas de las ideas que dieron origin a los NFTs. El objetivo de este artículo no es explicar qué es un NFT, sino cómo crear uno en Solana con IPFS.
 
-Este es un tutorial especialmente interesante porque Solana ha estado estrechamente vinculado [Arweave](https://www.arweave.org/), sin embargo, hay muchos proyectos prefieren usar IPFS para almacenar sus datos,  por su rápido acceso al contenido y su fiabilidad. Por otro lado, Metaplex, es un proyecto construido para hacer más fácil la creación de proyectos NFTs en Solana y tiene soporte para IPFS, esto incluye la capacidad para usar Pinata para almacenar contenido y servir este contenido a través de una _API Gateway_ dedicada a IPFS. 
+Este tutorial es especialmente interesante, en principio porque Solana ha estado estrechamente vinculado a [Arweave](https://www.arweave.org/), sin embargo hay muchos proyectos que prefieren usar IPFS para almacenar sus datos,  por su rápido acceso al contenido y su fiabilidad. Por otro lado, Metaplex, es un proyecto construido para hacer más fácil la creación de proyectos de NFTs en Solana y tiene soporte para IPFS, esto incluye la capacidad para usar Pinata para almacenar contenido y servirlo a través de una _API Gateway_ dedicada a IPFS. 
 
 ## Configuración del ambiente de trabajo
 
 Para empezar, te debes registrar en [Pinata](https://www.pinata.cloud/). Si lo que quieres es hacer pruebas, se puede usar la plan gratuito, sin embargo para el lanzamiento de una colección grande de NFTs en la red principal, la recomendación es considerar el plan professional con una _API Gateway_ dedicada a IPFS. 
 
-Una vez que te hayas inscrito en Pinata, sólo tienes que asegurarte de que tienes instalados los siguientes elementos (cada uno de ellos está vinculado a las instrucciones de instalación en caso de que tengas que instalarlos):
+Una vez que te hayas inscrito en Pinata, sólo tienes que asegurarte de que tienes instalados los siguientes elementos (en la lista que encontrarás a continuación, cada uno de ellos está vinculado a las instrucciones de instalación en caso de que tengas que instalarlos):
 
 * [Node.js](https://nodejs.org/en/download/) - version 16.13.0 o la más reciente.
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - versión 2.32.0 o la más reciente.
 * [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable) - versión 1.22.17 o la más reciente.
-* [ts-node](https://www.npmjs.com/package/ts-node#installation) - versión 10.4.0 o la más reciente.
+* [TS-Node](https://www.npmjs.com/package/ts-node#installation) - versión 10.4.0 o la más reciente.
 * [Solana CLI](https://docs.solana.com/cli/install-solana-cli-tools) - version 1.8.16 o la más reciente.
 
 Por si sirve de algo, seguiremos gran parte de las instrucciones de la página web de [Metaplex](https://docs.metaplex.com/candy-machine-v2/getting-started) con algunas modificaciones para subir contenido a IPFS a través de Pinata.
@@ -54,9 +54,9 @@ El primer paso es crear una carpeta para los _assets_ de su proyecto NFT. Desde 
 mkdir nft-project
 ```
 
-Dentro de esa carpeta, crea otra carpeta llamada `assets`. En la carpeta `assets`, añadirás todas tus imágenes. Es importante que cada una de tus imágenes esté etiquetada en un formato de índice base 0. Eso significa que la primera imagen sería `0.png` y la segunda sería `1.png` y así sucesivamente.
+Dentro de esa carpeta, crea otra carpeta llamada `assets`. En la carpeta `assets`, agrega todas tus imágenes. Es importante que cada una de tus imágenes esté etiquetada en un formato de índice base 10. Eso significa que la primera imagen sería `0.png` y la segunda sería `1.png` y así sucesivamente.
 
-Una vez que sus imágenes estén en la carpeta, tendrá que crear los metadatos para estas imágenes. Si tiene alguna experiencia con los metadatos NFT de Ethereum, se sentirá como en casa con los metadatos NFT de Solana. La estructura es casi idéntica. Echemos un vistazo a una estructura básica de archivo de metadatos JSON para NFTs en Solana:
+Una vez que sus imágenes estén en la carpeta, tendrá que crear los metadatos para estas imágenes. Si tiene alguna experiencia con los metadatos NFT de Ethereum, se sentirá como en casa con los metadatos de los NFTs de Solana. La estructura es casi idéntica. Echemos un vistazo a una estructura básica de archivo de metadatos JSON para NFTs en Solana:
 
 ```json
 {
@@ -71,20 +71,20 @@ Una vez que sus imágenes estén en la carpeta, tendrá que crear los metadatos 
         {"trait_type": "Layer-4", "value": "1"}
     ],
     "properties": {
-        "creators": [{"address": "N4f6zftYsuu4yT7icsjLwh4i6pB1zvvKbseHj2NmSQw", "share": 100}],
+        "creators": [{"address": "ADDRESS_FROM_CREATOR", "share": 100}],
         "files": [{"uri": "0.png", "type": "image/png"}]
     },
     "collection": {"name": "numbers", "family": "numbers"}
 }
  ```
 
- Al igual que con el estándar de metadatos de Ethereum, el estándar de metadatos de Solana tiene un nombre, una imagen y una descripción. Además, se pueden incluir atributos (al igual que con ETH), un símbolo y detalles de cobro. En los proyectos de Ethereum, el símbolo del token se asigna generalmente en la implementación del contrato y no en los metadatos. Otra diferencia es la parte de propiedades de los metadatos de Solana. Esto es necesario y le permite incluir una serie de archivos para sus NFT. Tiene que tener al menos un archivo en esa matriz que apunte al mismo activo que la propiedad de la imagen, pero puede incluir otros archivos que conformen su NFT completa. Este es un concepto realmente interesante que debe ser explorado más a fondo, pero por el bien de este post, sólo vamos a operar con NFTs de un solo activo.
+ Al igual que con el estándar de los metadatos de Ethereum, el estándar de los metadatos de Solana tiene un nombre, una imagen y una descripción. Además, se pueden incluir atributos (al igual que con ETH), un símbolo y detalles de cobro. En los proyectos de Ethereum, el símbolo del token se asigna generalmente en la implementación del contrato y no en los metadatos. Otra diferencia es la parte de propiedades de los metadatos de Solana. Esto es necesario y le permite incluir una serie de archivos para sus NFTs. Tiene que tener al menos un archivo en esa matriz que apunte al mismo activo que la propiedad de la imagen, pero puede incluir otros archivos que conformen su NFT completa. Este es un concepto realmente interesante que debe ser explorado más a fondo, pero por el bien de este artículo, sólo vamos a operar con NFTs de un solo _asset_.
 
-Si desea profundizar en la norma de los metadatos de Solana para los NFTs, puede hacerlo [aquí](https://docs.metaplex.com/candy-machine-v2/preparing-assets).
+Si desea profundizar en estándar de los metadatos de Solana para los NFTs, puede hacerlo [aquí](https://docs.metaplex.com/candy-machine-v2/preparing-assets).
 
-Ahora que tenemos las imágenes en la carpeta. Sabemos que esas imágenes necesitan ser nombradas de una manera específica. Y sabemos que necesitamos archivos de metadatos JSON. ¿Cómo vamos a conseguir ahora esos archivos JSON creados y añadidos a la carpeta de activos. Podrías hacerlo manualmente, pero con un proyecto de 10.000 NFT, eso sería casi imposible.
+Ahora que tenemos las imágenes en la carpeta. Sabemos que esas imágenes necesitan ser nombradas de una manera específica. Y sabemos que necesitamos los archivos de los metadatos JSON. ¿Cómo vamos a conseguir ahora esos archivos JSON creados y añadidos a la carpeta de _assets_. Podrías hacerlo manualmente, pero con un proyecto de 10.000 NFT, eso sería casi imposible.
 
-Vamos a escribir un script para crear los archivos de metadatos.
+Vamos a escribir un _script_ para crear los archivos de metadatos.
 
 Desde tu línea de comandos, asegúrate de que estás en la carpeta `nft-project`. Crearemos un nuevo archivo llamado `metadata-generator.js` ejecutando este comando: `touch metadata-generator.js`.
 
@@ -98,7 +98,7 @@ const imageDir = fs.readdirSync("./assets");
 imageDir.forEach(img => {
   const metadata = {
     name: `Image ${img.split(".")[0]}`,
-    description: "An image in the NFT collection",
+    description: "YOUR DESCRIPTION HERE",
     symbol: "YOUR_NFT_COLLECTION_SHORT_SYMBOL",
     image: img,
     seller_fee_basis_points: "ROYALTIES_PERCENTAGE_BASIS_POINTS",
@@ -119,11 +119,14 @@ Por supuesto, usted podría personalizar esto para su proyecto. Dar a sus imáge
 
 Para ejecutar tu script y generar los metadatos, debes ejecutar este comando desde la raíz de tu carpeta de proyecto: `node metadata-generator.js`.
 
-Cuando el script esté terminado, tendrás una carpeta de activos que tiene imágenes y archivos JSON juntos. Debería tener este aspecto:
+Cuando el script se haya ejecutado, tendrás una carpeta de _assets_ que tiene imágenes y archivos JSON juntos y que debería tener este aspecto similar a esto:
+
 ```shell
 tree
+```
 
-# Output
+```shell
+# Output is something like this:
 .
 ├── assets
 │   ├── 0.json
@@ -135,71 +138,81 @@ tree
 └── metadata-generator.js
 ```
 
-Bien, ya tenemos nuestros activos listos para empezar. Es hora de empezar a usar Metaplex para ponernos en marcha con Solana.
+Bien, ya tenemos nuestros activos listos para empezar. Ahora vamos a empezar a usar Metaplex para ponernos en marcha con Solana.
 
 ## Metaplex
 
-[Metaplex](https://www.metaplex.com/) es una herramienta que facilita el lanzamiento de un proyecto NFT en Solana. En lugar de tener que escribir tu propio contrato inteligente como tendrías que hacer con Ethereum, Metaplex tiene contratos pre-escritos que los proyectos pueden conectar. Para que esto funcione, Metaplex tiene que ser capaz de acceder a los archivos asociados a los NFTs, luego tiene que ser capaz de subir esos archivos y asociarlos a cada token que se va a acuñar.
+[Metaplex](https://www.metaplex.com/) es una herramienta que facilita el lanzamiento de un proyecto de NFTs en Solana. En lugar de tener que escribir tu propio programa («contrato inteligente») como tendrías que hacerlo con Ethereum, Metaplex tiene contratos pre-escritos que los proyectos pueden emplear. Para que esto funcione, Metaplex tiene que ser capaz de acceder a los archivos asociados a los NFTs, luego tiene que ser capaz de subir esos archivos y asociarlos a cada token que se va a _mintear_ (acuñar).
 
-Metaplex tiene soporte para IPFS a través de algunos servicios, pero nos centraremos en el uso de Pinata.
+Metaplex tiene soporte para IPFS a través de algunos servicios, pero aquí nos centrar en el uso de Pinata.
 
-Vamos a seguir la guía estándar de Metaplex Candy Machine que se encuentra [aquí](https://docs.metaplex.com/candy-machine-v2/getting-started). El primer paso va a ser clonar Metaplex. Ejecute el siguiente comando en su terminal:
+Vamos a seguir la guía estándar de Metaplex  para la Candy Machine 2 que se encuentra [aquí](https://docs.metaplex.com/candy-machine-v2/getting-started). El primer paso va a ser clonar Metaplex. Para esto ejecute el siguiente comando en su terminal:
 
 ```shell
 git clone https://github.com/metaplex-foundation/metaplex.git ~/metaplex
 ```
 
-Estamos clonando el directorio en el directorio `home` para que no tengamos que recordar dónde se clonó el proyecto. Dentro del nuevo repositorio de metaplex hay un código para soportar la CLI de JavaScript que vamos a utilizar. Por lo tanto, tenemos que instalar las dependencias para ese código CLI.
+Estamos clonando el directorio en el directorio `home` para que no tengamos que recordar dónde se clonó el proyecto, vamos crear el siguiente atajo:
+
+```shell
+export candymachine=«YOUR_ROOT_PATH»/metaplex/js/packages/cli/src/candy-machine-v2-cli.ts
+```
+
+Dentro del nuevo repositorio de metaplex hay un código para soportar la CLI de JavaScript que vamos a utilizar. Por lo tanto, tenemos que instalar las dependencias para ese código CLI.
 
 ```shell
 yarn install --cwd ~/metaplex/js/
 ```
 
-Ahora, asegurémonos de que la instalación ha funcionado. ¿Recuerdas que instalamos `ts-node`? Vamos a usar eso ahora para ejecutar un comando para el cli de metaplex
+Ahora, asegurémonos de que la instalación ha funcionado. ¿Recuerdas que instalamos `TS-Node`? Vamos a usarlo para ejecutar un comando para el CLI de metaplex:
 
 ```shell
-export candymachine=«YOUR_ROOT_PATH»/metaplex/js/packages/cli/src/candy-machine-v2-cli.ts
 ts-node $candymachine --version
-
-# Output
+```
+```shell
+# Output is something like this:
 0.0.2
 ```
 
-Esto debería imprimir una versión si todo fue instalado correctamente. Ahora, necesitamos asegurarnos de que el CLI de Solana está funcionando. Ejecute este comando para obtener el número de versión:
+Esto debería imprimir una versión si todo fue instalado correctamente. Ahora, necesitamos asegurarnos de que el CLI de Solana está funcionando. Para esto, ejecute el siguiente comando para obtener el número de versión:
 
 ```shell
 solana --version
-
-# Output
-solana-cli 1.8.16 (src:23af37fe; feat:188619054
 ```
 
-Si eso funciona, está listo. Si no es así, comprueba que has instalado el [Solana CLI Toolkit](https://docs.solana.com/cli/install-solana-cli-tools). A continuación, vamos a utilizar ese CLI para crear la cartera `devnet`. El `devnet` de Solana es donde podemos experimentar sin temor a incurrir en ningún impacto financiero real.
+```shell
+# Output is something like this:
+solana-cli 1.8.16 (src:23af37fe; feat:1886190546)
+```
 
-Ejecute este comando para crear una nueva criptcartera de papel y almacenar las credenciales
+Si eso funciona, estás listo. Si no es así, comprueba que has instalado el [Solana CLI Toolkit](https://docs.solana.com/cli/install-solana-cli-tools). A continuación, vamos a utilizar ese CLI para crear una criptocartera en la red de prueba `devnet`. El `devnet` de Solana es donde podemos experimentar sin temor a incurrir en ningún impacto financiero real.
+
+Ejecute este comando para crear una nueva criptocartera de papel y almacenar las credenciales
 
 ```shell
-solana-keygen new --outfile ~/.config/solana/«MY_WALLET_PAPER».json
+solana-keygen new --outfile ~/.config/solana/«NAME_FROM_MY_WALLET_PAPER».json
 ```
 
 Ahora, podemos establecer el par de claves por defecto para nuestras interacciones de Solana CLI:
 
 ```shell
-solana config set --keypair ~/.config/solana/«MY_WALLET_PAPER».json
+solana config set --keypair ~/.config/solana/«NAME_FROM_MY_WALLET_PAPER».json
 ```
 
-Por último, hagamos saber a la CLI que pretendemos interactuar con la devnet:
+Por último, vamos a configurar el CLI para interactuar con la `devnet`:
 
 ```shell 
 solana config set --url devnet
 ```
 
-Pora comprobar la configuración actual de la red (y otras) podemos emplear este comando:
+Para comprobar la configuración actual de la red (y otras) podemos emplear este comando:
 
 ```shell 
 solana config get
+```
 
-# Output
+```shell
+# Output is something like this:
 Config File: /home/user/.config/solana/cli/config.yml
 RPC URL: https://api.devnet.solana.com 
 WebSocket URL: wss://api.devnet.solana.com/ (computed)
@@ -211,16 +224,20 @@ con el CLI podemos ver la dirección de nuestra criptocartera:
 
 ```shell
 solana address
-
+```
+  
+```shell
 # Output is something like this:
 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
 ```
 
-A continuación vamos a conseguir algo de token de Solana, para hacer esto, asegurate de que te encuentras en la devnet, ya que nuestra dapp va funcionar en esta red. Para conseguir los tokens hacemos:
+A continuación vamos a conseguir algo de Solanas, para hacer esto, asegurate de que te encuentras en la `devnet`, ya que nuestra _dapp_ va funcionar en esta red. Para conseguir los solanas hacemos:
 
 ```shell
-solana airdrop 2 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9 --url devnet
+solana airdrop 2 «YOUR_WALLET_ADDRESS» --url devnet
+```
 
+```shell
 # Output is something like this:
 Requesting airdrop of 2 SOL
 
@@ -231,10 +248,12 @@ Signature: 3KsFBCULmso5Lc7CAQdqF8rzsBXb3xaVrG3cup19n3P2paw3ryvovWQ9MsMB8GMiQkXJW
 
 Para obtener la información completa de nuestra cuenta:
 ```shell
-solana account «YOUR_ADDRESS»
+solana account «YOUR_WALLET_ADDRESS»
+```
 
+```shell
 # Output is something like this:
-Public Key: 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+Public Key: «YOUR_WALLET_ADDRESS»
 Balance: 4.956381584 SOL
 Owner: 11111111111111111111111111111111
 Executable: false
@@ -244,13 +263,15 @@ Rent Epoch: 277
 Para verificar el balance de nuestro monedero hacemos:
 
 ```shell
-solana balance 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+solana balance «YOUR_WALLET_ADDRESS»
+```
 
+```shell
 # Output is something like this:
 2 SOL
 ```
 
-Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con un 2 SOL, tokens que utilizaremos más adelante para probar nuestra aplicación. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).
+Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con  dos solanas, criptomonedas que utilizaremos más adelante para probar nuestra aplicación. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).
 
 ## Configuración de la colección NFT
 Esta es la parte más importante de todo el desarrollo, por lo que podrás ver los detalles en la [documentación oficial](https://docs.metaplex.com/candy-machine-v2/configuration). Metaplex usan una herramienta llamada _Candy Machine_ para generar los NFT, y es importante asegurarse de que su proyecto esté perfectamente configurado. En la raíz de su proyecto, cree un archivo JSON llamado config.json. Luego, ingrese una configuración como esta:
