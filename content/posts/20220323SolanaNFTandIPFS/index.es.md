@@ -1,14 +1,14 @@
 ---
 weight: 1
-title: "¿Cómo crear un NFT en Solana con IPFS?"
+title: ¿Cómo crear una colección de NFTs en Solana con IPFS?
 date: 2022-03-23T08:19:27-05:00
 draft: false
-excerpt: Programando Dapps sobre Solana
+excerpt: ¿Cómo crear una colección NFT en Solana con IPFS?
 hero: /images/ml-01.jpg
 timeToRead: 4
 authors:
   - Alejandro Sánchez Yalí
-description: "Una blockchain es una libro de registros de bloques de información que son almacenados secuencialmente y enlazados por métodos criptográficos a través de una red de computadores. Es más que un simple algoritmo, blockchain es una tecnología que facilita la intermediación descentralizada de datos entre los participantes"
+description: "Los NFTs son mucho más que imagenes generadas aleatoriamente, esto promete ser la revolución de la propiedad digital y la autoridad digital tal y como la conocemos actualmente. En este artículo vamos a explicar cómo crear un NFT en Solana con IPFS."
 resources:
 - name: "featured-image"
   src: "featured-image.webp"
@@ -19,22 +19,22 @@ categories:
   - Blockchain
 keywords:
   - Solana
-  - Anchor
+  - NFT
   - Phantom Wallet
-  - Dapps
+  
 
 lightgallery: true
 ---
 
-Los NFTs son mucho más que images generadas aleatoriamente, esto promete ser la revolución en los títulos de propiedad digital en la web tal y como la conocemos. Si quieres aprender más acerca de esto, te recomiendo leer el articulo de Nick Szabo, [_Secure Property Titles with Owner Authority_](https://nakamotoinstitute.org/secure-property-titles/), allí encontrarás las primeras ideas acerca de todo este asunto de los NFTs.
+Los NFTs son mucho más que imágenes generadas aleatoriamente, esto promete ser la revolución de la propiedad digital y la autoridad digital tal y como la conocemos. Si quieres entender más sobre este concepto, te recomiendo leer el articulo de Nick Szabo, [_Secure Property Titles with Owner Authority_](https://nakamotoinstitute.org/secure-property-titles/), allí encontrarás algunas de las ideas que dieron origin a los NFTs. En este artículo vamos a explicar cómo crear una colección de  NFTs en Solana con IPFS. 
 
-A continuación vamos a ver cómo crear una colección de NFTs en Solana usando Pinata e IPFS. Este es un tutorial especialmente interesante porque Solana ha estado estrechamente vinculado Arweave, pero muchos proyectos prefieren IPFS por su rápido acceso al contenido y su fiabilidad. Metaplex, es un proyecto construido para hacer más fácil la creación de proyectos NFT en Solana y tiene soporte para IPFS, y esto incluye la capacidad para usar Pinata para almacenar contenido y servir este contenido a través de una puerta de enlace IPFS dedicada. 
+Este es un tutorial especialmente interesante porque Solana ha estado estrechamente vinculado [Arweave](https://www.arweave.org/), sin embargo, hay muchos proyectos prefieren usar IPFS para almacenar sus datos,  por su rápido acceso al contenido y su fiabilidad. Por otro lado, Metaplex, es un proyecto construido para hacer más fácil la creación de proyectos NFTs en Solana y tiene soporte para IPFS, esto incluye la capacidad para usar Pinata para almacenar contenido y servir este contenido a través de una _API Gateway_ dedicada a IPFS. 
 
 ## Configuración del ambiente de trabajo
 
-Para empezar, asegúrate de registrarte en [Pinata](https://www.pinata.cloud/). Usted puede hacer pruebas con una cuenta gratuita, pero para el lanzamiento de NFTs en la red principal, debes considerar el plan professional con una puerta de enlace IPFS dedicada. 
+Para empezar, te debes registrar en [Pinata](https://www.pinata.cloud/). Si lo que quieres es hacer pruebas, se puede usar la plan gratuito, sin embargo para el lanzamiento de una colección grande de NFTs en la red principal, la recomendación es considerar el plan professional con una _API Gateway_ dedicada a IPFS. 
 
-Una vez que te hayas inscrito en una cuenta, sólo tienes que asegurarte de que tienes instalados los siguientes elementos (cada uno de ellos está vinculado a las instrucciones de instalación en caso de que tengas que instalarlos):
+Una vez que te hayas inscrito en Pinata, sólo tienes que asegurarte de que tienes instalados los siguientes elementos (cada uno de ellos está vinculado a las instrucciones de instalación en caso de que tengas que instalarlos):
 
 * [Node.js](https://nodejs.org/en/download/) - version 16.13.0 o la más reciente.
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - versión 2.32.0 o la más reciente.
@@ -42,13 +42,13 @@ Una vez que te hayas inscrito en una cuenta, sólo tienes que asegurarte de que 
 * [ts-node](https://www.npmjs.com/package/ts-node#installation) - versión 10.4.0 o la más reciente.
 * [Solana CLI](https://docs.solana.com/cli/install-solana-cli-tools) - version 1.8.16 o la más reciente.
 
-Por si sirve de algo, seguiremos gran parte de las instrucciones de la página web de [Metaplex](https://docs.metaplex.com/candy-machine-v2/getting-started) con algunas modificaciones que nos permitan subir contenidos a IPFS a través de Pinata.
+Por si sirve de algo, seguiremos gran parte de las instrucciones de la página web de [Metaplex](https://docs.metaplex.com/candy-machine-v2/getting-started) con algunas modificaciones para subir contenido a IPFS a través de Pinata.
 
-## Preparando los activos
+## Preparando los _assets_
 
-Este tutorial no va a pasar por el proceso de generar los activos para su proyecto  de NFTs. Ese es un esfuerzo totalmente separado que tiene que ocurrir antes de que el contrato puede ser desplegado en Solana. Así que, asumiendo que usted ya tiene las imágenes creadas, vamos a ver cómo prepararlas para subirlas a IPFS a través de Metaplex.
+En este tutorial no te voy a enseñar a generar los _assets_ para tu proyecto de NFTs. Ese es un trabajo totalmente separado que tiene que antes de desplegar el contrato en Solana. Así que, voy a asumir que ya tienes una colección imágenes para crear tus NFTs. A continuación, vamos a ver cómo prepararlas para subirlas a IPFS a través de Metaplex.
 
-El primer paso es crear una carpeta para los activos de su proyecto NFT. Desde la línea de comandos, que se verá así:
+El primer paso es crear una carpeta para los _assets_ de su proyecto NFT. Desde la línea de comandos, ejecute el siguiente comando:
 
 ```shell
 mkdir nft-project
@@ -480,8 +480,7 @@ Paypal: [@asanchezyali](https://paypal.me/asanchezyali?country.x=CO&locale.x=es_
 ## Imágenes
 
   - [Unplash](https://unsplash.com/) - [NTF inscription on cubes against the background of dollars and microcircuits](https://unsplash.com/photos/yscrM1AOEKI).
-  - [Unplash](https://unsplash.com/) - Fotos de [Michael Dziedzic](https://unsplash.com/es/@lazycreekimages): [Foto 1](https://unsplash.com/es/fotos/W6l35A_rxxU), [Foto 2](https://unsplash.com/es/fotos/ir5gC4hlqT0) y [Foto 3](https://unsplash.com/es/fotos/0XkLAIrknco).
-
+  - [Unplash](https://unsplash.com/) - [Foto 1](https://unsplash.com/es/fotos/W6l35A_rxxU), [Foto 2](https://unsplash.com/es/fotos/ir5gC4hlqT0) y [Foto 3](https://unsplash.com/es/fotos/0XkLAIrknco) de [Michael Dziedzic](https://unsplash.com/es/@lazycreekimages)
 ## Referencias
 
 1. [Justin Hunter. How to create a Solana NFT with IPFS](https://medium.com/pinata/how-to-create-a-solana-nft-with-ipfs-59d87afbe206)

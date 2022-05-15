@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://alejandrosanchezyali.vercel.app/20210712machinelearning/" /><meta property="og:image" content="https://alejandrosanchezyali.vercel.app/20210712machinelearning/featured-image.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-07-12T08:19:27-05:00" />
-<meta property="article:modified_time" content="2022-03-15T21:07:05-05:00" />
+<meta property="article:modified_time" content="2022-05-08T16:06:21-05:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://alejandrosanchezyali.vercel.app/20210712machinelearning/featured-image.png"/>
@@ -99,7 +99,7 @@ if (!doNotTrack) {
                             "width":  3200 ,
                             "height":  2048 
                         }],"genre": "posts","keywords": "Machine Learning, Tareas de aprendizaje, Regresión, Clasificación","wordcount":  1658 ,
-        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20210712machinelearning\/","datePublished": "2021-07-12T08:19:27-05:00","dateModified": "2022-03-15T21:07:05-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20210712machinelearning\/","datePublished": "2021-07-12T08:19:27-05:00","dateModified": "2022-05-08T16:06:21-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Alejandro Sánchez Yalí","logo": "https:\/\/alejandrosanchezyali.vercel.app\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -229,7 +229,7 @@ h_s \in \operatorname*{argmin}_{h\in \mathcal{H}} L_{S}(h).
 \end{equation}</p>
 <p>La condición anterior estaría asegurando el <em>buen comportamiento</em> de $h_{s}$ en $S$. Sin embargo, esta estrategia encierra un detalle con un gran demonio en su interior, el <strong>sobreentrenamiento</strong>. En la práctica es posible encontrar modelos en donde el riesgo empírico es cero, $L_{S}(h) = 0$ y la perdida fuera de la muestra es $\mathcal{L}(h, z) \neq 0$ para todo $z\in Z \setminus \{s_i\}_{i\in[m]}$; un modelo con estas características carece de <em>la capacidad de generalizar</em>. Este es un error frecuente, que ocurre cuando se utiliza un solo conjunto de datos para entrenar el algoritmo $\mathcal{A}$. Para evitar esto, es usual dividir el conjunto $S$ en dos conjuntos $S_{train}$ y $S_{test}$, un conjunto para realizar el entrenamiento del algoritmo y el otro para medir su <em>capacidad de generalizar</em>. El objetivo es que el modelo encontrado tenga un comportamiento similar en ambos conjuntos, $L_{S_{train}}(h)\approx L_{S_{test}}(h)$.</p>
 <p>¿Cómo garantizar <em>la capacidad de generalizar</em>? Aquí hay un problema complejo, que en primer lugar consiste en hacer la elección adecuada de un conjunto de hipótesis $\mathcal{H}$, de manera que para cualquier $\epsilon &gt; 0$ exista una muestra $S$ que garantice que:
-\begin{equation}\tag(4)
+\begin{equation}\tag{4}
 \forall h\in \mathcal{H}, \; \;|L_{S}(h) - L_{D}(h)| \leq \epsilon.
 \end{equation}
 Una vez se ha identificado la clase de hipótesis $\mathcal{H}$ que sastiface la ecuación (4), procedemos a encontrar la hipótesis $h$ en $\mathcal{H}$ que satisface la ecuación (3). Si se logra conseguir una clase hipótesis $\mathcal{H}$ y un modelo $h$ con estas características, podremos decir, que nuestro modelo tiene <em>la capacidad de generalizar</em> y por lo tanto tiene <em>buen comportamiento</em>.</p>
@@ -273,8 +273,8 @@ para encontrar una hipótesis $h_s$. Este es un proceso que puede ser automatiza
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Actualizado el 2022-03-15&nbsp;<a class="git-hash" href="https://github.com/asanchezyali/blog/commit/e50622893eb2209b707a110529e9693ea9280c16" target="_blank" title="commit by asanchezyali(alejandro.sanchezy@udea.edu.co) e50622893eb2209b707a110529e9693ea9280c16: init commit">
-                                    <i class="fas fa-hashtag fa-fw"></i>e506228</a></span>
+                <span>Actualizado el 2022-05-08&nbsp;<a class="git-hash" href="https://github.com/asanchezyali/blog/commit/50057f7d90a0692b31f38c37902b2df3e1e95305" target="_blank" title="commit by asanchezyali(alejandro.sanchezy@udea.edu.co) 50057f7d90a0692b31f38c37902b2df3e1e95305: rebuilding site dom 08 may 2022 16:06:21 -05">
+                                    <i class="fas fa-hashtag fa-fw"></i>50057f7</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>

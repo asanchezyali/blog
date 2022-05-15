@@ -5,13 +5,12 @@
         <description>Blockchain - Categoría - Alejandro Sánchez Yalí</description>
         <generator>Hugo -- gohugo.io</generator><language>es</language><managingEditor>asanchezyali@gmail.com (Alejandro Sánchez Yalí)</managingEditor>
             <webMaster>asanchezyali@gmail.com (Alejandro Sánchez Yalí)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 23 Mar 2022 08:19:27 -0500</lastBuildDate><atom:link href="https://alejandrosanchezyali.vercel.app/categories/blockchain/" rel="self" type="application/rss+xml" /><item>
-    <title>¿Cómo crear un NFT en Solana con IPFS?</title>
+    <title>¿Cómo crear una colección de NFTs en Solana con IPFS?</title>
     <link>https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/</link>
     <pubDate>Wed, 23 Mar 2022 08:19:27 -0500</pubDate>
     <author>Autor</author>
     <guid>https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/</guid>
-    <description><![CDATA[Los NFTs son mucho más que images generadas aleatoriamente, esto promete ser la revolución en los títulos de propiedad digital en la web tal y como la conocemos. Si quieres aprender más acerca de esto, te recomiendo leer el articulo de Nick Szabo, Secure Property Titles with Owner Authority, allí encontrarás las primeras ideas acerca de todo este asunto de los NFTs.
-A continuación vamos a ver cómo crear una colección de NFTs en Solana usando Pinata e IPFS.]]></description>
+    <description><![CDATA[Los NFTs son mucho más que imágenes generadas aleatoriamente, esto promete ser la revolución de la propiedad digital y la autoridad digital tal y como la conocemos. Si quieres entender más sobre este concepto, te recomiendo leer el articulo de Nick Szabo, Secure Property Titles with Owner Authority, allí encontrarás algunas de las ideas que dieron origin a los NFTs. En este artículo vamos a explicar cómo crear una colección de NFTs en Solana con IPFS.]]></description>
 </item><item>
     <title>Programando Dapps en Solana</title>
     <link>https://alejandrosanchezyali.vercel.app/20220310solana/</link>
