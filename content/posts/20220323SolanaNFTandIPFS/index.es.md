@@ -26,7 +26,7 @@ keywords:
 lightgallery: true
 ---
 
-Los NFTs son mucho más que imágenes generadas aleatoriamente, esto promete ser la revolución de los derechos de propiedad digital tal y como la conocemos. Si quieres aprender más sobre el concepto de NFT y el porqué de mi afirmación, te recomiendo leer el articulo de Nick Szabo, [_Secure Property Titles with Owner Authority_](https://nakamotoinstitute.org/secure-property-titles/), allí encontrarás algunas de las ideas que dieron origin a los NFTs. El objetivo de este artículo no es explicar qué es un NFT, sino cómo crear uno en Solana con IPFS.
+El objetivo de este artículo es explicar como crear una colección de NFTs usando la blochacin de Solana con IPFS a través de Pinata. Si estás interesado en entender qué son los NFTs y cómo estos son mucho más que imágenes generadas aleatoriamente, que prometen ser la revolución de los derechos de la propiedad digital tal y como la conocemos, te recomiendo leer el articulo de Nick Szabo, [_Secure Property Titles with Owner Authority_](https://nakamotoinstitute.org/secure-property-titles/), allí encontrarás algunas de las ideas que dieron origen a este concepto. 
 
 Este tutorial es especialmente interesante, en principio porque Solana ha estado estrechamente vinculado a [Arweave](https://www.arweave.org/), sin embargo hay muchos proyectos que prefieren usar IPFS para almacenar sus datos,  por su rápido acceso al contenido y su fiabilidad. Por otro lado, Metaplex, es un proyecto construido para hacer más fácil la creación de proyectos de NFTs en Solana y tiene soporte para IPFS, esto incluye la capacidad para usar Pinata para almacenar contenido y servirlo a través de una _API Gateway_ dedicada a IPFS. 
 
@@ -448,7 +448,7 @@ Deberá instalar las dependencias de esta manera:
 yarn install
 ```
  
- Luegon, abra el proyecto en su editor de preferencia. Verá un archivo `.env` que contiene la configuración de su proyecto. Deberías actualizarlo para que se vea así:
+ Luego, abra el proyecto en su editor de preferencia. Verá un archivo `.env` que contiene la configuración de su proyecto. Deberías actualizarlo para que se vea así:
 
  ```text
   REACT_APP_CANDY_MACHINE_PUBLIC_KEY=YOUR_PUBLIC_KEY

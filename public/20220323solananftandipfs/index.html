@@ -207,7 +207,7 @@ if (!doNotTrack) {
     <li><a href="#referencias">Referencias</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>Los NFTs son mucho más que imágenes generadas aleatoriamente, esto promete ser la revolución de los derechos de propiedad digital tal y como la conocemos. Si quieres aprender más sobre el concepto de NFT y el porqué de mi afirmación, te recomiendo leer el articulo de Nick Szabo, <a href="https://nakamotoinstitute.org/secure-property-titles/" target="_blank" rel="noopener noreffer"><em>Secure Property Titles with Owner Authority</em></a>, allí encontrarás algunas de las ideas que dieron origin a los NFTs. El objetivo de este artículo no es explicar qué es un NFT, sino cómo crear uno en Solana con IPFS.</p>
+            </div><div class="content" id="content"><p>El objetivo de este artículo es explicar como crear una colección de NFTs usando la blochacin de Solana con IPFS a través de Pinata. Si estás interesado en entender qué son los NFTs y cómo estos son mucho más que imágenes generadas aleatoriamente, que prometen ser la revolución de los derechos de la propiedad digital tal y como la conocemos, te recomiendo leer el articulo de Nick Szabo, <a href="https://nakamotoinstitute.org/secure-property-titles/" target="_blank" rel="noopener noreffer"><em>Secure Property Titles with Owner Authority</em></a>, allí encontrarás algunas de las ideas que dieron origen a este concepto.</p>
 <p>Este tutorial es especialmente interesante, en principio porque Solana ha estado estrechamente vinculado a <a href="https://www.arweave.org/" target="_blank" rel="noopener noreffer">Arweave</a>, sin embargo hay muchos proyectos que prefieren usar IPFS para almacenar sus datos,  por su rápido acceso al contenido y su fiabilidad. Por otro lado, Metaplex, es un proyecto construido para hacer más fácil la creación de proyectos de NFTs en Solana y tiene soporte para IPFS, esto incluye la capacidad para usar Pinata para almacenar contenido y servirlo a través de una <em>API Gateway</em> dedicada a IPFS.</p>
 <h2 id="configuración-del-ambiente-de-trabajo">Configuración del ambiente de trabajo</h2>
 <p>Para empezar, te debes registrar en <a href="https://www.pinata.cloud/" target="_blank" rel="noopener noreffer">Pinata</a>. Si lo que quieres es hacer pruebas, se puede usar la plan gratuito, sin embargo para el lanzamiento de una colección grande de NFTs en la red principal, la recomendación es considerar el plan professional con una <em>API Gateway</em> dedicada a IPFS.</p>
@@ -870,7 +870,7 @@ if (!doNotTrack) {
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yarn install
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Luegon, abra el proyecto en su editor de preferencia. Verá un archivo <code>.env</code> que contiene la configuración de su proyecto. Deberías actualizarlo para que se vea así:</p>
+</div><p>Luego, abra el proyecto en su editor de preferencia. Verá un archivo <code>.env</code> que contiene la configuración de su proyecto. Deberías actualizarlo para que se vea así:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
