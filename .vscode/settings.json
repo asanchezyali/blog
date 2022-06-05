@@ -2,5 +2,6 @@
     "html.format.wrapAttributes": "auto",
     "editor.wordWrap": "wordWrapColumn",
     "diffEditor.wordWrap": "on",
-    "editor.wordWrapColumn": 120
+    "editor.wordWrapColumn": 120,
+    "languageTool.language": "es"
 }

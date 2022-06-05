@@ -33,7 +33,7 @@ Por lo tanto, el principal objetivo es desarrollar un bot que sea capaz de comun
     <pubDate>Mon, 12 Jul 2021 08:19:27 -0500</pubDate>
     <author>Autor</author>
     <guid>https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/</guid>
-    <description><![CDATA[Introducción Una blockchian es una forma de almacenar datos a traves de una red de servidores (nodos) que interactuan mediante un protocolo de intercambio peer-to-peer, que mediante criptografía garantizan la integridad de los datos de forma segura, en principio sin la presencia de una autoridad central reguladora. Más que un simple algoritmo, blockchain es una tecnología que facilita la descentralización y el acceso a los datsos a cada uno de los participantes de la red, la filosofía ahora es, no confies, verifica.]]></description>
+    <description><![CDATA[Introducción Una blockchain es una forma de almacenar datos a través de una red de servidores (nodos) que interactúan mediante un protocolo de intercambio peer-to-peer y que hacen uso de la criptografía para garantizar la integridad de los datos de forma segura, en principio sin la presencia de una autoridad central reguladora. una blockchain es más que un simple algoritmo, es una tecnología que facilita la descentralización y el acceso a los datos a cada uno de los participantes de la red, estableciendo un nuevo paradigma en la forma de como relacionarse con la información, no confíes, verifica.]]></description>
 </item><item>
     <title>Aprendiendo de los datos</title>
     <link>https://alejandrosanchezyali.vercel.app/20210712machinelearning/</link>
