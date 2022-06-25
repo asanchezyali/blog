@@ -98,7 +98,7 @@ if (!doNotTrack) {
                             "url": "https:\/\/alejandrosanchezyali.vercel.app\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  5521 ,
+                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  5405 ,
         "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220310solana\/","datePublished": "2022-03-10T08:19:27-05:00","dateModified": "2022-05-08T16:06:21-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Alejandro Sánchez Yalí","logo": "https:\/\/alejandrosanchezyali.vercel.app\/images\/avatar.png"},"author": {
@@ -179,7 +179,7 @@ if (!doNotTrack) {
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Programando Dapps en Solana</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Alejandro Sánchez Yalí</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/blockchain/"><i class="far fa-folder fa-fw"></i>Blockchain</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-10">2022-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;5521 palabras&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-10">2022-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;5405 palabras&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;26 minutos&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -195,13 +195,10 @@ if (!doNotTrack) {
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#comunidades-de-solana">Comunidades de Solana</a></li>
-    <li><a href="#prerequisitos">Prerequisitos</a></li>
-    <li><a href="#qué-vamos-a-construir">¿Qué vamos a construir?</a></li>
     <li><a href="#solana-cli">Solana CLI</a>
       <ul>
-        <li><a href="#generando-un-criptocartera-de-papel">Generando un criptocartera de papel</a></li>
-        <li><a href="#gestionando-las-diferentes-redes-de-solana">Gestionando las diferentes redes de solana</a></li>
+        <li><a href="#criptocartera-de-papel-y-airdrop">Criptocartera de papel y airdrop</a></li>
+        <li><a href="#gestionando-las-redes-de-solana">Gestionando las redes de solana</a></li>
       </ul>
     </li>
     <li><a href="#configuración-inicial-de-una-dapp-con-anchor">Configuración inicial de una dapp con Anchor</a></li>
@@ -215,19 +212,7 @@ if (!doNotTrack) {
     <li><a href="#referencias">Referencias</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>El objetivo de este artículo es introducir el desarrollo de aplicaciones descentralizadas (<em>dapps</em>) en la cadena de bloques de Solana. En principio, vamos a explorar las herramientas que hay disponibles para el trabajo, para luego desarrollar una <em>dapp</em> de ejemplo y entender cómo interactúan todos los elementos del ecosistema de Solana.</p>
-<p>Espero que el contenido que voy a presentar a continuación sea de su agrado y les permita incrementar su <em>Qi</em> como desarrolladores de <em>Blockchain</em>.</p>
-<h2 id="comunidades-de-solana">Comunidades de Solana</h2>
-<p>Antes de comenzar es importante señalar que el ecosistema de Solana es relativamente nuevo y está en constante evolución, por esta razón el contenido que se produce acerca de esta tecnología se desactualiza con rapidez. Por lo tanto, una de mis recomendaciones es procurar seguir la documentación oficial de Solana y unirse a las comunidades que desarrollan y participan del proyecto, allí puedes encontrar la solución a muchas de tus preguntas, con solo seguir el hilo de las conversaciones antiguas, además estoy seguro que muchos desarrolladores que participan de estas comunidades son muy amables y están dispuestos a ayudarte en caso de ser necesario. Te dejo algunos de los canales de discord que me ha sido de mucha utilidad:</p>
-<ol>
-<li><a href="https://discord.gg/ZCHmqvXgDw" target="_blank" rel="noopener noreffer">Anchor</a></li>
-<li><a href="https://discord.gg/ebsJrabneZ" target="_blank" rel="noopener noreffer">Stractors</a></li>
-<li><a href="https://discord.gg/rpn5wM8Ry3" target="_blank" rel="noopener noreffer">Metaplex</a></li>
-<li><a href="https://discord.gg/solana" target="_blank" rel="noopener noreffer">Solana Tech</a></li>
-</ol>
-<p>Y si te interesa, también te dejo mi canal: <a href="https://discord.gg/eeZgZaWNRu" target="_blank" rel="noopener noreffer">CODE &amp; MATH</a>.</p>
-<h2 id="prerequisitos">Prerequisitos</h2>
-<p>A continuación, enumeraré los herramientas y la respectivas versiones que utilicé al momento de escribir este articulo. En cada uno de los items encontrarás enlazada cada herramienta con la documentación para instalarlas, ya que cada proyecto explica como hacerlo y además de mantienen actualizados los procedimientos:</p>
+            </div><div class="content" id="content"><p>Aquí vas a encontrar cómo construir el código base para una <em>dapp</em> en la cadena de bloques de Solana. Para ello, necesitarás:</p>
 <ol>
 <li>
 <p><a href="https://docs.solana.com/cli/install-solana-cli-tools" target="_blank" rel="noopener noreffer">Solana Tool Suite (1.8.16)</a> - Esta es la CLI de Solana. La documentación es muy completa y allí encontrarás todos los detalles para aprender a utilizarla.</p>
@@ -248,42 +233,49 @@ if (!doNotTrack) {
 <p><a href="https://project-serum.github.io/anchor/getting-started/installation.html" target="_blank" rel="noopener noreffer">Phantom</a> - Es la criptocartera que emplearemos para guardar las criptomonedas de Solana.</p>
 </li>
 </ol>
-<p>En otro artículo trataré de explicar en que consiste la tecnología Blockchain y cuáles son las características principales de Solana. Por ahora solo nos centraremos en construir un ejemplo que sirva de ilustración para entender cómo desarrollar una <em>dapp</em> sobre Solana.</p>
-<p>Si quieres aprender más sobre Solana y cómo funciona, aquí hay algunos artículos muy buenos:</p>
+<p>Como has visto en cada uno de los items encontrarás enlazada cada herramienta con la documentación para instalarlas, ya que cada proyecto explica como hacerlo y además de mantienen actualizados los procedimientos.</p>
+<p>También te recomendamos que te unas a las comunidades de discord de Anchor, Stractors, Metaplex y Solana para que te ayuden a mantenerte actualizado:</p>
 <ol>
-<li><a href="https://docs.solana.com/introduction" target="_blank" rel="noopener noreffer">Documentación oficial de Solana</a>.</li>
-<li><a href="https://www.notboring.co/p/solana-summer?s=r" target="_blank" rel="noopener noreffer">Solana Summer</a>.</li>
+<li><a href="https://discord.gg/ZCHmqvXgDw" target="_blank" rel="noopener noreffer">Anchor</a></li>
+<li><a href="https://discord.gg/ebsJrabneZ" target="_blank" rel="noopener noreffer">Stractors</a></li>
+<li><a href="https://discord.gg/rpn5wM8Ry3" target="_blank" rel="noopener noreffer">Metaplex</a></li>
+<li><a href="https://discord.gg/solana" target="_blank" rel="noopener noreffer">Solana Tech</a></li>
 </ol>
-<h2 id="qué-vamos-a-construir">¿Qué vamos a construir?</h2>
+<p>Y si quieres aprender más sobre la blockchain conmigo, puedes visitar mi canal de discord <a href="https://discord.gg/eeZgZaWNRu" target="_blank" rel="noopener noreffer">CODE &amp; MATH</a>.</p>
+<p>Espero que el contenido que voy a presentar a continuación sea de su agrado y les permita incrementar su <em>Qi</em> como desarrolladores de <em>Blockchain</em>.</p>
 <h2 id="solana-cli">Solana CLI</h2>
-<p>El CLI de Solana nos permite principalmente configurar nuestra red (entre <code>localhost</code>, <code>testnet</code>, <code>devnet</code> o <code>mainnet-beta</code>) además de obtener algunas criptomonedas en nuestro criptocartera para realizar pruebas.</p>
-<div class="details admonition note open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-pencil-alt fa-fw"></i>Nota<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">Las criptomonedas de las redes <code>localhost</code>, <code>testnet</code> y <code>devnet</code> no tiene ningún valor comercial, son solo para probar las dapps en ambientes de desarrollo.</div>
-        </div>
-    </div>
-<h3 id="generando-un-criptocartera-de-papel">Generando un criptocartera de papel</h3>
-<p>Para poder probar nuestro programa de Solana vamos a necesitar una criptocartera. Una criptocartera de criptomonedas almacena colecciones de claves que son utilizadas para enviar y recibir criptomonedas. A continuación vamos a generar un <a href="https://docs.solana.com/wallet-guide/paper-wallet" target="_blank" rel="noopener noreffer">criptocartera de papel</a> usando la línea de comandos de Solana.</p>
-<p>Para generar una criptocartera de papel, utilizaremos el comando  <code>solana-keygen</code>, que se debería haber sido instalado cuando instalamos el CLI de solana. Sin embargo, para verificar que se instaló correctamente, ejecute el siguiente comando:</p>
+<p>El CLI de Solana es una herramienta que te permite interactuar con la blockchain de Solana. Para ello, necesitas instalarlo de acuerdo a las instrucciones que te proporciona la documentación: <a href="https://docs.solana.com/cli/install-solana-cli-tools" target="_blank" rel="noopener noreffer">Solana Tool Suite (1.8.16)</a>. Por otro lado, debes configurarlo para que puedas interactuar con la blockchain. Existen tres redes de configurar el ambiente de trabajo: <code>localhost</code>, <code>testnet</code>, <code>devnet</code> o <code>mainnet-beta</code>.</p>
+<p>Además, debes obtener algunas criptomonedas de prueba para realizar pruebas. Las criptomonedas que te proporcionará el CLI para las redes <code>localhost</code>, <code>testnet</code> y <code>devnet</code> no tiene ningún valor comercial, son solo para probar las dapps en ambientes de desarrollo.</p>
+<h3 id="criptocartera-de-papel-y-airdrop">Criptocartera de papel y airdrop</h3>
+<p>Una criptocartera de criptomonedas es una herramienta que te permite almacenar claves privadas que son utilizadas para generar claves públicas que son utilizadas para generar transacciones. A continuación te enseñaremos como generar una <a href="https://docs.solana.com/wallet-guide/paper-wallet" target="_blank" rel="noopener noreffer">criptocartera de papel</a> usando la línea de comandos de Solana. Para ello, utilizaremos el comando  <code>solana-keygen</code>, que se debería haber sido instalado cuando instalamos el CLI de solana. Sin embargo, para verificar que se instaló correctamente, podemos ejecutar el siguiente comando:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana --version
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Output</span>
 </span></span><span class="line"><span class="cl">solana-cli 1.8.16 <span class="o">(</span>src:23af37fe<span class="p">;</span> feat:1886190546<span class="o">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Si ves la versión de <code>solana-keygen</code>, significa que podemos empezar a usarla. Ejecuta el siguiente comando para generar un par de claves:</p>
+</div><p>Si vemos la versión, es que se instaló correctamente. Significa que podemos ejecutar el comando <code>solana-keygen</code> para generar una criptocartera de papel.</p>
 <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana-keygen new --outfile ~/.config/solana/«MY_PAPER_WALLET».json
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -301,13 +293,9 @@ if (!doNotTrack) {
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana-keygen new --outfile ~/.config/solana/«MY_PAPER_WALLET».json
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Output</span>
 </span></span><span class="line"><span class="cl">Generating a new keypair
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">For added security, enter a BIP39 passphrase
@@ -325,8 +313,8 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl">surface pride wild second judge where episode wire enforce trial upgrade music
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Esto generará una frase semilla aleatoria y le pedirá que añada una frase de contraseña opcional. Siéntase libre de añadir una frase de contraseña si lo desea, está bien no hacerlo para los propósitos de este tutorial.</p>
-<p>Una vez que hayas rellenado la información, el terminal debería mostrar la clave pública y la frase semilla generada. Copie y guarde la frase semilla en un lugar seguro.</p>
+</div><p>El parámetro <code>MY_PAPER_WALLET</code> es un nombre que le daremos a la criptocartera de papel que generaremos. Por ejemplo, si queremos generar una criptocartera de papel para guardarla en la carpeta <code>~/.config/solana/</code>, podemos usar <code>MY_PAPER_WALLET=my_paper_wallet</code>. Cuando ejecutemos el comando <code>solana-keygen new</code>, el CLI nos pedirá que introduzcamos una frase de recuperación para generar la clave pública y la clave privada. Siéntase libre de añadir una frase de contraseña si lo desea, está bien no hacerlo para los propósitos de este tutorial.</p>
+<p>Una vez que hemos rellenado el formulario, el terminal debería mostrar la clave pública y la frase semilla generada. Copie y guarde la frase semilla en un lugar seguro.</p>
 <p>El par de claves se generará en la siguiente ubicación:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -341,34 +329,19 @@ if (!doNotTrack) {
             <i class="icon fas fa-pencil-alt fa-fw"></i>Nota<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content">El archivo json puede llamarse como usted quiera, asegúrese de recordar que debe almacenar su frase semilla en algún lugar seguro.</div>
+            <div class="admonition-content">El archivo json puede llamarse como usted quiera, asegúrese de almacenar su frase semilla en algún lugar seguro.</div>
         </div>
     </div>
 <p>Para usar tu nueva criptocartera, entonces escribimos el siguiente comando:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana config <span class="nb">set</span> --keypair ~/.config/solana/«MY_PAPER_WALLET».json
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
-</span></span><span class="line"><span class="cl">Config File: /home/alejandro/.config/solana/cli/config.yml
-</span></span><span class="line"><span class="cl">RPC URL: https://api.devnet.solana.com 
-</span></span><span class="line"><span class="cl">WebSocket URL: wss://api.devnet.solana.com/ <span class="o">(</span>computed<span class="o">)</span>
-</span></span><span class="line"><span class="cl">Keypair Path: /home/alejandro/.config/solana/«MY_PAPER_WALLET».json 
-</span></span><span class="line"><span class="cl">Commitment: confirmed 
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Ahora vamos a conseguir algunos tokens de prueba, para esto nos aseguramos primero de usar la red de pruebas <code>devnet</code>:</p>
-<div class="highlight"><div class="chroma">
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -376,22 +349,26 @@ if (!doNotTrack) {
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Output</span>
+</span></span><span class="line"><span class="cl">Config File: /home/alejandro/.config/solana/cli/config.yml
+</span></span><span class="line"><span class="cl">RPC URL: https://api.devnet.solana.com 
+</span></span><span class="line"><span class="cl">WebSocket URL: wss://api.devnet.solana.com/ <span class="o">(</span>computed<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Keypair Path: /home/alejandro/.config/solana/«MY_PAPER_WALLET».json 
+</span></span><span class="line"><span class="cl">Commitment: confirmed 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ahora vamos a probar que la criptocartera de papel se ha creado correctamente. Para ello, debemos asegurarnos primero de usar la red de pruebas <code>devnet</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana config <span class="nb">set</span> --url devnet
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
-</span></span><span class="line"><span class="cl">Config File: /home/alejandro/.config/solana/cli/config.yml
-</span></span><span class="line"><span class="cl">RPC URL: https://api.devnet.solana.com 
-</span></span><span class="line"><span class="cl">WebSocket URL: wss://api.devnet.solana.com/ <span class="o">(</span>computed<span class="o">)</span>
-</span></span><span class="line"><span class="cl">Keypair Path: /home/alejandro/.config/solana/«MY_PAPER_WALLET».json 
-</span></span><span class="line"><span class="cl">Commitment: confirmed 
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Pora comprobar la configuración actual de la red (y otras) podemos emplear este comando:</p>
-<div class="highlight"><div class="chroma">
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -399,13 +376,36 @@ if (!doNotTrack) {
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Output</span>
+</span></span><span class="line"><span class="cl">Config File: /home/alejandro/.config/solana/cli/config.yml
+</span></span><span class="line"><span class="cl">RPC URL: https://api.devnet.solana.com 
+</span></span><span class="line"><span class="cl">WebSocket URL: wss://api.devnet.solana.com/ <span class="o">(</span>computed<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Keypair Path: /home/alejandro/.config/solana/«MY_PAPER_WALLET».json 
+</span></span><span class="line"><span class="cl">Commitment: confirmed 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Para comprobar la configuración actual de la red (y otras) podemos emplear este comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana config get
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Output</span>
 </span></span><span class="line"><span class="cl">Config File: /home/user/.config/solana/cli/config.yml
 </span></span><span class="line"><span class="cl">RPC URL: https://api.devnet.solana.com 
 </span></span><span class="line"><span class="cl">WebSocket URL: wss://api.devnet.solana.com/ <span class="o">(</span>computed<span class="o">)</span>
@@ -417,19 +417,31 @@ if (!doNotTrack) {
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana address
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
 </span></span><span class="line"><span class="cl">4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>A continuación vamos a conseguir algo de token de Solana, para hacer esto, asegurate de que te encuentras en la devnet, ya que nuestra dapp va funcionar en esta red. Para conseguir los tokens hacemos:</p>
+</div><p>A continuación vamos a conseguir algo de criptomoneda de prueba de Solana, para hacer esto, debemos asegurarnos que estamos usando la <code>devnet</code>, ya que nuestro código base va a funcionar en esta red. Para conseguir las criptomonedas de prueba, ejecutamos el siguiente comando:</p>
 <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana airdrop <span class="m">2</span> 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9 --url devnet
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -437,13 +449,9 @@ if (!doNotTrack) {
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana airdrop <span class="m">2</span> 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9 --url devnet
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
 </span></span><span class="line"><span class="cl">Requesting airdrop of <span class="m">2</span> SOL
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Signature: 3KsFBCULmso5Lc7CAQdqF8rzsBXb3xaVrG3cup19n3P2paw3ryvovWQ9MsMB8GMiQkXJWyHXGrni63BsNrxVfHP2
@@ -455,18 +463,22 @@ if (!doNotTrack) {
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana account «YOUR_ADDRESS»
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana account «YOUR_ADDRESS»
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
 </span></span><span class="line"><span class="cl">Public Key: 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
 </span></span><span class="line"><span class="cl">Balance: 4.956381584 SOL
 </span></span><span class="line"><span class="cl">Owner: <span class="m">11111111111111111111111111111111</span>
@@ -478,19 +490,23 @@ if (!doNotTrack) {
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana balance 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Output</span>
 </span></span><span class="line"><span class="cl"><span class="m">2</span> SOL
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con un 2 SOL, tokens que utilizaremos más adelante para probar nuestra aplicación. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).</p>
-<h3 id="gestionando-las-diferentes-redes-de-solana">Gestionando las diferentes redes de solana</h3>
+</div><p>Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con 2 Solanas, las criptomonedas que utilizaremos más adelante para probar nuestra aplicación. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).</p>
+<h3 id="gestionando-las-redes-de-solana">Gestionando las redes de solana</h3>
 <p>Para utilizar las redes  localhost, testnet, devnet o mainnet-beta, podemos hacer lo siguiente:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

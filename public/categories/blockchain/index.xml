@@ -17,8 +17,9 @@
     <pubDate>Thu, 10 Mar 2022 08:19:27 -0500</pubDate>
     <author>Autor</author>
     <guid>https://alejandrosanchezyali.vercel.app/20220310solana/</guid>
-    <description><![CDATA[El objetivo de este artículo es introducir el desarrollo de aplicaciones descentralizadas (dapps) en la cadena de bloques de Solana. En principio, vamos a explorar las herramientas que hay disponibles para el trabajo, para luego desarrollar una dapp de ejemplo y entender cómo interactúan todos los elementos del ecosistema de Solana.
-Espero que el contenido que voy a presentar a continuación sea de su agrado y les permita incrementar su Qi como desarrolladores de Blockchain.]]></description>
+    <description><![CDATA[Aquí vas a encontrar cómo construir el código base para una dapp en la cadena de bloques de Solana. Para ello, necesitarás:
+  Solana Tool Suite (1.8.16) - Esta es la CLI de Solana. La documentación es muy completa y allí encontrarás todos los detalles para aprender a utilizarla.
+  Anchor (0.21.0) - Seguramente si has desarrollado dapps sobre Ethereum, habrás utilizado Hardhat. Bueno, Anchor es un framework parecido a Hardhat que se utiliza para desarrollar dapps sobre Solana.]]></description>
 </item><item>
     <title>Fundamentos de la tecnología Blockchain</title>
     <link>https://alejandrosanchezyali.vercel.app/20220209blockchainfoundations/</link>

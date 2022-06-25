@@ -1,24 +1,7 @@
 # Programando Dapps en Solana
 
 
-El objetivo de este artículo es introducir el desarrollo de aplicaciones descentralizadas (_dapps_) en la cadena de bloques de Solana. En principio, vamos a explorar las herramientas que hay disponibles para el trabajo, para luego desarrollar una _dapp_ de ejemplo y entender cómo interactúan todos los elementos del ecosistema de Solana. 
-
-Espero que el contenido que voy a presentar a continuación sea de su agrado y les permita incrementar su _Qi_ como desarrolladores de _Blockchain_.
-
-## Comunidades de Solana
-
-Antes de comenzar es importante señalar que el ecosistema de Solana es relativamente nuevo y está en constante evolución, por esta razón el contenido que se produce acerca de esta tecnología se desactualiza con rapidez. Por lo tanto, una de mis recomendaciones es procurar seguir la documentación oficial de Solana y unirse a las comunidades que desarrollan y participan del proyecto, allí puedes encontrar la solución a muchas de tus preguntas, con solo seguir el hilo de las conversaciones antiguas, además estoy seguro que muchos desarrolladores que participan de estas comunidades son muy amables y están dispuestos a ayudarte en caso de ser necesario. Te dejo algunos de los canales de discord que me ha sido de mucha utilidad: 
-
-1. [Anchor](https://discord.gg/ZCHmqvXgDw)
-2. [Stractors](https://discord.gg/ebsJrabneZ)
-3. [Metaplex](https://discord.gg/rpn5wM8Ry3)
-4. [Solana Tech](https://discord.gg/solana)
-
-Y si te interesa, también te dejo mi canal: [CODE & MATH](https://discord.gg/eeZgZaWNRu).
-
-## Prerequisitos
-
-A continuación, enumeraré los herramientas y la respectivas versiones que utilicé al momento de escribir este articulo. En cada uno de los items encontrarás enlazada cada herramienta con la documentación para instalarlas, ya que cada proyecto explica como hacerlo y además de mantienen actualizados los procedimientos:
+Aquí vas a encontrar cómo construir el código base para una _dapp_ en la cadena de bloques de Solana. Para ello, necesitarás:
 
 1. [Solana Tool Suite (1.8.16)](https://docs.solana.com/cli/install-solana-cli-tools) - Esta es la CLI de Solana. La documentación es muy completa y allí encontrarás todos los detalles para aprender a utilizarla. 
 2. [Anchor (0.21.0)](https://project-serum.github.io/anchor/getting-started/introduction.html) - Seguramente si has desarrollado dapps sobre Ethereum, habrás utilizado [Hardhat](https://hardhat.org/). Bueno, Anchor es un _framework_ parecido a Hardhat que se utiliza para desarrollar _dapps_ sobre Solana. 
@@ -27,42 +10,42 @@ A continuación, enumeraré los herramientas y la respectivas versiones que util
 
 5. [Node.js (16.04)](https://nodejs.org/en/) - Para instalarla puedes usar [nvm](https://github.com/nvm-sh/nvm).
 
-6. [Phantom](https://project-serum.github.io/anchor/getting-started/installation.html) - Es la criptocartera que emplearemos para guardar las criptomonedas de Solana.
+6.  [Phantom](https://project-serum.github.io/anchor/getting-started/installation.html) - Es la criptocartera que emplearemos para guardar las criptomonedas de Solana.
 
-En otro artículo trataré de explicar en que consiste la tecnología Blockchain y cuáles son las características principales de Solana. Por ahora solo nos centraremos en construir un ejemplo que sirva de ilustración para entender cómo desarrollar una _dapp_ sobre Solana.
+Como has visto en cada uno de los items encontrarás enlazada cada herramienta con la documentación para instalarlas, ya que cada proyecto explica como hacerlo y además de mantienen actualizados los procedimientos.
 
-Si quieres aprender más sobre Solana y cómo funciona, aquí hay algunos artículos muy buenos:
+También te recomendamos que te unas a las comunidades de discord de Anchor, Stractors, Metaplex y Solana para que te ayuden a mantenerte actualizado:
 
-1. [Documentación oficial de Solana](https://docs.solana.com/introduction).
-2. [Solana Summer](https://www.notboring.co/p/solana-summer?s=r).
+1.  [Anchor](https://discord.gg/ZCHmqvXgDw)
+2.  [Stractors](https://discord.gg/ebsJrabneZ)
+3.  [Metaplex](https://discord.gg/rpn5wM8Ry3)
+4.  [Solana Tech](https://discord.gg/solana)
 
-## ¿Qué vamos a construir?
+Y si quieres aprender más sobre la blockchain conmigo, puedes visitar mi canal de discord [CODE & MATH](https://discord.gg/eeZgZaWNRu).
 
+Espero que el contenido que voy a presentar a continuación sea de su agrado y les permita incrementar su _Qi_ como desarrolladores de _Blockchain_.
 ## Solana CLI
 
-El CLI de Solana nos permite principalmente configurar nuestra red (entre `localhost`, `testnet`, `devnet` o `mainnet-beta`) además de obtener algunas criptomonedas en nuestro criptocartera para realizar pruebas.
+El CLI de Solana es una herramienta que te permite interactuar con la blockchain de Solana. Para ello, necesitas instalarlo de acuerdo a las instrucciones que te proporciona la documentación: [Solana Tool Suite (1.8.16)](https://docs.solana.com/cli/install-solana-cli-tools). Por otro lado, debes configurarlo para que puedas interactuar con la blockchain. Existen tres redes de configurar el ambiente de trabajo: `localhost`, `testnet`, `devnet` o `mainnet-beta`.
 
-{{< admonition >}}
-Las criptomonedas de las redes `localhost`, `testnet` y `devnet` no tiene ningún valor comercial, son solo para probar las dapps en ambientes de desarrollo.
-{{< /admonition >}}
-### Generando un criptocartera de papel 
+Además, debes obtener algunas criptomonedas de prueba para realizar pruebas. Las criptomonedas que te proporcionará el CLI para las redes `localhost`, `testnet` y `devnet` no tiene ningún valor comercial, son solo para probar las dapps en ambientes de desarrollo.
+### Criptocartera de papel y airdrop 
 
-Para poder probar nuestro programa de Solana vamos a necesitar una criptocartera. Una criptocartera de criptomonedas almacena colecciones de claves que son utilizadas para enviar y recibir criptomonedas. A continuación vamos a generar un [criptocartera de papel](https://docs.solana.com/wallet-guide/paper-wallet) usando la línea de comandos de Solana. 
-
-Para generar una criptocartera de papel, utilizaremos el comando  `solana-keygen`, que se debería haber sido instalado cuando instalamos el CLI de solana. Sin embargo, para verificar que se instaló correctamente, ejecute el siguiente comando:
+Una criptocartera de criptomonedas es una herramienta que te permite almacenar claves privadas que son utilizadas para generar claves públicas que son utilizadas para generar transacciones. A continuación te enseñaremos como generar una [criptocartera de papel](https://docs.solana.com/wallet-guide/paper-wallet) usando la línea de comandos de Solana. Para ello, utilizaremos el comando  `solana-keygen`, que se debería haber sido instalado cuando instalamos el CLI de solana. Sin embargo, para verificar que se instaló correctamente, podemos ejecutar el siguiente comando:
 
 ```shell
 solana --version
-
+```
+```shell
 # Output
 solana-cli 1.8.16 (src:23af37fe; feat:1886190546)
 ```
-
-Si ves la versión de `solana-keygen`, significa que podemos empezar a usarla. Ejecuta el siguiente comando para generar un par de claves:
+Si vemos la versión, es que se instaló correctamente. Significa que podemos ejecutar el comando `solana-keygen` para generar una criptocartera de papel.
 
 ```shell
 solana-keygen new --outfile ~/.config/solana/«MY_PAPER_WALLET».json
-
+```
+```shell
 # Output
 Generating a new keypair
 
@@ -80,9 +63,10 @@ pubkey: A9exxqnew6bbovMLt8ZDA2CyUVEKP6Y2uGkT8EGE2q7J
 Save this seed phrase and your BIP39 passphrase to recover your new keypair:
 surface pride wild second judge where episode wire enforce trial upgrade music
 ```
-Esto generará una frase semilla aleatoria y le pedirá que añada una frase de contraseña opcional. Siéntase libre de añadir una frase de contraseña si lo desea, está bien no hacerlo para los propósitos de este tutorial.
 
-Una vez que hayas rellenado la información, el terminal debería mostrar la clave pública y la frase semilla generada. Copie y guarde la frase semilla en un lugar seguro.
+El parámetro `MY_PAPER_WALLET` es un nombre que le daremos a la criptocartera de papel que generaremos. Por ejemplo, si queremos generar una criptocartera de papel para guardarla en la carpeta `~/.config/solana/`, podemos usar `MY_PAPER_WALLET=my_paper_wallet`. Cuando ejecutemos el comando `solana-keygen new`, el CLI nos pedirá que introduzcamos una frase de recuperación para generar la clave pública y la clave privada. Siéntase libre de añadir una frase de contraseña si lo desea, está bien no hacerlo para los propósitos de este tutorial.
+
+Una vez que hemos rellenado el formulario, el terminal debería mostrar la clave pública y la frase semilla generada. Copie y guarde la frase semilla en un lugar seguro.
 
 El par de claves se generará en la siguiente ubicación:
 
@@ -90,15 +74,15 @@ El par de claves se generará en la siguiente ubicación:
 /home/<your user>/.config/solana/«MY_PAPER_WALLET».json
 ```
 {{< admonition >}}
-
-El archivo json puede llamarse como usted quiera, asegúrese de recordar que debe almacenar su frase semilla en algún lugar seguro.
+El archivo json puede llamarse como usted quiera, asegúrese de almacenar su frase semilla en algún lugar seguro.
 {{< /admonition >}}
 
 Para usar tu nueva criptocartera, entonces escribimos el siguiente comando:
 
 ```shell 
 solana config set --keypair ~/.config/solana/«MY_PAPER_WALLET».json
-
+```
+```shell
 # Output
 Config File: /home/alejandro/.config/solana/cli/config.yml
 RPC URL: https://api.devnet.solana.com 
@@ -107,11 +91,12 @@ Keypair Path: /home/alejandro/.config/solana/«MY_PAPER_WALLET».json
 Commitment: confirmed 
 ```
 
-Ahora vamos a conseguir algunos tokens de prueba, para esto nos aseguramos primero de usar la red de pruebas `devnet`:
+Ahora vamos a probar que la criptocartera de papel se ha creado correctamente. Para ello, debemos asegurarnos primero de usar la red de pruebas `devnet`:
 
 ```shell
 solana config set --url devnet
-
+```
+```shell
 # Output
 Config File: /home/alejandro/.config/solana/cli/config.yml
 RPC URL: https://api.devnet.solana.com 
@@ -120,11 +105,12 @@ Keypair Path: /home/alejandro/.config/solana/«MY_PAPER_WALLET».json
 Commitment: confirmed 
 ```
 
-Pora comprobar la configuración actual de la red (y otras) podemos emplear este comando:
+Para comprobar la configuración actual de la red (y otras) podemos emplear este comando:
 
 ```shell
 solana config get
-
+```
+```shell
 # Output
 Config File: /home/user/.config/solana/cli/config.yml
 RPC URL: https://api.devnet.solana.com 
@@ -137,16 +123,19 @@ con el CLI podemos ver la dirección de nuestra criptocartera:
 
 ```shell
 solana address
-
+```
+```shell
 # Output is something like this:
 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
 ```
 
-A continuación vamos a conseguir algo de token de Solana, para hacer esto, asegurate de que te encuentras en la devnet, ya que nuestra dapp va funcionar en esta red. Para conseguir los tokens hacemos:
+A continuación vamos a conseguir algo de criptomoneda de prueba de Solana, para hacer esto, debemos asegurarnos que estamos usando la `devnet`, ya que nuestro código base va a funcionar en esta red. Para conseguir las criptomonedas de prueba, ejecutamos el siguiente comando:
+
 
 ```shell
 solana airdrop 2 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9 --url devnet
-
+```
+```shell
 # Output is something like this:
 Requesting airdrop of 2 SOL
 
@@ -158,7 +147,8 @@ Signature: 3KsFBCULmso5Lc7CAQdqF8rzsBXb3xaVrG3cup19n3P2paw3ryvovWQ9MsMB8GMiQkXJW
 Para obtener la información completa de nuestra cuenta:
 ```shell
 solana account «YOUR_ADDRESS»
-
+```
+```shell
 # Output is something like this:
 Public Key: 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
 Balance: 4.956381584 SOL
@@ -167,20 +157,19 @@ Executable: false
 Rent Epoch: 277
 ```
 
-
 Para verificar el balance de nuestro monedero hacemos:
 
 ```shell
 solana balance 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
-
+```
+```shell
 # Output
 2 SOL
 ```
 
-Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con un 2 SOL, tokens que utilizaremos más adelante para probar nuestra aplicación. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).
+Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con 2 Solanas, las criptomonedas que utilizaremos más adelante para probar nuestra aplicación. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).
 
-### Gestionando las diferentes redes de solana
-
+### Gestionando las redes de solana
 
 Para utilizar las redes  localhost, testnet, devnet o mainnet-beta, podemos hacer lo siguiente:
 
