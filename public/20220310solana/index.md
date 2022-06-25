@@ -36,6 +36,7 @@ Una criptocartera de criptomonedas es una herramienta que te permite almacenar c
 ```shell
 solana --version
 ```
+
 ```shell
 # Output
 solana-cli 1.8.16 (src:23af37fe; feat:1886190546)
@@ -45,6 +46,7 @@ Si vemos la versión, es que se instaló correctamente. Significa que podemos ej
 ```shell
 solana-keygen new --outfile ~/.config/solana/«MY_PAPER_WALLET».json
 ```
+
 ```shell
 # Output
 Generating a new keypair
@@ -82,6 +84,7 @@ Para usar tu nueva criptocartera, entonces escribimos el siguiente comando:
 ```shell 
 solana config set --keypair ~/.config/solana/«MY_PAPER_WALLET».json
 ```
+
 ```shell
 # Output
 Config File: /home/alejandro/.config/solana/cli/config.yml
@@ -96,6 +99,7 @@ Ahora vamos a probar que la criptocartera de papel se ha creado correctamente. P
 ```shell
 solana config set --url devnet
 ```
+
 ```shell
 # Output
 Config File: /home/alejandro/.config/solana/cli/config.yml
@@ -110,6 +114,7 @@ Para comprobar la configuración actual de la red (y otras) podemos emplear este
 ```shell
 solana config get
 ```
+
 ```shell
 # Output
 Config File: /home/user/.config/solana/cli/config.yml
@@ -124,17 +129,19 @@ con el CLI podemos ver la dirección de nuestra criptocartera:
 ```shell
 solana address
 ```
+
 ```shell
 # Output is something like this:
 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
 ```
 
-A continuación vamos a conseguir algo de criptomoneda de prueba de Solana, para hacer esto, debemos asegurarnos que estamos usando la `devnet`, ya que nuestro código base va a funcionar en esta red. Para conseguir las criptomonedas de prueba, ejecutamos el siguiente comando:
+A continuación vamos a conseguir algo de criptomonedas de prueba de Solana, para hacer esto, debemos asegurarnos que estamos usando la `devnet`, ya que nuestro código base va a funcionar en esta red. Para conseguir las criptomonedas de prueba, ejecutamos el siguiente comando:
 
 
 ```shell
-solana airdrop 2 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9 --url devnet
+solana airdrop 2 «YOUR_ADDRESS» --url devnet
 ```
+
 ```shell
 # Output is something like this:
 Requesting airdrop of 2 SOL
@@ -148,6 +155,7 @@ Para obtener la información completa de nuestra cuenta:
 ```shell
 solana account «YOUR_ADDRESS»
 ```
+
 ```shell
 # Output is something like this:
 Public Key: 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
@@ -157,17 +165,18 @@ Executable: false
 Rent Epoch: 277
 ```
 
-Para verificar el balance de nuestro monedero hacemos:
+Para verificar el balance de nuestra criptocartera hacemos:
 
 ```shell
 solana balance 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
 ```
+
 ```shell
 # Output
 2 SOL
 ```
 
-Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con 2 Solanas, las criptomonedas que utilizaremos más adelante para probar nuestra aplicación. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).
+Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con 2 Solanas, las criptomonedas que utilizaremos más adelante para probar nuestro código base. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).
 
 ### Gestionando las redes de solana
 
@@ -185,7 +194,9 @@ solana config set --url devnet
 
 # set config mainnet
 solana config set --url mainnet
+```
 
+```shell
 # Output
 Config File: /home/user/.config/solana/cli/config.yml
 RPC URL: https://api.devnet.solana.com 
@@ -193,7 +204,8 @@ WebSocket URL: wss://api.devnet.solana.com/ (computed)
 Keypair Path: /home/user/.config/solana/devnet.json 
 Commitment: confirmed 
 ```
-Esto es importante estar al tanto de qué red estás usando mientras construyes, pruebas y despliegas tus programas. Asegurate de que tu cirptocartera está usando la misma red que de tu entorno local. Por ejemplo, si vamos a desarrollar nuestra aplicación en la red de devnet,  entonces ejecutamos:
+
+Es importante estar al tanto de qué red estás usando mientras construyes, pruebas y despliegas tus programas. Hay que asegurarnos de que nuestra criptocartera es la misma de la  red del entorno local. Por ejemplo, si vamos a desarrollar nuestra aplicación en la red de devnet,  entonces ejecutamos:
 
 ```shell
 # set config devnet
@@ -204,7 +216,9 @@ Si en cambio, deseas trabajar con la red en localhost, primero deberás iniciar 
 
 ```shell
 solana-test-validator
+```
 
+```shell
 #Output is something like this:
 Ledger location: test-ledger
 Log: test-ledger/validator.log
@@ -217,17 +231,20 @@ TPU Address: 127.0.0.1:1027
 JSON RPC URL: http://127.0.0.1:8899
 .....
 ```
+
 Y luego
 
 ```shell
 # set config devnet
 solana config set --url localhost
 ```
-Además de obtener algo de tokens para está red: 
+Además de obtener algo de criptomonedas para está red: 
 
 ```shell
 solana airdrop 2 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9 --url localhost
+```
 
+```shell
 # Output is something like this:
 Requesting airdrop of 1 SOL
 
@@ -245,7 +262,9 @@ Para iniciar, creamos un nuevo proyecto de Anchor y cambiamos al nuevo directori
 ```shell 
 anchor init mydapp --javascript
 cd mydapp
+```
 
+```shell
 # Output is something like this:
 yarn install v1.22.17
 warning package.json: No license field
@@ -267,7 +286,9 @@ Si deseamos trabajar con Typescript escribimos solamente:
 ```shell 
 anchor init mydapp
 cd mydapp
+```
 
+```shell
 # Output is something like this:
 yarn install v1.22.17
 warning package.json: No license field
@@ -284,11 +305,13 @@ Done in 11.66s.
 mydapp initialized
 ```
 
-Como podrás comprobar, este comando creo la siguiente estructura de archivos:
+Como podemos comprobar, este comando crea la siguiente estructura de archivos:
 
 ```shell
 tree -L 1
+```
 
+```shell
 # Output is something like this:
 .
 ├── Anchor.toml
@@ -309,7 +332,7 @@ Como se puede apreciar hay cuatro directorios a resaltar:
 
 **app** - Este directorio se utilizará para alojar el frontend de la aplicación.
 
-**programs** - Aquí se alojan los programas codificados en Rust. Estos son los archivos que defines los programas sobre la blockchain de Solana.
+**programs** - Aquí se alojan los programas codificados en Rust. Estos son los archivos que definen los programas sobre la blockchain de Solana.
 
 **test** - En este directorio de alojan las pruebas para cada unas de las funcionalidades de nuestra dapp.
 
@@ -340,11 +363,13 @@ Este es probablemente el programa más básico que puedes escribir. Lo único qu
 
 La estructura `Initialize` define el contexto como vacío de cualquier argumento. Aprenderemos más sobre el contexto de la función más adelante.
 
-Para compilar este programa, podemos ejecutar el comando Anchor build:
+Para compilar este programa, podemos ejecutar el comando `anchor build`:
 
 ```shell
 anchor build
+```
 
+```shell
 # Output is something like this:
 BPF SDK: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf
 cargo-build-bpf child: rustup toolchain list -v
@@ -453,17 +478,18 @@ The program address will default to this keypair (override with --program-id):
   /home/alejandro/Documentos/Education/Blog/mydapp/target/deploy/mydapp-keypair.json
 ```
 
-Una vez que la ejecución se ha completado, deberías ver una nueva carpeta llamada _target_.
+Una vez que la ejecución se ha completado, deberíamos ver una nueva carpeta llamada _target_.
 
 
 
 {{< admonition warning >}}
 
-Si el anterior paso no te compila correctamente, revisa la versión de Anchor con:
+Si el anterior paso no compiló correctamente, podemos revisar la versión de Anchor con:
 ```shell
 anchor --version
 ```
-En caso de estar usando  las version Anchor 0.22.0 hay que actualizar el archivo como te muestro a continuación:
+
+Si estamos usando la version Anchor 0.22.0 debemos actualizar el archivo como se muestra a continuación:
 
 ```rust 
 use anchor_lang::prelude::*;
@@ -484,9 +510,7 @@ pub struct Initialize {}
 
 {{< /admonition >}}
 
-Uno de los artefactos creados es un IDL ubicado en target/idl/mysolanaapp.json.
-
-Los IDLs son muy similares a un ABI en Solidity (o una definición de consulta en GraphQL), y los usaremos de manera similar en nuestras pruebas y frontends de JavaScript para comunicarnos con nuestro programa Solana vía RPC.
+Uno de los artefactos creados es un IDL ubicado en target/idl/mysolanaapp.json. Los IDLs son muy similares a los ABIs en Solidity (o una definición de consulta en GraphQL), y los usaremos de manera similar en nuestro código base de JavaScript para comunicarnos con nuestro programa Solana vía RPC.
 
 También podemos probar nuestro programa. Si abrimos tests/mysolanaapp.js, veremos que hay un test escrito en JavaScript que nos permite probar el programa.
 
@@ -530,30 +554,33 @@ describe('mydapp', () => {
   });
 });
 ```
-Hay un par de cosas que aprender de esta prueba que son importantes y que usaremos en el futuro, tanto en nuestras pruebas como en los clientes frontales de JavaScript.
+
+Hay un par de cosas que debemos aprender de esta prueba que son importantes y que usaremos en el futuro, tanto en nuestras pruebas como en los clientes frontales de JavaScript.
 
 Para llamar a un programa de Solana usando Anchor, típicamente necesitamos dos cosas principales:
 
-1. **Provider** - El proveedor es una abstracción de una conexión a la red Solana, que suele consistir en una conexión, un monedero y un solicitud. En la prueba, el framework de Anchor creará el proveedor por nosotros basándose en el entorno (`anchor.Provider.env()`), pero en el cliente tendremos que construir el proveedor nosotros mismos usando el monedero de Solana del usuario.
+1. **Provider** - El proveedor es una abstracción de una conexión a la red Solana, que suele consistir en una conexión, una criptocartera y un solicitud. En la prueba, el framework de Anchor creará el proveedor por nosotros basándose en el entorno (`anchor.Provider.env()`), pero en el cliente tendremos que construir el proveedor nosotros mismos usando la criptocartera de Solana del usuario.
 
-2. **Program** -  El programa es una abstracción que combina el `Provider`, `idl`, y el `programID` (que se genera cuando se construye el programa) y nos permite llamar a métodos RPC contra nuestro programa.
+2. **Program** -  El programa es una abstracción que combina el `Provider`, `idl`, y el `programID` (que se genera cuando se construye el programa) y nos permite llamar a métodos RPC para interactuar con nuestro programa.
 
 Una vez más, como con el proveedor, Anchor ofrece una forma conveniente de acceder al programa, pero cuando se construye el front-end tendremos que construir este proveedor nosotros mismos.
 
-Una vez que tenemos estas dos cosas, podemos empezar a llamar a funciones en nuestro programa. Por ejemplo, en nuestro programa tenemos una función de `initialize`. En nuestra prueba, verás que podemos invocar esa función directamente usando `program.rpc.functionName`:
+Una vez que tenemos estas dos cosas, podemos empezar a llamar a las funciones en nuestro programa. Por ejemplo, en nuestro programa tenemos una función de `initialize`. En nuestra prueba, verás que podemos invocar esa función directamente usando `program.rpc.functionName`:
 
 ```javascript
 const tx = await program.rpc.initialize();
 ```
 
-Este es un patrón muy común que usarás mucho cuando trabajes con Anchor, y una vez que entiendas cómo funciona, hace que sea realmente fácil conectarse e interactuar con un programa de Solana.
+Este es un patrón muy común que usarás mucho cuando trabajes con Anchor, y una vez que entiendas cómo funciona, veremos  que realmente es muy fácil conectarse e interactuar con un programa de Solana.
 
 Ahora podemos probar el programa ejecutando el script de prueba:
 
 ```shell
 anchor test
+```
 
-#Output is something like this:
+```shell
+# Output is something like this:
 BPF SDK: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf
 cargo-build-bpf child: rustup toolchain list -v
 cargo-build-bpf child: cargo +bpf build --target bpfel-unknown-unknown --release
@@ -590,11 +617,9 @@ Done in 6.31s.
 ```
 
 ## Hello World
-Ahora que tenemos nuestro proyecto configurado, vamos a crear algo un poco más interesante.
+Ahora que nuestro proyecto está configurado, vamos a hacer algo un poco más interesante, como desarrolladores full stack, la mayoría de las veces nos preguntamos cómo hacer operaciones del tipo CRUD, así que eso es lo que veremos a continuación, obviamente, no implementaremos la operación de borrar una transacción.
 
-Sé que, como desarrollador full stack, la mayoría de las veces me pregunto cómo hacer operaciones del tipo CRUD, así que eso es lo que veremos a continuación.
-
-El primer programa que crearemos nos permitirá crear un contador que se incremente cada vez que lo llamemos desde una aplicación cliente.
+El programa que crearemos nos permitirá crear un contador que se incremente cada vez que lo llamemos desde una aplicación cliente.
 
 Lo primero que debemos hacer es abrir `programs/mysolanaapp/src/lib.rs` y actualizarlo con el siguiente código:
 
@@ -648,23 +673,25 @@ pub struct BaseAccount {
 Recuerda que si estás usando Anchor 0.22.0 o superior debes remplazar `ProgramResult` por `Result<()>`.
 {{< /admonition >}}
 
-En este programa tenemos dos funciones - `create` e `increment`. Estas dos funciones son los manejadores de peticiones RPC que podremos llamar desde una aplicación cliente para interactuar con el programa.
+En este programa tenemos dos funciones - `create` e `increment`. Estas dos funciones son los controladores de las  peticiones RPC que podremos llamar desde una aplicación cliente para interactuar con el programa.
 
-El primer parámetro de un manejador RPC es la estructura `Context`, que describe el contexto que se pasará cuando se llame a la función y cómo manejarlo. En el caso de `Create`, se esperan tres parámetros: `base_account`, `user`, y `system_program`.
+El primer parámetro de un controlador RPC es la estructura `Context`, que describe el contexto que se pasará cuando se llame a la función y cómo manejarlo. En el caso de `Create`, se esperan tres parámetros: `base_account`, `user`, y `system_program`.
 
-Los atributos #[account(...)] definen las restricciones e instrucciones que están relacionadas con la cuenta de origen donde se declara. Si alguna de estas restricciones no se mantiene, entonces la instrucción nunca se ejecutará.
+Los atributos #[account(...)] definen las restricciones e instrucciones que están relacionadas con la cuenta de origen donde se declara. Si alguna de estas restricciones no se mantienen, entonces la instrucción nunca se ejecutará.
 
-Cualquier cliente que llame a este programa con la `base_account` adecuada puede llamar a estos métodos RPC.
+Cualquier cliente que llame a este programa con `base_account` adecuada puede llamar a estos métodos RPC.
 
-La forma en que Solana maneja los datos es muy diferente a cualquier cosa con la que haya trabajado. No hay un estado persistente dentro del programa, todo se adjunta a lo que se conoce como cuentas. Una cuenta contiene esencialmente todo el estado de un programa. Debido a esto, todos los datos se pasan por referencia desde el exterior.
+La forma en que Solana maneja los datos es muy diferente a cualquier cosa con la que se haya trabajado. No hay un estado persistente dentro del programa, todo se adjunta a lo que se conoce como cuentas. Una cuenta contiene esencialmente todo el estado de un programa. Debido a esto, todos los datos se pasan por referencia desde el exterior.
 
-Tampoco hay operaciones de lectura. Esto se debe a que todo lo que necesitas hacer para leer el contenido de un programa es solicitar la cuenta, a partir de ahí eres capaz de ver todo el estado del programa. Para leer más sobre el funcionamiento de las cuentas, consulta este [post](https://2501babe.github.io/posts/solana101.html#programs-and-accounts).
+Tampoco hay operaciones de lectura. Esto se debe a que todo lo que necesitas hacer para leer el contenido de un programa es solicitar la cuenta, a partir de ahí somos capaces de ver todo el estado del programa. Para leer más sobre el funcionamiento de las cuentas, consulta este [post](https://2501babe.github.io/posts/solana101.html#programs-and-accounts).
 
 Para construir el programa:
 
-```
+```shell
 anchor build
+```
 
+```shell
 # Output is something like this:
 BPF SDK: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf
 cargo-build-bpf child: rustup toolchain list -v
@@ -678,10 +705,9 @@ To deploy this program:
   $ solana program deploy /home/alejandro/Documentos/Education/Blog/mydapp2/target/deploy/mydapp2.so
 The program address will default to this keypair (override with --program-id):
   /home/alejandro/Documentos/Education/Blog/mydapp2/target/deploy/mydapp2-keypair.json
-
 ```
 
-A continuación, vamos a escribir un test que utilice este programa contador. Para ello, abre ```tests/mysolanaapp.js``` y actualízalo con el siguiente código:
+A continuación, vamos a escribir un test que utilice este programa. Para ello, abrimos ```tests/mysolanaapp.js``` y actualízamos con el siguiente código:
 
 ```javascript
 const assert = require("assert");

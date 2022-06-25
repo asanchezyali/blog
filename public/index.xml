@@ -20,8 +20,8 @@
     <author>Autor</author>
     <guid>https://alejandrosanchezyali.vercel.app/20220310solana/</guid>
     <description><![CDATA[Aquí vas a encontrar cómo construir el código base para una dapp en la cadena de bloques de Solana. Para ello, necesitarás:
-  Solana Tool Suite (1.8.16) - Esta es la CLI de Solana. La documentación es muy completa y allí encontrarás todos los detalles para aprender a utilizarla.
-  Anchor (0.21.0) - Seguramente si has desarrollado dapps sobre Ethereum, habrás utilizado Hardhat. Bueno, Anchor es un framework parecido a Hardhat que se utiliza para desarrollar dapps sobre Solana.]]></description>
+Solana Tool Suite (1.8.16) - Esta es la CLI de Solana. La documentación es muy completa y allí encontrarás todos los detalles para aprender a utilizarla.
+Anchor (0.21.0) - Seguramente si has desarrollado dapps sobre Ethereum, habrás utilizado Hardhat. Bueno, Anchor es un framework parecido a Hardhat que se utiliza para desarrollar dapps sobre Solana.]]></description>
 </item><item>
     <title>Agricultura de precisión</title>
     <link>https://alejandrosanchezyali.vercel.app/20220312precisionagriculture/</link>
