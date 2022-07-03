@@ -27,8 +27,8 @@ I am a mathematician, but also a programmer. I have experience in software devel
 
 ## Formal Education
 
-* 2010 - 2013 Master's Degree in Mathematics at [Universidad de Antioquia](https://www.udea.edu.co/)
-* 2004 - 2009 Bachelor's Degree in Mathematics and Physics at [Universidad de Antioquia](https://www.udea.edu.co/)
+* 2010 - 2013: Master's Degree in Mathematics at [Universidad de Antioquia](https://www.udea.edu.co/)
+* 2004 - 2009: Bachelor's Degree in Mathematics and Physics at [Universidad de Antioquia](https://www.udea.edu.co/)
 
 ## Non-formal education
 

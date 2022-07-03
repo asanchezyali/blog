@@ -27,8 +27,8 @@ Soy matemático, pero también programador. Tengo experiencia en desarrollo de s
 
 ## Educación Formal
 
-* 2010 - 2013 Magister en Matemáticas en la [Universidad de Antioquia](https://www.udea.edu.co/)
-* 2004 - 2009 Licenciatura en Matemáticas y Física en la [Universidad de Antioquia](https://www.udea.edu.co/)
+* 2010 - 2013: Magister en Matemáticas en la [Universidad de Antioquia](https://www.udea.edu.co/)
+* 2004 - 2009: Licenciatura en Matemáticas y Física en la [Universidad de Antioquia](https://www.udea.edu.co/)
 
 ## Educación no formal
 
