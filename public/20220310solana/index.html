@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://alejandrosanchezyali.vercel.app/20220310solana/" /><meta property="og:image" content="https://alejandrosanchezyali.vercel.app/20220310solana/featured-image.webp"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-10T08:19:27-05:00" />
-<meta property="article:modified_time" content="2022-06-25T11:28:57-05:00" />
+<meta property="article:modified_time" content="2022-06-25T14:12:59-05:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://alejandrosanchezyali.vercel.app/20220310solana/featured-image.webp"/>
@@ -98,8 +98,8 @@ if (!doNotTrack) {
                             "url": "https:\/\/alejandrosanchezyali.vercel.app\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  5493 ,
-        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220310solana\/","datePublished": "2022-03-10T08:19:27-05:00","dateModified": "2022-06-25T11:28:57-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "Sistemas distribuidos","wordcount":  5536 ,
+        "url": "https:\/\/alejandrosanchezyali.vercel.app\/20220310solana\/","datePublished": "2022-03-10T08:19:27-05:00","dateModified": "2022-06-25T14:12:59-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Alejandro Sánchez Yalí","logo": "https:\/\/alejandrosanchezyali.vercel.app\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -179,7 +179,7 @@ if (!doNotTrack) {
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Programando Dapps en Solana</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Alejandro Sánchez Yalí</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/blockchain/"><i class="far fa-folder fa-fw"></i>Blockchain</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-10">2022-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;5493 palabras&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-10">2022-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;5536 palabras&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;26 minutos&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -207,6 +207,7 @@ if (!doNotTrack) {
     <li><a href="#configurar-la-red-local-en-la-wallet">Configurar la red local en la Wallet</a></li>
     <li><a href="#despliegue-en-la-devnet">Despliegue en la Devnet</a></li>
     <li><a href="#el-siguiente-paso-para-no-parar-de-aprender">El siguiente paso para no parar de aprender</a></li>
+    <li><a href="#asesorías">Asesorías</a></li>
     <li><a href="#patrocinio">Patrocinio</a></li>
     <li><a href="#imágenes">Imágenes</a></li>
     <li><a href="#referencias">Referencias</a></li>
@@ -233,7 +234,7 @@ if (!doNotTrack) {
 <p><a href="https://project-serum.github.io/anchor/getting-started/installation.html" target="_blank" rel="noopener noreffer">Phantom</a> - Es la criptocartera que emplearemos para guardar las criptomonedas de Solana.</p>
 </li>
 </ol>
-<p>Como has visto en cada uno de los items encontrarás enlazada cada herramienta con la documentación para instalarlas, ya que cada proyecto explica como hacerlo y además de mantienen actualizados los procedimientos.</p>
+<p>Como has visto en cada uno de los items encontrarás enlazada cada herramienta con la documentación para instalarlas, ya que cada proyecto explica como hacerlo y además mantienen actualizados los procedimientos.</p>
 <p>También te recomendamos que te unas a las comunidades de discord de Anchor, Stractors, Metaplex y Solana para que te ayuden a mantenerte actualizado:</p>
 <ol>
 <li><a href="https://discord.gg/ZCHmqvXgDw" target="_blank" rel="noopener noreffer">Anchor</a></li>
@@ -1279,7 +1280,7 @@ if (!doNotTrack) {
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="hello-world">Hello World</h2>
-<p>Ahora que nuestro proyecto está configurado, vamos a hacer algo un poco más interesante, como desarrolladores full stack, la mayoría de las veces nos preguntamos cómo hacer operaciones del tipo CRUD, así que eso es lo que veremos a continuación, obviamente, no implementaremos la operación de borrar una transacción.</p>
+<p>Ya que nuestro proyecto está configurado, vamos a hacer algo un poco más interesante, como desarrolladores full stack, la mayoría de las veces nos preguntamos cómo hacer operaciones del tipo CRUD, así que eso es lo que veremos a continuación, obviamente, no implementaremos la operación de borrado como una transacción.</p>
 <p>El programa que crearemos nos permitirá crear un contador que se incremente cada vez que lo llamemos desde una aplicación cliente.</p>
 <p>Lo primero que debemos hacer es abrir <code>programs/mysolanaapp/src/lib.rs</code> y actualizarlo con el siguiente código:</p>
 <div class="highlight"><div class="chroma">
@@ -1386,7 +1387,7 @@ if (!doNotTrack) {
 <p>El primer parámetro de un controlador RPC es la estructura <code>Context</code>, que describe el contexto que se pasará cuando se llame a la función y cómo manejarlo. En el caso de <code>Create</code>, se esperan tres parámetros: <code>base_account</code>, <code>user</code>, y <code>system_program</code>.</p>
 <p>Los atributos #[account(&hellip;)] definen las restricciones e instrucciones que están relacionadas con la cuenta de origen donde se declara. Si alguna de estas restricciones no se mantienen, entonces la instrucción nunca se ejecutará.</p>
 <p>Cualquier cliente que llame a este programa con <code>base_account</code> adecuada puede llamar a estos métodos RPC.</p>
-<p>La forma en que Solana maneja los datos es muy diferente a cualquier cosa con la que se haya trabajado. No hay un estado persistente dentro del programa, todo se adjunta a lo que se conoce como cuentas. Una cuenta contiene esencialmente todo el estado de un programa. Debido a esto, todos los datos se pasan por referencia desde el exterior.</p>
+<p>La forma en que Solana maneja los datos es muy diferente a cualquier cosa con la que se haya trabajado antes. No hay un estado persistente dentro del programa, todo se adjunta a lo que se conoce como cuentas. Una cuenta contiene esencialmente todo el estado de un programa. Debido a esto, todos los datos se pasan por referencia desde el exterior.</p>
 <p>Tampoco hay operaciones de lectura. Esto se debe a que todo lo que necesitas hacer para leer el contenido de un programa es solicitar la cuenta, a partir de ahí somos capaces de ver todo el estado del programa. Para leer más sobre el funcionamiento de las cuentas, consulta este <a href="https://2501babe.github.io/posts/solana101.html#programs-and-accounts" target="_blank" rel="noopener noreffer">post</a>.</p>
 <p>Para construir el programa:</p>
 <div class="highlight"><div class="chroma">
@@ -1522,18 +1523,22 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Antes de continuar probando y desplegando el programa, queremos obtener el ID del programa generado dinámicamente por la compilación. Necesitamos este ID para usarlo en el programa de Rust para reemplazar el ID del marcador de posición que establecimos cuando creamos el proyecto. Para obtener este ID, podemos ejecutar el siguiente comando:</p>
+</div><p>Antes de continuar probando y desplegando el programa, debemos obtener el ID del programa generado dinámicamente por la compilación. Necesitamos este ID para usarlo en el programa de Rust para reemplazar el ID del marcador de posición que establecimos cuando creamos el proyecto. Para obtener este ID, podemos ejecutar el siguiente comando:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana address -k target/deploy/mydapp-keypair.json
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
 </span></span><span class="line"><span class="cl">3L2Pintorca7FYFPRpKrgWojyfCMP3btASnM4w3kpZbs
 </span></span></code></pre></td></tr></table>
 </div>
@@ -1547,7 +1552,7 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// mysolanaapp/src/lib.rs
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">declare_id</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;your-program-id&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">declare_id</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;YOUR_PROGRAM_ID&#34;</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>y también en el archivo <code>Anchor.toml</code></p>
@@ -1567,6 +1572,14 @@ if (!doNotTrack) {
 </div>
 </div><p>Luego ejecutamos:</p>
 <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">anchor <span class="nb">test</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -1594,13 +1607,9 @@ if (!doNotTrack) {
 </span><span class="lnt">24
 </span><span class="lnt">25
 </span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">anchor <span class="nb">test</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
 </span></span><span class="line"><span class="cl">BPF SDK: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf
 </span></span><span class="line"><span class="cl">cargo-build-bpf child: rustup toolchain list -v
 </span></span><span class="line"><span class="cl">cargo-build-bpf child: cargo +bpf build --target bpfel-unknown-unknown --release
@@ -1636,25 +1645,28 @@ if (!doNotTrack) {
             <div class="admonition-content">En ocasiones la ejecución de las pruebas falla porque el nodo de pruebas está activo. Verifica que <code>solana-test-validator</code> no esté corriendo, si es así termina el proceso y vuelve a ejecutar las pruebas.</div>
         </div>
     </div>
-<p>Una vez que la prueba pasa, ahora podemos desplegar.</p>
-<p>Ahora podemos desplegar, asegurate de que <code>solana-test-validator</code> se está ejecutando:</p>
+<p>Una vez que la prueba se ejecuta sin problemas, podemos desplegar. Hay que asegurarnos de que <code>solana-test-validator</code> se está ejecutando:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">anchor deploy
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Output is something like this:</span>
 </span></span><span class="line"><span class="cl">Deploying workspace: http://localhost:8899
 </span></span><span class="line"><span class="cl">Upgrade authority: /home/alejandro/.config/solana/id.json
 </span></span><span class="line"><span class="cl">Deploying program <span class="s2">&#34;mydapp&#34;</span>...
@@ -1674,7 +1686,7 @@ if (!doNotTrack) {
     </div>
 <p>Ya estamos listos para construir el frontend.</p>
 <h2 id="construyento-la-react-app">Construyento la React App</h2>
-<p>En la raíz del proyecto Anchor, crea una nueva react app para sobrescribir el directorio de la app existente:</p>
+<p>En la raíz del proyecto Anchor, se crea una nueva react app para sobrescribir el directorio de la app existente:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1694,7 +1706,7 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl">yarn add @project-serum/anchor @solana/web3.js
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>También vamos a utilizar <a href="https://github.com/solana-labs/wallet-adapter" target="_blank" rel="noopener noreffer">Solana Wallet Adapter</a> para controlar las conexiones de la monederos de los usuarios de solana. Para esto hacemos:</p>
+</div><p>También vamos a utilizar <a href="https://github.com/solana-labs/wallet-adapter" target="_blank" rel="noopener noreffer">Solana Wallet Adapter</a> para controlar las conexiones de las criptocarteras de los usuarios de solana. Para esto hacemos:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1703,7 +1715,7 @@ if (!doNotTrack) {
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yarn add @solana/wallet-adapter-react @solana/wallet-adapter-react-ui @solana/wallet-adapter-wallets @solana/wallet-adapter-base
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>A continuación, en el directorio <code>src</code>, crea un nuevo archivo llamado <code>idl.json</code>. Aquí, copie el IDL JSON que fue creado para usted en la carpeta principal del proyecto, ubicado en  <code>target/idl/mydapp.json</code>.</p>
+</div><p>A continuación, en el directorio <code>src</code>, creamos un nuevo archivo llamado <code>idl.json</code>. Aquí, copiamos el IDL JSON que fue creado en la carpeta principal del proyecto, ubicado en  <code>target/idl/mydapp.json</code>.</p>
 <p>Sería bueno si pudiéramos copiar este archivo idl automáticamente a nuestra carpeta src de la aplicación cliente, pero hasta ahora no he encontrado una manera de hacer esto de forma nativa. Por supuesto, puedes crear tu propio script que haga esto si lo deseas, o bien necesitas copiar y pegar sobre el IDL después de cada cambio en tu programa principal.</p>
 <p>Si quieres un script como este, puedes hacerlo en sólo un par de líneas de código:</p>
 <div class="highlight"><div class="chroma">
@@ -1722,7 +1734,7 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl"><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="s1">&#39;./app/src/idl.json&#39;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">idl</span><span class="p">));</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>A continuación, abre app/src/App.js y actualízalo con lo siguiente:</p>
+</div><p>A continuación, abrimos app/src/App.js y actualízamos con lo siguiente:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">  1
@@ -1987,10 +1999,10 @@ if (!doNotTrack) {
             <i class="icon fas fa-exclamation-triangle fa-fw"></i>Advertencia<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content"><p>Si estas haciendo uso de React.js versión 17.0.0, es posible que tengas problemas con webpack 5. Para resolver esto, te recomiendo hacer lo siguiente:</p>
+            <div class="admonition-content"><p>Si estas haciendo uso de React.js versión 17.0.0 o superior, es posible que tengas problemas con webpack 5. Para resolver esto, te recomiendo hacer lo siguiente:</p>
 <ol>
 <li>
-<p>Primero installar las siguientes dependencias:</p>
+<p>Primero instalamos las siguientes dependencias:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -2001,7 +2013,7 @@ if (!doNotTrack) {
 </div>
 </div></li>
 <li>
-<p>Crear el archivo <code>config-overrides.js</code> en la raiz del proyecto de React:</p>
+<p>Creamos el archivo <code>config-overrides.js</code> en la raiz del proyecto de React:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2054,7 +2066,7 @@ if (!doNotTrack) {
 </div>
 </div></li>
 <li>
-<p>Luego editar el archivo package.json. En lugar de <code>react-scripts</code> remplazar esto por <code>react-app-rewired</code>:</p>
+<p>Luego editamos el archivo package.json. En lugar de <code>react-scripts</code> remplazar esto por <code>react-app-rewired</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2071,16 +2083,18 @@ if (!doNotTrack) {
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
+</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">/*</span> <span class="err">antes</span> <span class="err">*/</span>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">/*</span> <span class="err">Before</span> <span class="err">*/</span>
 </span></span><span class="line"><span class="cl"><span class="s2">&#34;scripts&#34;</span><span class="err">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;start&#34;</span><span class="p">:</span> <span class="s2">&#34;react-scripts start&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;build&#34;</span><span class="p">:</span> <span class="s2">&#34;react-scripts build&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;test&#34;</span><span class="p">:</span> <span class="s2">&#34;react-scripts test&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;eject&#34;</span><span class="p">:</span> <span class="s2">&#34;react-scripts eject&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span><span class="err">,</span>
-</span></span><span class="line"><span class="cl"><span class="err">/*</span> <span class="err">despues</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">/*</span> <span class="err">After</span> <span class="err">*/</span>
 </span></span><span class="line"><span class="cl"><span class="s2">&#34;scripts &#34;</span><span class="err">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;start&#34;</span><span class="p">:</span> <span class="s2">&#34;react-app-rewired start&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;build&#34;</span><span class="p">:</span> <span class="s2">&#34;react-app-rewired build&#34;</span><span class="p">,</span>
@@ -2091,8 +2105,8 @@ if (!doNotTrack) {
 </div>
 </div></li>
 </ol>
-<p>Los polyfills de Nodejs que faltan deberían estar incluidos ahora y tu aplicación debería ser funcional con web3.</p>
-<p>Si quieres ocultar las advertencias creadas por la consola en <code>config-overrides.js</code> en el interior de la función <code>override</code>, agrega:</p>
+<p>Los polyfills de Nodejs que faltan deberían estar incluidos ahora y tu aplicación debería ser funcionar con web3.</p>
+<p>Si queremos ocultar las advertencias creadas por la consola en <code>config-overrides.js</code> en el interior de la función <code>override</code>, agregamos:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -2109,8 +2123,8 @@ if (!doNotTrack) {
         </div>
     </div>
 <h2 id="configurar-la-red-local-en-la-wallet">Configurar la red local en la Wallet</h2>
-<p>Antes de poder interactuar con un programa en la red localhost, debemos cambiar nuestro monedero Phantom a la red adecuada.</p>
-<p>Para ello, abre tu monedero Phantom y haz clic en el botón de configuración. A continuación, desplácese hacia abajo para cambiar la red:</p>
+<p>Antes de poder interactuar con un programa en la red localhost, debemos cambiar nuestro criptocartera de Phantom a la red adecuada.</p>
+<p>Para ello, abrimos nuestra criptocartera de Phantom y hacemos clic en el botón de configuración. A continuación, nos desplazmaos hacia abajo para cambiar la red:</p>
 <p><figure><a class="lightgallery" href="/20220310solana/wallet.png" title="red" data-thumbnail="/20220310solana/wallet.png" data-sub-html="<h2>Figura 1. Cambiar la red</h2><p>red</p>">
         <img
             class="lazyload"
@@ -2121,7 +2135,7 @@ if (!doNotTrack) {
             alt="/20220310solana/wallet.png" />
     </a><figcaption class="image-caption">Figura 1. Cambiar la red</figcaption>
     </figure></p>
-<p>A continuación, elija Localhost:</p>
+<p>A continuación, elejimos Localhost:</p>
 <p><figure><a class="lightgallery" href="/20220310solana/wallet2.png" title="Localhost" data-thumbnail="/20220310solana/wallet2.png" data-sub-html="<h2>Figura 2. Seleccionar la red</h2><p>Localhost</p>">
         <img
             class="lazyload"
@@ -2132,7 +2146,7 @@ if (!doNotTrack) {
             alt="/20220310solana/wallet2.png" />
     </a><figcaption class="image-caption">Figura 2. Seleccionar la red</figcaption>
     </figure></p>
-<p>Ahora tenemos que enviar tokens por aire a esta cartera. En la parte superior de la interfaz del monedero, haz clic en tu dirección para copiarla en el portapapeles.</p>
+<p>Ahora tenemos que enviar algunas criptomonedas de prueba a esta cartera. En la parte superior de la interfaz de la criptocartera, hacemos clic en nuestra dirección para copiarla en el portapapeles.</p>
 <p><figure><a class="lightgallery" href="/20220310solana/wallet3.png" title="Address" data-thumbnail="/20220310solana/wallet3.png" data-sub-html="<h2>Figura 3. Dirección del monedero</h2><p>Address</p>">
         <img
             class="lazyload"
@@ -2143,7 +2157,7 @@ if (!doNotTrack) {
             alt="/20220310solana/wallet3.png" />
     </a><figcaption class="image-caption">Figura 3. Dirección del monedero</figcaption>
     </figure></p>
-<p>A continuación, en una termina ejecutamos el siguiente comando (asegurate que <code>solana-test-validator</code> esté corriendo):</p>
+<p>A continuación, en una terminal ejecutamos el siguiente comando (asegurate que <code>solana-test-validator</code> esté corriendo):</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -2152,8 +2166,7 @@ if (!doNotTrack) {
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">solana airdrop <span class="m">2</span> «YOUR_ADDRESS»
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Ahora deberías tener 2 solanas en tu cartera. Ahora podemos ejecutar y probar la aplicación.</p>
-<p>Cambia al directorio de la aplicación y ejecuta el siguiente comando:</p>
+</div><p>Ahora deberíamos tener 2 solanas en nuestra cartera. Con estemo podemos ejecutar y probar la aplicación. Cambiamos al directorio de la aplicación y ejecutamos el siguiente comando:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -2162,12 +2175,12 @@ if (!doNotTrack) {
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yarn start
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Deberías poder conectar tu cartera, crear un contador e incrementarlo.</p>
-<p>Notarás que cuando refrescas, pierdes el estado del programa. Esto es porque estamos generando dinámicamente la cuenta base cuando el programa se carga. Si quieres leer e interactuar con los datos del programa a través de varios clientes, tendrías que crear y almacenar el Keypair en algún lugar de tu proyecto. He reunido una idea general de un enfoque ingenuo de cómo podría verse esto.</p>
+</div><p>Deberíamos poder conectarnos a nuestra criptocartera, crear un contador e incrementarlo.</p>
+<p>Notaremos que cuando refrescamos, pierdemos el estado del programa. Esto es porque estamos generando dinámicamente la cuenta base cuando el programa se carga. Si quieres leer e interactuar con los datos del programa a través de varios clientes, tendrías que crear y almacenar el Keypair en algún lugar de tu proyecto.</p>
 <h2 id="despliegue-en-la-devnet">Despliegue en la Devnet</h2>
 <p>A partir de aquí, el despliegue en una red activa es bastante sencillo. Las principales cosas que tenemos que hacer son:</p>
 <ol>
-<li>Actualice la CLI de Solana para utilizar devnet:
+<li>Actualizar la CLI de Solana para utilizar devnet:
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -2177,9 +2190,9 @@ if (!doNotTrack) {
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
-<li>Actualizar el monedero para usar <code>devnet</code>.</li>
+<li>Actualizar la criptocartera para usar la <code>devnet</code>.</li>
 <li>En el archivo <code>Anchor.toml</code> actualizar el cluster de <code>localnet</code> a <code>devnet</code>.</li>
-<li>Compilar el programa nuevamente. Asegurate que el ID del programa en <code>Anchor.toml</code> se igual al ID actual del programa.</li>
+<li>Compilar el programa nuevamente. Asegurate que el ID del programa en <code>Anchor.toml</code> se igual al ID actual del programa</li>
 <li>En archivo <code>app/src/App.js</code>, también es necesario actualizar la red, para esto debemos remplazar la red de localhost: <code>http://127.0.0.1:8899</code> por la red de desarrollo: <code>devnet</code>.
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2197,10 +2210,10 @@ if (!doNotTrack) {
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/* antes */</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/* Before */</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">ConnectionProvider</span> <span class="nx">endpoint</span><span class="o">=</span><span class="s2">&#34;http://127.0.0.1:8899&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="cm">/* despues */</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* After */</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="p">...,</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">clusterApiUrl</span>
@@ -2214,16 +2227,10 @@ if (!doNotTrack) {
 </div></li>
 </ol>
 <p>A partir de aquí, deberías poder desplegar y probar como hemos hecho en los pasos anteriores.</p>
-<div class="details admonition note open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-pencil-alt fa-fw"></i>Nota<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">El código se encuentra alojado en el github.</div>
-        </div>
-    </div>
 <h2 id="el-siguiente-paso-para-no-parar-de-aprender">El siguiente paso para no parar de aprender</h2>
-<p>Te sugiero continuar aprendiendo sobre NFTs sobre el proyecto de Metaplex.</p>
+<p>Te sugiero continuar aprendiendo sobre NFTs y el uso de la API de Solana. Para ello, puedes visitar la siguiente página: <a href="https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/" target="_blank" rel="noopener noreffer">¿Cómo crear una colección de NFTs en Solana con IPFS?</a>. Finalmente, esperamos que esta guía te sea de ayuda para que puedas desarrollar tus aplicaciones de forma sencilla. ¡Nos vemos pronto!</p>
+<h2 id="asesorías">Asesorías</h2>
+<p>Puedes encontrarme en <a href="https://www.classgap.com/es-co/tutor/alejandro-sanchez-yali" target="_blank" rel="noopener noreffer">Classgap</a>, allí puedes puedes consultar mis horarios de asesorías y agendar una.</p>
 <h2 id="patrocinio">Patrocinio</h2>
 <p>₿itcoin: <a href="https://www.exodus.com/" target="_blank" rel="noopener noreffer">bc1qrcecrz47ywrcnyuqknzgzzz2t3lwawyjnl4t7f</a></p>
 <p>Solana: <a href="https://phantom.app/" target="_blank" rel="noopener noreffer">Ft8A8t3UyGZHjWNvtgruADnUgrij3uaFe7pLj9QNG44N</a></p>
@@ -2247,8 +2254,8 @@ if (!doNotTrack) {
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Actualizado el 2022-06-25&nbsp;<a class="git-hash" href="https://github.com/asanchezyali/blog/commit/b6fefa53f5279d774b7ebd3cab054aacd5f8ac62" target="_blank" title="commit by asanchezyali(alejandro.sanchezy@udea.edu.co) b6fefa53f5279d774b7ebd3cab054aacd5f8ac62: rebuilding site sáb 25 jun 2022 11:28:57 -05">
-                                    <i class="fas fa-hashtag fa-fw"></i>b6fefa5</a></span>
+                <span>Actualizado el 2022-06-25&nbsp;<a class="git-hash" href="https://github.com/asanchezyali/blog/commit/2842d3b59078f6ab22eb610ae9a8091b027d39d4" target="_blank" title="commit by asanchezyali(alejandro.sanchezy@udea.edu.co) 2842d3b59078f6ab22eb610ae9a8091b027d39d4: rebuilding site sáb 25 jun 2022 14:12:59 -05">
+                                    <i class="fas fa-hashtag fa-fw"></i>2842d3b</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>

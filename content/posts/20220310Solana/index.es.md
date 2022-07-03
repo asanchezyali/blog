@@ -37,7 +37,7 @@ Aquí vas a encontrar cómo construir el código base para una _dapp_ en la cade
 
 6.  [Phantom](https://project-serum.github.io/anchor/getting-started/installation.html) - Es la criptocartera que emplearemos para guardar las criptomonedas de Solana.
 
-Como has visto en cada uno de los items encontrarás enlazada cada herramienta con la documentación para instalarlas, ya que cada proyecto explica como hacerlo y además de mantienen actualizados los procedimientos.
+Como has visto en cada uno de los items encontrarás enlazada cada herramienta con la documentación para instalarlas, ya que cada proyecto explica como hacerlo y además mantienen actualizados los procedimientos.
 
 También te recomendamos que te unas a las comunidades de discord de Anchor, Stractors, Metaplex y Solana para que te ayuden a mantenerte actualizado:
 
@@ -642,7 +642,8 @@ Done in 6.31s.
 ```
 
 ## Hello World
-Ahora que nuestro proyecto está configurado, vamos a hacer algo un poco más interesante, como desarrolladores full stack, la mayoría de las veces nos preguntamos cómo hacer operaciones del tipo CRUD, así que eso es lo que veremos a continuación, obviamente, no implementaremos la operación de borrar una transacción.
+
+Ya que nuestro proyecto está configurado, vamos a hacer algo un poco más interesante, como desarrolladores full stack, la mayoría de las veces nos preguntamos cómo hacer operaciones del tipo CRUD, así que eso es lo que veremos a continuación, obviamente, no implementaremos la operación de borrado como una transacción.
 
 El programa que crearemos nos permitirá crear un contador que se incremente cada vez que lo llamemos desde una aplicación cliente.
 
@@ -706,7 +707,7 @@ Los atributos #[account(...)] definen las restricciones e instrucciones que est�
 
 Cualquier cliente que llame a este programa con `base_account` adecuada puede llamar a estos métodos RPC.
 
-La forma en que Solana maneja los datos es muy diferente a cualquier cosa con la que se haya trabajado. No hay un estado persistente dentro del programa, todo se adjunta a lo que se conoce como cuentas. Una cuenta contiene esencialmente todo el estado de un programa. Debido a esto, todos los datos se pasan por referencia desde el exterior.
+La forma en que Solana maneja los datos es muy diferente a cualquier cosa con la que se haya trabajado antes. No hay un estado persistente dentro del programa, todo se adjunta a lo que se conoce como cuentas. Una cuenta contiene esencialmente todo el estado de un programa. Debido a esto, todos los datos se pasan por referencia desde el exterior.
 
 Tampoco hay operaciones de lectura. Esto se debe a que todo lo que necesitas hacer para leer el contenido de un programa es solicitar la cuenta, a partir de ahí somos capaces de ver todo el estado del programa. Para leer más sobre el funcionamiento de las cuentas, consulta este [post](https://2501babe.github.io/posts/solana101.html#programs-and-accounts).
 
@@ -780,11 +781,13 @@ describe("mydapp", () => {
 });
 ```
 
-Antes de continuar probando y desplegando el programa, queremos obtener el ID del programa generado dinámicamente por la compilación. Necesitamos este ID para usarlo en el programa de Rust para reemplazar el ID del marcador de posición que establecimos cuando creamos el proyecto. Para obtener este ID, podemos ejecutar el siguiente comando:
+Antes de continuar probando y desplegando el programa, debemos obtener el ID del programa generado dinámicamente por la compilación. Necesitamos este ID para usarlo en el programa de Rust para reemplazar el ID del marcador de posición que establecimos cuando creamos el proyecto. Para obtener este ID, podemos ejecutar el siguiente comando:
 
 ```shell
 solana address -k target/deploy/mydapp-keypair.json
+```
 
+```shell
 # Output is something like this:
 3L2Pintorca7FYFPRpKrgWojyfCMP3btASnM4w3kpZbs
 ```
@@ -794,7 +797,7 @@ Ahora podemos actualizar los ID de los programas en `lib.rs`:
 ```rust 
 // mysolanaapp/src/lib.rs
 
-declare_id!("your-program-id");
+declare_id!("YOUR_PROGRAM_ID");
 ```
 
 y también en el archivo `Anchor.toml`
@@ -809,7 +812,9 @@ mydapp2 = "3L2Pintorca7FYFPRpKrgWojyfCMP3btASnM4w3kpZbs"
 Luego ejecutamos:
 ```shell
 anchor test
+```
 
+```shell
 # Output is something like this:
 BPF SDK: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf
 cargo-build-bpf child: rustup toolchain list -v
@@ -842,13 +847,13 @@ Done in 6.15s.
 En ocasiones la ejecución de las pruebas falla porque el nodo de pruebas está activo. Verifica que `solana-test-validator` no esté corriendo, si es así termina el proceso y vuelve a ejecutar las pruebas.
 {{</ admonition >}}
 
-Una vez que la prueba pasa, ahora podemos desplegar.
-
-Ahora podemos desplegar, asegurate de que `solana-test-validator` se está ejecutando:
+Una vez que la prueba se ejecuta sin problemas, podemos desplegar. Hay que asegurarnos de que `solana-test-validator` se está ejecutando:
 
 ```shell
 anchor deploy
+```
 
+```shell
 # Output is something like this:
 Deploying workspace: http://localhost:8899
 Upgrade authority: /home/alejandro/.config/solana/id.json
@@ -866,7 +871,7 @@ Ya estamos listos para construir el frontend.
 
 ## Construyento la React App
 
-En la raíz del proyecto Anchor, crea una nueva react app para sobrescribir el directorio de la app existente:
+En la raíz del proyecto Anchor, se crea una nueva react app para sobrescribir el directorio de la app existente:
 
 ```shell
 create-react-app app
@@ -878,13 +883,13 @@ cd app
 yarn add @project-serum/anchor @solana/web3.js
 ```
 
-También vamos a utilizar [Solana Wallet Adapter](https://github.com/solana-labs/wallet-adapter) para controlar las conexiones de la monederos de los usuarios de solana. Para esto hacemos:
+También vamos a utilizar [Solana Wallet Adapter](https://github.com/solana-labs/wallet-adapter) para controlar las conexiones de las criptocarteras de los usuarios de solana. Para esto hacemos:
 
 ```shell
 yarn add @solana/wallet-adapter-react @solana/wallet-adapter-react-ui @solana/wallet-adapter-wallets @solana/wallet-adapter-base
 ```
 
-A continuación, en el directorio `src`, crea un nuevo archivo llamado `idl.json`. Aquí, copie el IDL JSON que fue creado para usted en la carpeta principal del proyecto, ubicado en  `target/idl/mydapp.json`.
+A continuación, en el directorio `src`, creamos un nuevo archivo llamado `idl.json`. Aquí, copiamos el IDL JSON que fue creado en la carpeta principal del proyecto, ubicado en  `target/idl/mydapp.json`.
 
 Sería bueno si pudiéramos copiar este archivo idl automáticamente a nuestra carpeta src de la aplicación cliente, pero hasta ahora no he encontrado una manera de hacer esto de forma nativa. Por supuesto, puedes crear tu propio script que haga esto si lo deseas, o bien necesitas copiar y pegar sobre el IDL después de cada cambio en tu programa principal.
 
@@ -898,7 +903,7 @@ const idl = require('./target/idl/mysolanaapp.json');
 fs.writeFileSync('./app/src/idl.json', JSON.stringify(idl));
 ```
 
-A continuación, abre app/src/App.js y actualízalo con lo siguiente:
+A continuación, abrimos app/src/App.js y actualízamos con lo siguiente:
 
 ```javascript
 import './App.css';
@@ -1032,13 +1037,13 @@ yarn start
 ```
 
 {{< admonition warning >}}
-Si estas haciendo uso de React.js versión 17.0.0, es posible que tengas problemas con webpack 5. Para resolver esto, te recomiendo hacer lo siguiente:
+Si estas haciendo uso de React.js versión 17.0.0 o superior, es posible que tengas problemas con webpack 5. Para resolver esto, te recomiendo hacer lo siguiente:
 
-1. Primero installar las siguientes dependencias:
+1. Primero instalamos las siguientes dependencias:
     ```shell
     yarn add --dev react-app-rewired process crypto-browserify stream-browserify assert stream-http https-browserify os-browserify url buffer
     ```
-2. Crear el archivo `config-overrides.js` en la raiz del proyecto de React:
+2. Creamos el archivo `config-overrides.js` en la raiz del proyecto de React:
     ```javascript
     const webpack = require('webpack');
 
@@ -1063,17 +1068,18 @@ Si estas haciendo uso de React.js versión 17.0.0, es posible que tengas problem
         return config;
     }
     ```
-3. Luego editar el archivo package.json. En lugar de `react-scripts` remplazar esto por `react-app-rewired`:
+3. Luego editamos el archivo package.json. En lugar de `react-scripts` remplazar esto por `react-app-rewired`:
    
     ```json
-    /* antes */
+    /* Before */
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
-    /* despues */
+
+    /* After */
     "scripts ": {
         "start": "react-app-rewired start",
         "build": "react-app-rewired build",
@@ -1081,9 +1087,9 @@ Si estas haciendo uso de React.js versión 17.0.0, es posible que tengas problem
         "eject": "react-scripts eject"
     },
     ```
-Los polyfills de Nodejs que faltan deberían estar incluidos ahora y tu aplicación debería ser funcional con web3.
+Los polyfills de Nodejs que faltan deberían estar incluidos ahora y tu aplicación debería ser funcionar con web3.
 
-Si quieres ocultar las advertencias creadas por la consola en `config-overrides.js` en el interior de la función `override`, agrega:
+Si queremos ocultar las advertencias creadas por la consola en `config-overrides.js` en el interior de la función `override`, agregamos:
 ```javascript
 config.ignoreWarnings = [/Failed to parse source map/];
 
@@ -1093,55 +1099,53 @@ Ver documentación de [web3.js.](https://github.com/ChainSafe/web3.js)
 
 ## Configurar la red local en la Wallet
 
-Antes de poder interactuar con un programa en la red localhost, debemos cambiar nuestro monedero Phantom a la red adecuada.
+Antes de poder interactuar con un programa en la red localhost, debemos cambiar nuestro criptocartera de Phantom a la red adecuada.
 
-Para ello, abre tu monedero Phantom y haz clic en el botón de configuración. A continuación, desplácese hacia abajo para cambiar la red:
+Para ello, abrimos nuestra criptocartera de Phantom y hacemos clic en el botón de configuración. A continuación, nos desplazmaos hacia abajo para cambiar la red:
 
 ![red](wallet.png "Figura 1. Cambiar la red" )
 
-A continuación, elija Localhost:
+A continuación, elejimos Localhost:
 
 ![Localhost](wallet2.png "Figura 2. Seleccionar la red")
 
-Ahora tenemos que enviar tokens por aire a esta cartera. En la parte superior de la interfaz del monedero, haz clic en tu dirección para copiarla en el portapapeles.
+Ahora tenemos que enviar algunas criptomonedas de prueba a esta cartera. En la parte superior de la interfaz de la criptocartera, hacemos clic en nuestra dirección para copiarla en el portapapeles.
 
 ![Address](wallet3.png "Figura 3. Dirección del monedero")
 
-A continuación, en una termina ejecutamos el siguiente comando (asegurate que `solana-test-validator` esté corriendo):
+A continuación, en una terminal ejecutamos el siguiente comando (asegurate que `solana-test-validator` esté corriendo):
 
 ```shell
 solana airdrop 2 «YOUR_ADDRESS»
 ```
 
-Ahora deberías tener 2 solanas en tu cartera. Ahora podemos ejecutar y probar la aplicación.
-
-Cambia al directorio de la aplicación y ejecuta el siguiente comando:
+Ahora deberíamos tener 2 solanas en nuestra cartera. Con estemo podemos ejecutar y probar la aplicación. Cambiamos al directorio de la aplicación y ejecutamos el siguiente comando:
 
 ```shell
 yarn start
 ```
 
-Deberías poder conectar tu cartera, crear un contador e incrementarlo.
+Deberíamos poder conectarnos a nuestra criptocartera, crear un contador e incrementarlo.
 
-Notarás que cuando refrescas, pierdes el estado del programa. Esto es porque estamos generando dinámicamente la cuenta base cuando el programa se carga. Si quieres leer e interactuar con los datos del programa a través de varios clientes, tendrías que crear y almacenar el Keypair en algún lugar de tu proyecto. He reunido una idea general de un enfoque ingenuo de cómo podría verse esto.
+Notaremos que cuando refrescamos, pierdemos el estado del programa. Esto es porque estamos generando dinámicamente la cuenta base cuando el programa se carga. Si quieres leer e interactuar con los datos del programa a través de varios clientes, tendrías que crear y almacenar el Keypair en algún lugar de tu proyecto.
 
 
 ## Despliegue en la Devnet
 A partir de aquí, el despliegue en una red activa es bastante sencillo. Las principales cosas que tenemos que hacer son:
 
-1. Actualice la CLI de Solana para utilizar devnet:
+1. Actualizar la CLI de Solana para utilizar devnet:
    ```shell 
    solana config set --url devnet
    ```
-2. Actualizar el monedero para usar `devnet`.
+2. Actualizar la criptocartera para usar la `devnet`.
 3. En el archivo `Anchor.toml` actualizar el cluster de `localnet` a `devnet`.
-4. Compilar el programa nuevamente. Asegurate que el ID del programa en `Anchor.toml` se igual al ID actual del programa.
+4. Compilar el programa nuevamente. Asegurate que el ID del programa en `Anchor.toml` se igual al ID actual del programa
 5. En archivo `app/src/App.js`, también es necesario actualizar la red, para esto debemos remplazar la red de localhost: `http://127.0.0.1:8899` por la red de desarrollo: `devnet`.
     ```javascript
-    /* antes */
+    /* Before */
     <ConnectionProvider endpoint="http://127.0.0.1:8899">
 
-    /* despues */
+    /* After */
     import {
       ...,
       clusterApiUrl
@@ -1153,13 +1157,12 @@ A partir de aquí, el despliegue en una red activa es bastante sencillo. Las pri
     ```
 A partir de aquí, deberías poder desplegar y probar como hemos hecho en los pasos anteriores. 
 
-{{< admonition >}}
-El código se encuentra alojado en el github.
-{{< /admonition >}}
 ## El siguiente paso para no parar de aprender
 
-Te sugiero continuar aprendiendo sobre NFTs sobre el proyecto de Metaplex.
+Te sugiero continuar aprendiendo sobre NFTs y el uso de la API de Solana. Para ello, puedes visitar la siguiente página: [¿Cómo crear una colección de NFTs en Solana con IPFS?](https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/). Finalmente, esperamos que esta guía te sea de ayuda para que puedas desarrollar tus aplicaciones de forma sencilla. ¡Nos vemos pronto!
 
+## Asesorías
+Puedes encontrarme en [Classgap](https://www.classgap.com/es-co/tutor/alejandro-sanchez-yali), allí puedes puedes consultar mis horarios de asesorías y agendar una.
 ## Patrocinio 
 ₿itcoin: [bc1qrcecrz47ywrcnyuqknzgzzz2t3lwawyjnl4t7f](https://www.exodus.com/)
 
