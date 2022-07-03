@@ -2,8 +2,16 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://alejandrosanchezyali.vercel.app/en/20220202themedocumentationbuilt/</loc><lastmod>2022-03-15T22:03:38-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://alejandrosanchezyali.vercel.app/en/</loc><lastmod>2022-03-15T22:03:38-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://alejandrosanchezyali.vercel.app/en/about/</loc><lastmod>2022-07-02T21:16:15-05:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="es"
+                        href="https://alejandrosanchezyali.vercel.app/about/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://alejandrosanchezyali.vercel.app/en/about/"
+                    /></url><url>
+            <loc>https://alejandrosanchezyali.vercel.app/en/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="es"
                         href="https://alejandrosanchezyali.vercel.app/"
@@ -12,7 +20,7 @@
                     hreflang="en"
                     href="https://alejandrosanchezyali.vercel.app/en/"
                     /></url><url>
-            <loc>https://alejandrosanchezyali.vercel.app/en/categories/</loc><lastmod>2022-03-15T22:03:38-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://alejandrosanchezyali.vercel.app/en/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="es"
                         href="https://alejandrosanchezyali.vercel.app/categories/"
@@ -21,18 +29,7 @@
                     hreflang="en"
                     href="https://alejandrosanchezyali.vercel.app/en/categories/"
                     /></url><url>
-            <loc>https://alejandrosanchezyali.vercel.app/en/categories/documentation/</loc><lastmod>2022-03-15T22:03:38-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://alejandrosanchezyali.vercel.app/en/posts/</loc><lastmod>2022-03-15T22:03:38-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="es"
-                        href="https://alejandrosanchezyali.vercel.app/posts/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://alejandrosanchezyali.vercel.app/en/posts/"
-                    /></url><url>
-            <loc>https://alejandrosanchezyali.vercel.app/en/tags/shortcodes/</loc><lastmod>2022-03-15T22:03:38-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://alejandrosanchezyali.vercel.app/en/tags/</loc><lastmod>2022-03-15T22:03:38-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://alejandrosanchezyali.vercel.app/en/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="es"
                         href="https://alejandrosanchezyali.vercel.app/tags/"
@@ -40,13 +37,4 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://alejandrosanchezyali.vercel.app/en/tags/"
-                    /></url><url>
-            <loc>https://alejandrosanchezyali.vercel.app/en/about/</loc><lastmod>2022-07-02T21:13:52-05:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="es"
-                        href="https://alejandrosanchezyali.vercel.app/about/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://alejandrosanchezyali.vercel.app/en/about/"
                     /></url></urlset>
