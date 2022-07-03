@@ -1,6 +1,6 @@
 ---
 weight: 2
-title: "Aprendiendo de los datos"
+title: "¿Aprendiendo de los datos?"
 date: 2021-07-12T08:19:27-05:00
 draft: false
 excerpt: Una breve introducción al problema del aprendizaje a partir de los datos.
@@ -49,9 +49,9 @@ Resolver esta tarea implica hacer la elección de un conjunto de **hipótesis** 
 
 que a partir de una **muestra de datos** $S = (s\_i)_{i\in[m]}$ de cierto tamaño $m$ logre encontrar un **modelo** $h\_S = \mathcal{A}(S)\in \mathcal{H}$ con «_buen comportamiento_» en $S$ y «_capacidad de generalizar_» para los datos desconocidos en $\mathcal{Z} \setminus \\{s\_i\\}\_{i\in[m]}$. Aquí, el buen comportamiento se mide via la función de perdida $\mathcal{L}$ y corresponde a la perdida $\mathcal{L}(h\_S, z)$, mientras la capacidad de generalizar quiere decir, que el comportamiento de $h\_S$ en el conjunto de datos desconocidos, $z\in \mathcal{Z} \setminus \\{s\_i\\}\_{i\in[m]}$, es similar al comportamiento en el conjunto de datos conocidos, $z\in \mathcal{S}$.
 
-Creo que en este punto, estamos de acuerdo con que las nociones de «_buen comportamiento_» y «_la capacidad de generalizar_» son bastante vagas, sin embargo, veamos como mejorar estas ideas, para lograr esto vamos a centrar la atención en los conceptos de **riesgo ideal**  y de **riesgo empírico** cómo veremos a continuación.
+Creo que en este punto, estamos de acuerdo con que las nociones de «_buen comportamiento_» y «_la capacidad de generalizar_» son bastante vagas, sin embargo, veamos como mejorar estas ideas, vamos a centrarnos en los conceptos de **riesgo ideal**  y de **riesgo empírico** cómo veremos a continuación:
 
-El **riesgo ideal** de una hipótesis $h\in \mathcal{H}$ con respecto a la distribucción de probabilidad $\mathcal{D}$ sobre $\mathcal{Z}$, se define como: 
+El **riesgo ideal** de una hipótesis $h\in \mathcal{H}$ con respecto una distribucción de probabilidad $\mathcal{D}$ sobre $\mathcal{Z}$, se define como: 
 
 \begin{equation}\tag{1}
 L\_{D}(h) = \mathbb{E}\_{z\sim \mathcal{D}}[\mathcal{L}(h, z)].

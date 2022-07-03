@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Aprendiendo de los datos - Alejandro Sánchez Yalí</title><meta name="Description" content="¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática."><meta property="og:title" content="Aprendiendo de los datos" />
+        <title>¿Aprendiendo de los datos? - Alejandro Sánchez Yalí</title><meta name="Description" content="¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática."><meta property="og:title" content="¿Aprendiendo de los datos?" />
 <meta property="og:description" content="¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://alejandrosanchezyali.vercel.app/20210712machinelearning/" /><meta property="og:image" content="https://alejandrosanchezyali.vercel.app/20210712machinelearning/featured-image.png"/><meta property="article:section" content="posts" />
@@ -14,7 +14,7 @@
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://alejandrosanchezyali.vercel.app/20210712machinelearning/featured-image.png"/>
-<meta name="twitter:title" content="Aprendiendo de los datos"/>
+<meta name="twitter:title" content="¿Aprendiendo de los datos?"/>
 <meta name="twitter:description" content="¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática."/>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8Q3782W9K"></script>
@@ -88,7 +88,7 @@ if (!doNotTrack) {
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Aprendiendo de los datos",
+        "headline": "¿Aprendiendo de los datos?",
         "inLanguage": "es",
         "mainEntityOfPage": {
             "@type": "WebPage",
@@ -98,7 +98,7 @@ if (!doNotTrack) {
                             "url": "https:\/\/alejandrosanchezyali.vercel.app\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Machine Learning, Tareas de aprendizaje, Regresión, Clasificación","wordcount":  1672 ,
+                        }],"genre": "posts","keywords": "Machine Learning, Tareas de aprendizaje, Regresión, Clasificación","wordcount":  1666 ,
         "url": "https:\/\/alejandrosanchezyali.vercel.app\/20210712machinelearning\/","datePublished": "2021-07-12T08:19:27-05:00","dateModified": "2022-07-02T21:28:05-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Alejandro Sánchez Yalí","logo": "https:\/\/alejandrosanchezyali.vercel.app\/images\/avatar.png"},"author": {
@@ -177,9 +177,9 @@ if (!doNotTrack) {
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contenido</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Aprendiendo de los datos</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">¿Aprendiendo de los datos?</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Alejandro Sánchez Yalí</a></span>&nbsp;<span class="post-category">incluido en <a href="/categories/inteligencia-artificial/"><i class="far fa-folder fa-fw"></i>Inteligencia Artificial</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-12">2021-07-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1672 palabras&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-12">2021-07-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1666 palabras&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;8 minutos&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -213,8 +213,8 @@ if (!doNotTrack) {
 \mathcal{A}: \bigcup_{ m\in \mathbb{N} } \mathcal{Z}^{m} \to \mathcal{H}
 \end{equation}</p>
 <p>que a partir de una <strong>muestra de datos</strong> $S = (s_i)_{i\in[m]}$ de cierto tamaño $m$ logre encontrar un <strong>modelo</strong> $h_S = \mathcal{A}(S)\in \mathcal{H}$ con «<em>buen comportamiento</em>» en $S$ y «<em>capacidad de generalizar</em>» para los datos desconocidos en $\mathcal{Z} \setminus \{s_i\}_{i\in[m]}$. Aquí, el buen comportamiento se mide via la función de perdida $\mathcal{L}$ y corresponde a la perdida $\mathcal{L}(h_S, z)$, mientras la capacidad de generalizar quiere decir, que el comportamiento de $h_S$ en el conjunto de datos desconocidos, $z\in \mathcal{Z} \setminus \{s_i\}_{i\in[m]}$, es similar al comportamiento en el conjunto de datos conocidos, $z\in \mathcal{S}$.</p>
-<p>Creo que en este punto, estamos de acuerdo con que las nociones de «<em>buen comportamiento</em>» y «<em>la capacidad de generalizar</em>» son bastante vagas, sin embargo, veamos como mejorar estas ideas, para lograr esto vamos a centrar la atención en los conceptos de <strong>riesgo ideal</strong>  y de <strong>riesgo empírico</strong> cómo veremos a continuación.</p>
-<p>El <strong>riesgo ideal</strong> de una hipótesis $h\in \mathcal{H}$ con respecto a la distribucción de probabilidad $\mathcal{D}$ sobre $\mathcal{Z}$, se define como:</p>
+<p>Creo que en este punto, estamos de acuerdo con que las nociones de «<em>buen comportamiento</em>» y «<em>la capacidad de generalizar</em>» son bastante vagas, sin embargo, veamos como mejorar estas ideas, vamos a centrarnos en los conceptos de <strong>riesgo ideal</strong>  y de <strong>riesgo empírico</strong> cómo veremos a continuación:</p>
+<p>El <strong>riesgo ideal</strong> de una hipótesis $h\in \mathcal{H}$ con respecto una distribucción de probabilidad $\mathcal{D}$ sobre $\mathcal{Z}$, se define como:</p>
 <p>\begin{equation}\tag{1}
 L_{D}(h) = \mathbb{E}_{z\sim \mathcal{D}}[\mathcal{L}(h, z)].
 \end{equation}</p>
@@ -283,7 +283,7 @@ para encontrar una hipótesis $h_s$. Este es un proceso que puede ser automatiza
                             <a class="link-to-markdown" href="/20210712machinelearning/index.md" target="_blank">Leer Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Compartir en Twitter" data-sharer="twitter" data-url="https://alejandrosanchezyali.vercel.app/20210712machinelearning/" data-title="Aprendiendo de los datos" data-via="asanchezyali" data-hashtags="Machine Learning,Tareas de aprendizaje,Regresión,Clasificación"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Facebook" data-sharer="facebook" data-url="https://alejandrosanchezyali.vercel.app/20210712machinelearning/" data-hashtag="Machine Learning"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Linkedin" data-sharer="linkedin" data-url="https://alejandrosanchezyali.vercel.app/20210712machinelearning/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en WhatsApp" data-sharer="whatsapp" data-url="https://alejandrosanchezyali.vercel.app/20210712machinelearning/" data-title="Aprendiendo de los datos" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Hacker News" data-sharer="hackernews" data-url="https://alejandrosanchezyali.vercel.app/20210712machinelearning/" data-title="Aprendiendo de los datos"><i class="fab fa-hacker-news fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="Compartir en Twitter" data-sharer="twitter" data-url="https://alejandrosanchezyali.vercel.app/20210712machinelearning/" data-title="¿Aprendiendo de los datos?" data-via="asanchezyali" data-hashtags="Machine Learning,Tareas de aprendizaje,Regresión,Clasificación"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Facebook" data-sharer="facebook" data-url="https://alejandrosanchezyali.vercel.app/20210712machinelearning/" data-hashtag="Machine Learning"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Linkedin" data-sharer="linkedin" data-url="https://alejandrosanchezyali.vercel.app/20210712machinelearning/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en WhatsApp" data-sharer="whatsapp" data-url="https://alejandrosanchezyali.vercel.app/20210712machinelearning/" data-title="¿Aprendiendo de los datos?" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Compartir en Hacker News" data-sharer="hackernews" data-url="https://alejandrosanchezyali.vercel.app/20210712machinelearning/" data-title="¿Aprendiendo de los datos?"><i class="fab fa-hacker-news fa-fw"></i></a></span>
             </div>
         </div>
     </div>
