@@ -22,10 +22,10 @@ Solana Tool Suite (1.8.16) - Esta es la CLI de Solana. La documentación es muy 
 Anchor (0.21.0) - Seguramente si has desarrollado dapps sobre Ethereum, habrás utilizado Hardhat. Bueno, Anchor es un framework parecido a Hardhat que se utiliza para desarrollar dapps sobre Solana.]]></description>
 </item><item>
     <title>Fundamentos de la tecnología Blockchain</title>
-    <link>https://alejandrosanchezyali.vercel.app/index.es.noshow/</link>
+    <link>https://alejandrosanchezyali.vercel.app/drafts/20220209blockchainfoundations/</link>
     <pubDate>Mon, 12 Jul 2021 08:19:27 -0500</pubDate>
     <author>Autor</author>
-    <guid>https://alejandrosanchezyali.vercel.app/index.es.noshow/</guid>
+    <guid>https://alejandrosanchezyali.vercel.app/drafts/20220209blockchainfoundations/</guid>
     <description><![CDATA[Introducción Una blockchain es una forma de almacenar datos a través de una red de servidores (nodos) que interactúan mediante un protocolo de intercambio peer-to-peer y que hacen uso de la criptografía para garantizar la integridad de los datos de forma segura, en principio sin la presencia de una autoridad central reguladora. una blockchain es más que un simple algoritmo, es una tecnología que facilita la descentralización y el acceso a los datos a cada uno de los participantes de la red, estableciendo un nuevo paradigma en la forma de como relacionarse con la información, no confíes, verifica.]]></description>
 </item></channel>
 </rss>

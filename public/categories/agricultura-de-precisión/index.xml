@@ -6,10 +6,10 @@
         <generator>Hugo -- gohugo.io</generator><language>es</language><managingEditor>asanchezyali@gmail.com (Alejandro Sánchez Yalí)</managingEditor>
             <webMaster>asanchezyali@gmail.com (Alejandro Sánchez Yalí)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 12 Jul 2021 08:19:27 -0500</lastBuildDate><atom:link href="https://alejandrosanchezyali.vercel.app/categories/agricultura-de-precisi%C3%B3n/" rel="self" type="application/rss+xml" /><item>
     <title>Agricultura de precisión</title>
-    <link>https://alejandrosanchezyali.vercel.app/index.es.noshow/</link>
+    <link>https://alejandrosanchezyali.vercel.app/drafts/20220312precisionagriculture/</link>
     <pubDate>Mon, 12 Jul 2021 08:19:27 -0500</pubDate>
     <author>Autor</author>
-    <guid>https://alejandrosanchezyali.vercel.app/index.es.noshow/</guid>
+    <guid>https://alejandrosanchezyali.vercel.app/drafts/20220312precisionagriculture/</guid>
     <description><![CDATA[En esta ocasión vamos a aprender cómo monitorizar una planta empleando un bot de telegram y una raspberry pi 3 model b. Este artículo que aquí se desarrolla, busca cubrir la monitorización remota de una plata, asi como la instalación de actuadores que puedan interactuar con la misma. Todo esto controlado desde un bot desarrollado para la plataforma Telegram Messenger.
 Por lo tanto, el principal objetivo es desarrollar un bot que sea capaz de comunicarse con un servidor, en nuestro caso con una placa Raspberry Pi, y que sea capaz de recibir información de sensores conectados a la placa y enviar órdenes a los actuadores que interactuarán con la planta supervisada.]]></description>
 </item></channel>

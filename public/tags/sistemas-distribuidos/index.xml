@@ -22,18 +22,18 @@ Solana Tool Suite (1.8.16) - Esta es la CLI de Solana. La documentación es muy 
 Anchor (0.21.0) - Seguramente si has desarrollado dapps sobre Ethereum, habrás utilizado Hardhat. Bueno, Anchor es un framework parecido a Hardhat que se utiliza para desarrollar dapps sobre Solana.]]></description>
 </item><item>
     <title>Agricultura de precisión</title>
-    <link>https://alejandrosanchezyali.vercel.app/index.es.noshow/</link>
+    <link>https://alejandrosanchezyali.vercel.app/drafts/20220312precisionagriculture/</link>
     <pubDate>Mon, 12 Jul 2021 08:19:27 -0500</pubDate>
     <author>Autor</author>
-    <guid>https://alejandrosanchezyali.vercel.app/index.es.noshow/</guid>
+    <guid>https://alejandrosanchezyali.vercel.app/drafts/20220312precisionagriculture/</guid>
     <description><![CDATA[En esta ocasión vamos a aprender cómo monitorizar una planta empleando un bot de telegram y una raspberry pi 3 model b. Este artículo que aquí se desarrolla, busca cubrir la monitorización remota de una plata, asi como la instalación de actuadores que puedan interactuar con la misma. Todo esto controlado desde un bot desarrollado para la plataforma Telegram Messenger.
 Por lo tanto, el principal objetivo es desarrollar un bot que sea capaz de comunicarse con un servidor, en nuestro caso con una placa Raspberry Pi, y que sea capaz de recibir información de sensores conectados a la placa y enviar órdenes a los actuadores que interactuarán con la planta supervisada.]]></description>
 </item><item>
     <title>Fundamentos de la tecnología Blockchain</title>
-    <link>https://alejandrosanchezyali.vercel.app/index.es.noshow/</link>
+    <link>https://alejandrosanchezyali.vercel.app/drafts/20220209blockchainfoundations/</link>
     <pubDate>Mon, 12 Jul 2021 08:19:27 -0500</pubDate>
     <author>Autor</author>
-    <guid>https://alejandrosanchezyali.vercel.app/index.es.noshow/</guid>
+    <guid>https://alejandrosanchezyali.vercel.app/drafts/20220209blockchainfoundations/</guid>
     <description><![CDATA[Introducción Una blockchain es una forma de almacenar datos a través de una red de servidores (nodos) que interactúan mediante un protocolo de intercambio peer-to-peer y que hacen uso de la criptografía para garantizar la integridad de los datos de forma segura, en principio sin la presencia de una autoridad central reguladora. una blockchain es más que un simple algoritmo, es una tecnología que facilita la descentralización y el acceso a los datos a cada uno de los participantes de la red, estableciendo un nuevo paradigma en la forma de como relacionarse con la información, no confíes, verifica.]]></description>
 </item></channel>
 </rss>
