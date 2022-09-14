@@ -1,0 +1,10 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Alejandro Sánchez Yalí</title>
+        <link>https://alejandrosanchezyali.vercel.app/en/</link>
+        <description>About LoveIt Theme</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>asanchezyali@gmail.com (Alejandro Sánchez Yalí)</managingEditor>
+            <webMaster>asanchezyali@gmail.com (Alejandro Sánchez Yalí)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+            <atom:link href="https://alejandrosanchezyali.vercel.app/en/index.xml" rel="self" type="application/rss+xml" />
+        </channel>
+</rss>

@@ -1,0 +1,1160 @@
+# Programando Dapps en Solana
+
+
+Aquí vas a encontrar cómo construir el código base para una _dapp_ en la cadena de bloques de Solana. Para ello, necesitarás:
+
+1. [Solana Tool Suite (1.8.16)](https://docs.solana.com/cli/install-solana-cli-tools) - Esta es la CLI de Solana. La documentación es muy completa y allí encontrarás todos los detalles para aprender a utilizarla. 
+2. [Anchor (0.21.0)](https://project-serum.github.io/anchor/getting-started/introduction.html) - Seguramente si has desarrollado dapps sobre Ethereum, habrás utilizado [Hardhat](https://hardhat.org/). Bueno, Anchor es un _framework_ parecido a Hardhat que se utiliza para desarrollar _dapps_ sobre Solana. 
+3. [solana/web3.js (1.36.0)](https://solana-labs.github.io/solana-web3.js/) - Es una version de [web3.js](https://web3js.readthedocs.io/) para solana, sin embargo la documentación no es muy buena, así que si tienes dificultades con ella busca apoyo en las comunidades de discord. 
+4. [React.js (17.0.2)](https://reactjs.org/) - _Framework_ para el desarrollo de Front-end. Bastante popular y con muy buena documentación.
+
+5. [Node.js (16.04)](https://nodejs.org/en/) - Para instalarla puedes usar [nvm](https://github.com/nvm-sh/nvm).
+
+6.  [Phantom](https://project-serum.github.io/anchor/getting-started/installation.html) - Es la criptocartera que emplearemos para guardar las criptomonedas de Solana.
+
+Como has visto en cada uno de los items encontrarás enlazada cada herramienta con la documentación para instalarlas, ya que cada proyecto explica como hacerlo y además mantienen actualizados los procedimientos.
+
+También te recomendamos que te unas a las comunidades de discord de Anchor, Stractors, Metaplex y Solana para que te ayuden a mantenerte actualizado:
+
+1.  [Anchor](https://discord.gg/ZCHmqvXgDw)
+2.  [Stractors](https://discord.gg/ebsJrabneZ)
+3.  [Metaplex](https://discord.gg/rpn5wM8Ry3)
+4.  [Solana Tech](https://discord.gg/solana)
+
+Y si quieres aprender más sobre la blockchain conmigo, puedes visitar mi canal de discord [CODE & MATH](https://discord.gg/eeZgZaWNRu).
+
+Espero que el contenido que voy a presentar a continuación sea de su agrado y les permita incrementar su _Qi_ como desarrolladores de _Blockchain_.
+## Solana CLI
+
+El CLI de Solana es una herramienta que te permite interactuar con la blockchain de Solana. Para ello, necesitas instalarlo de acuerdo a las instrucciones que te proporciona la documentación: [Solana Tool Suite (1.8.16)](https://docs.solana.com/cli/install-solana-cli-tools). Por otro lado, debes configurarlo para que puedas interactuar con la blockchain. Existen tres redes de configurar el ambiente de trabajo: `localhost`, `testnet`, `devnet` o `mainnet-beta`.
+
+Además, debes obtener algunas criptomonedas de prueba para realizar pruebas. Las criptomonedas que te proporcionará el CLI para las redes `localhost`, `testnet` y `devnet` no tiene ningún valor comercial, son solo para probar las dapps en ambientes de desarrollo.
+### Criptocartera de papel y airdrop 
+
+Una criptocartera de criptomonedas es una herramienta que te permite almacenar claves privadas que son utilizadas para generar claves públicas que son utilizadas para generar transacciones. A continuación te enseñaremos como generar una [criptocartera de papel](https://docs.solana.com/wallet-guide/paper-wallet) usando la línea de comandos de Solana. Para ello, utilizaremos el comando  `solana-keygen`, que se debería haber sido instalado cuando instalamos el CLI de solana. Sin embargo, para verificar que se instaló correctamente, podemos ejecutar el siguiente comando:
+
+```shell
+solana --version
+```
+
+```shell
+# Output
+solana-cli 1.8.16 (src:23af37fe; feat:1886190546)
+```
+Si vemos la versión, es que se instaló correctamente. Significa que podemos ejecutar el comando `solana-keygen` para generar una criptocartera de papel.
+
+```shell
+solana-keygen new --outfile ~/.config/solana/«MY_PAPER_WALLET».json
+```
+
+```shell
+# Output
+Generating a new keypair
+
+For added security, enter a BIP39 passphrase
+
+NOTE! This passphrase improves security of the recovery seed phrase NOT the
+keypair file itself, which is stored as insecure plain text
+
+BIP39 Passphrase (empty for none): 
+
+Wrote new keypair to /home/alejandro/.config/solana/«MY_PAPER_WALLET».json
+==============================================================================
+pubkey: A9exxqnew6bbovMLt8ZDA2CyUVEKP6Y2uGkT8EGE2q7J
+==============================================================================
+Save this seed phrase and your BIP39 passphrase to recover your new keypair:
+surface pride wild second judge where episode wire enforce trial upgrade music
+```
+
+El parámetro `MY_PAPER_WALLET` es un nombre que le daremos a la criptocartera de papel que generaremos. Por ejemplo, si queremos generar una criptocartera de papel para guardarla en la carpeta `~/.config/solana/`, podemos usar `MY_PAPER_WALLET=my_paper_wallet`. Cuando ejecutemos el comando `solana-keygen new`, el CLI nos pedirá que introduzcamos una frase de recuperación para generar la clave pública y la clave privada. Siéntase libre de añadir una frase de contraseña si lo desea, está bien no hacerlo para los propósitos de este tutorial.
+
+Una vez que hemos rellenado el formulario, el terminal debería mostrar la clave pública y la frase semilla generada. Copie y guarde la frase semilla en un lugar seguro.
+
+El par de claves se generará en la siguiente ubicación:
+
+```shell
+/home/<your user>/.config/solana/«MY_PAPER_WALLET».json
+```
+{{< admonition >}}
+El archivo json puede llamarse como usted quiera, asegúrese de almacenar su frase semilla en algún lugar seguro.
+{{< /admonition >}}
+
+Para usar tu nueva criptocartera, entonces escribimos el siguiente comando:
+
+```shell 
+solana config set --keypair ~/.config/solana/«MY_PAPER_WALLET».json
+```
+
+```shell
+# Output
+Config File: /home/alejandro/.config/solana/cli/config.yml
+RPC URL: https://api.devnet.solana.com 
+WebSocket URL: wss://api.devnet.solana.com/ (computed)
+Keypair Path: /home/alejandro/.config/solana/«MY_PAPER_WALLET».json 
+Commitment: confirmed 
+```
+
+Ahora vamos a probar que la criptocartera de papel se ha creado correctamente. Para ello, debemos asegurarnos primero de usar la red de pruebas `devnet`:
+
+```shell
+solana config set --url devnet
+```
+
+```shell
+# Output
+Config File: /home/alejandro/.config/solana/cli/config.yml
+RPC URL: https://api.devnet.solana.com 
+WebSocket URL: wss://api.devnet.solana.com/ (computed)
+Keypair Path: /home/alejandro/.config/solana/«MY_PAPER_WALLET».json 
+Commitment: confirmed 
+```
+
+Para comprobar la configuración actual de la red (y otras) podemos emplear este comando:
+
+```shell
+solana config get
+```
+
+```shell
+# Output
+Config File: /home/user/.config/solana/cli/config.yml
+RPC URL: https://api.devnet.solana.com 
+WebSocket URL: wss://api.devnet.solana.com/ (computed)
+Keypair Path: /home/user/.config/solana/«MY_PAPER_WALLET».json 
+Commitment: confirmed 
+```
+
+con el CLI podemos ver la dirección de nuestra criptocartera:
+
+```shell
+solana address
+```
+
+```shell
+# Output is something like this:
+4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+```
+
+A continuación vamos a conseguir algo de criptomonedas de prueba de Solana, para hacer esto, debemos asegurarnos que estamos usando la `devnet`, ya que nuestro código base va a funcionar en esta red. Para conseguir las criptomonedas de prueba, ejecutamos el siguiente comando:
+
+
+```shell
+solana airdrop 2 «YOUR_ADDRESS» --url devnet
+```
+
+```shell
+# Output is something like this:
+Requesting airdrop of 2 SOL
+
+Signature: 3KsFBCULmso5Lc7CAQdqF8rzsBXb3xaVrG3cup19n3P2paw3ryvovWQ9MsMB8GMiQkXJWyHXGrni63BsNrxVfHP2
+
+2 SOL
+```
+
+Para obtener la información completa de nuestra cuenta:
+```shell
+solana account «YOUR_ADDRESS»
+```
+
+```shell
+# Output is something like this:
+Public Key: 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+Balance: 4.956381584 SOL
+Owner: 11111111111111111111111111111111
+Executable: false
+Rent Epoch: 277
+```
+
+Para verificar el balance de nuestra criptocartera hacemos:
+
+```shell
+solana balance 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9
+```
+
+```shell
+# Output
+2 SOL
+```
+
+Hasta aquí hemos conseguido crear una criptocartera de papel y fondear con 2 Solanas, las criptomonedas que utilizaremos más adelante para probar nuestro código base. A continuación vamos a ver cómo podemos cambiar entre cada una de las redes de Solana (localhost, testnet, devnet y mainnet-beta).
+
+### Gestionando las redes de solana
+
+Para utilizar las redes  localhost, testnet, devnet o mainnet-beta, podemos hacer lo siguiente:
+
+```shell
+# set to localhost 
+solana config set --url localhost
+
+# set to testnet 
+solana config set --url localhost
+
+# set config devnet
+solana config set --url devnet
+
+# set config mainnet
+solana config set --url mainnet
+```
+
+```shell
+# Output
+Config File: /home/user/.config/solana/cli/config.yml
+RPC URL: https://api.devnet.solana.com 
+WebSocket URL: wss://api.devnet.solana.com/ (computed)
+Keypair Path: /home/user/.config/solana/devnet.json 
+Commitment: confirmed 
+```
+
+Es importante estar al tanto de qué red estás usando mientras construyes, pruebas y despliegas tus programas. Hay que asegurarnos de que nuestra criptocartera es la misma de la  red del entorno local. Por ejemplo, si vamos a desarrollar nuestra aplicación en la red de devnet,  entonces ejecutamos:
+
+```shell
+# set config devnet
+solana config set --url devnet
+```
+
+Si en cambio, deseas trabajar con la red en localhost, primero deberás iniciar el nodo local de Solana para realizar la pruebas:
+
+```shell
+solana-test-validator
+```
+
+```shell
+#Output is something like this:
+Ledger location: test-ledger
+Log: test-ledger/validator.log
+Identity: D2tKzcNv1iLwWpQpEhwSXvuPH5vQUXy8jwCYvGEUzgZv
+Genesis Hash: 3qied4BanGash7eNA46H3UwnP3VLa96gYnMtDgEdQK3T
+Version: 1.8.16
+Shred Version: 38112
+Gossip Address: 127.0.0.1:1024
+TPU Address: 127.0.0.1:1027
+JSON RPC URL: http://127.0.0.1:8899
+.....
+```
+
+Y luego
+
+```shell
+# set config devnet
+solana config set --url localhost
+```
+Además de obtener algo de criptomonedas para está red: 
+
+```shell
+solana airdrop 2 4aDSG82CdgMwt81z7AwnLnDRZyp6MjvZMUVpT82HZRU9 --url localhost
+```
+
+```shell
+# Output is something like this:
+Requesting airdrop of 1 SOL
+
+Signature: 3KsFBCULmso5Lc7CAQdqF8rzsBXb3xaVrG3cup19n3P2paw3ryvovWQ9MsMB8GMiQkXJWyHXGrni63BsNrxVfHP2
+
+1 SOL
+```
+
+Ahora que ya tienes solanas en tu criptocartera, podemos continuar con la siguiente fase de nuestro proyecto.
+
+## Configuración inicial de una dapp con Anchor
+
+Para iniciar, creamos un nuevo proyecto de Anchor y cambiamos al nuevo directorio:
+
+```shell 
+anchor init mydapp --javascript
+cd mydapp
+```
+
+```shell
+# Output is something like this:
+yarn install v1.22.17
+warning package.json: No license field
+info No lockfile found.
+warning No license field
+[1/4] Resolving packages...
+warning @project-serum/anchor > @solana/web3.js > rpc-websockets > circular-json@0.5.9: CircularJSON is in maintenance only, flatted is its successor.
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+warning " > ts-mocha@8.0.0" has incorrect peer dependency "mocha@^3.X.X || ^4.X.X || ^5.X.X || ^6.X.X || ^7.X.X || ^8.X.X".
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 11.66s.
+mydapp initialized
+```
+
+Si deseamos trabajar con Typescript escribimos solamente:
+
+```shell 
+anchor init mydapp
+cd mydapp
+```
+
+```shell
+# Output is something like this:
+yarn install v1.22.17
+warning package.json: No license field
+info No lockfile found.
+warning No license field
+[1/4] Resolving packages...
+warning @project-serum/anchor > @solana/web3.js > rpc-websockets > circular-json@0.5.9: CircularJSON is in maintenance only, flatted is its successor.
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+warning " > ts-mocha@8.0.0" has incorrect peer dependency "mocha@^3.X.X || ^4.X.X || ^5.X.X || ^6.X.X || ^7.X.X || ^8.X.X".
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 11.66s.
+mydapp initialized
+```
+
+Como podemos comprobar, este comando crea la siguiente estructura de archivos:
+
+```shell
+tree -L 1
+```
+
+```shell
+# Output is something like this:
+.
+├── Anchor.toml
+├── app
+├── Cargo.toml
+├── migrations
+├── node_modules
+├── package.json
+├── programs
+├── tests
+├── tsconfig.json
+└── yarn.lock
+
+5 directories, 5 files
+```
+
+Como se puede apreciar hay cuatro directorios a resaltar:
+
+**app** - Este directorio se utilizará para alojar el frontend de la aplicación.
+
+**programs** - Aquí se alojan los programas codificados en Rust. Estos son los archivos que definen los programas sobre la blockchain de Solana.
+
+**test** - En este directorio de alojan las pruebas para cada unas de las funcionalidades de nuestra dapp.
+
+**migrations** - Contiene todos los scripts necesarios para el despliegue de la dapp.
+
+Echemos un vistazo al programa que se creó para nosotros.
+
+Anchor utiliza, y nos permite escribir, un eDSL (DSL embebido) que abstrae muchas de las operaciones de bajo nivel más complejas que normalmente tendrías que hacer si estuvieras usando Solana y Rust sin él, haciéndolo más accesible.
+
+```rust 
+use anchor_lang::prelude::*;
+
+declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+
+#[program]
+pub mod mydapp {
+    use super::*;
+    pub fn initialize(ctx: Context<Initialize>) -> ProgramResult {
+        Ok(())
+    }
+}
+
+#[derive(Accounts)]
+pub struct Initialize {}
+```
+
+Este es probablemente el programa más básico que puedes escribir. Lo único que sucede aquí es que estamos definiendo una función llamada `initialize`, que cuando se invoca simplemente sale del programa con éxito. No hay ninguna manipulación de datos.
+
+La estructura `Initialize` define el contexto como vacío de cualquier argumento. Aprenderemos más sobre el contexto de la función más adelante.
+
+Para compilar este programa, podemos ejecutar el comando `anchor build`:
+
+```shell
+anchor build
+```
+
+```shell
+# Output is something like this:
+BPF SDK: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf
+cargo-build-bpf child: rustup toolchain list -v
+cargo-build-bpf child: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling proc-macro2 v1.0.36
+   Compiling unicode-xid v0.2.2
+   Compiling syn v1.0.86
+   Compiling serde_derive v1.0.136
+   Compiling serde v1.0.136
+   Compiling version_check v0.9.4
+   Compiling typenum v1.15.0
+   Compiling serde_json v1.0.79
+   Compiling semver v1.0.6
+   Compiling anyhow v1.0.56
+   Compiling ryu v1.0.9
+   Compiling opaque-debug v0.3.0
+   Compiling cfg-if v1.0.0
+   Compiling itoa v1.0.1
+   Compiling yansi v0.5.0
+   Compiling cpufeatures v0.2.1
+   Compiling unicode-segmentation v1.9.0
+   Compiling bs58 v0.3.1
+   Compiling subtle v2.4.1
+   Compiling rustversion v1.0.6
+   Compiling feature-probe v0.1.1
+   Compiling memchr v2.4.1
+   Compiling once_cell v1.10.0
+   Compiling cc v1.0.73
+   Compiling log v0.4.14
+   Compiling autocfg v1.1.0
+   Compiling bs58 v0.4.0
+   Compiling arrayref v0.3.6
+   Compiling arrayvec v0.7.2
+   Compiling either v1.6.1
+   Compiling regex-syntax v0.6.25
+   Compiling keccak v0.1.0
+   Compiling constant_time_eq v0.1.5
+   Compiling lazy_static v1.4.0
+   Compiling base64 v0.13.0
+   Compiling generic-array v0.14.5
+   Compiling proc-macro2-diagnostics v0.9.1
+   Compiling ahash v0.7.6
+   Compiling heck v0.3.3
+   Compiling bv v0.11.1
+   Compiling num-traits v0.2.14
+   Compiling itertools v0.10.3
+   Compiling blake3 v1.3.1
+   Compiling rustc_version v0.4.0
+   Compiling quote v1.0.15
+   Compiling aho-corasick v0.7.18
+   Compiling hashbrown v0.11.2
+   Compiling solana-frozen-abi-macro v1.10.0
+   Compiling solana-frozen-abi v1.10.0
+   Compiling solana-program v1.10.0
+   Compiling regex v1.5.5
+   Compiling borsh-schema-derive-internal v0.9.3
+   Compiling borsh-derive-internal v0.9.3
+   Compiling thiserror-impl v1.0.30
+   Compiling bytemuck_derive v1.0.1
+   Compiling solana-sdk-macro v1.10.0
+   Compiling num-derive v0.3.3
+   Compiling bytemuck v1.8.0
+   Compiling thiserror v1.0.30
+   Compiling bincode v1.3.3
+   Compiling serde_bytes v0.11.5
+   Compiling toml v0.5.8
+   Compiling block-buffer v0.10.2
+   Compiling crypto-common v0.1.3
+   Compiling block-buffer v0.9.0
+   Compiling digest v0.9.0
+   Compiling digest v0.10.3
+   Compiling sha2 v0.9.9
+   Compiling sha2 v0.10.2
+   Compiling sha3 v0.10.1
+   Compiling proc-macro-crate v0.1.5
+   Compiling anchor-syn v0.21.0
+   Compiling borsh-derive v0.9.3
+   Compiling borsh v0.9.3
+   Compiling anchor-attribute-access-control v0.21.0
+   Compiling anchor-attribute-interface v0.21.0
+   Compiling anchor-attribute-event v0.21.0
+   Compiling anchor-attribute-state v0.21.0
+   Compiling anchor-attribute-constant v0.21.0
+   Compiling anchor-attribute-account v0.21.0
+   Compiling anchor-attribute-error v0.21.0
+   Compiling anchor-derive-accounts v0.21.0
+   Compiling anchor-attribute-program v0.21.0
+   Compiling anchor-lang v0.21.0
+   Compiling mydapp v0.1.0 (/home/alejandro/Documentos/Education/Blog/mydapp/programs/mydapp)
+warning: unused variable: `ctx`
+ --> programs/mydapp/src/lib.rs:8:23
+  |
+8 |     pub fn initialize(ctx: Context<Initialize>) -> ProgramResult {
+  |                       ^^^ help: if this is intentional, prefix it with an underscore: `_ctx`
+  |
+  = note: `#[warn(unused_variables)]` on by default
+
+warning: `mydapp` (lib) generated 1 warning
+    Finished release [optimized] target(s) in 1m 30s
+cargo-build-bpf child: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf/scripts/strip.sh /home/alejandro/Documentos/Education/Blog/mydapp/target/bpfel-unknown-unknown/release/mydapp.so /home/alejandro/Documentos/Education/Blog/mydapp/target/deploy/mydapp.so
+cargo-build-bpf child: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /home/alejandro/Documentos/Education/Blog/mydapp/target/deploy/mydapp.so
+
+To deploy this program:
+  $ solana program deploy /home/alejandro/Documentos/Education/Blog/mydapp/target/deploy/mydapp.so
+The program address will default to this keypair (override with --program-id):
+  /home/alejandro/Documentos/Education/Blog/mydapp/target/deploy/mydapp-keypair.json
+```
+
+Una vez que la ejecución se ha completado, deberíamos ver una nueva carpeta llamada _target_.
+
+
+
+{{< admonition warning >}}
+
+Si el anterior paso no compiló correctamente, podemos revisar la versión de Anchor con:
+```shell
+anchor --version
+```
+
+Si estamos usando la version Anchor 0.22.0 debemos actualizar el archivo como se muestra a continuación:
+
+```rust 
+use anchor_lang::prelude::*;
+
+declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+
+#[program]
+pub mod mydapp {
+    use super::*;
+    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
+        Ok(())
+    }
+}
+
+#[derive(Accounts)]
+pub struct Initialize {}
+```
+
+{{< /admonition >}}
+
+Uno de los artefactos creados es un IDL ubicado en target/idl/mysolanaapp.json. Los IDLs son muy similares a los ABIs en Solidity (o una definición de consulta en GraphQL), y los usaremos de manera similar en nuestro código base de JavaScript para comunicarnos con nuestro programa Solana vía RPC.
+
+También podemos probar nuestro programa. Si abrimos tests/mysolanaapp.js, veremos que hay un test escrito en JavaScript que nos permite probar el programa.
+
+El test debería tener el siguiente aspecto en javascript:
+
+```javascript
+const anchor = require('@project-serum/anchor');
+
+describe('mydapp', () => {
+
+  // Configure the client to use the local cluster.
+  anchor.setProvider(anchor.Provider.env());
+
+  it('Is initialized!', async () => {
+    // Add your test here.
+    const program = anchor.workspace.Mydapp;
+    const tx = await program.rpc.initialize();
+    console.log("Your transaction signature", tx);
+  });
+});
+```
+
+Para el caso de Typescript:
+
+```typescript
+import * as anchor from '@project-serum/anchor';
+import { Program } from '@project-serum/anchor';
+import { Mydapp } from '../target/types/mydapp';
+
+describe('mydapp', () => {
+
+  // Configure the client to use the local cluster.
+  anchor.setProvider(anchor.Provider.env());
+
+  const program = anchor.workspace.Mydapp as Program<Mydapp>;
+
+  it('Is initialized!', async () => {
+    // Add your test here.
+    const tx = await program.rpc.initialize({});
+    console.log("Your transaction signature", tx);
+  });
+});
+```
+
+Hay un par de cosas que debemos aprender de esta prueba que son importantes y que usaremos en el futuro, tanto en nuestras pruebas como en los clientes frontales de JavaScript.
+
+Para llamar a un programa de Solana usando Anchor, típicamente necesitamos dos cosas principales:
+
+1. **Provider** - El proveedor es una abstracción de una conexión a la red Solana, que suele consistir en una conexión, una criptocartera y un solicitud. En la prueba, el framework de Anchor creará el proveedor por nosotros basándose en el entorno (`anchor.Provider.env()`), pero en el cliente tendremos que construir el proveedor nosotros mismos usando la criptocartera de Solana del usuario.
+
+2. **Program** -  El programa es una abstracción que combina el `Provider`, `idl`, y el `programID` (que se genera cuando se construye el programa) y nos permite llamar a métodos RPC para interactuar con nuestro programa.
+
+Una vez más, como con el proveedor, Anchor ofrece una forma conveniente de acceder al programa, pero cuando se construye el front-end tendremos que construir este proveedor nosotros mismos.
+
+Una vez que tenemos estas dos cosas, podemos empezar a llamar a las funciones en nuestro programa. Por ejemplo, en nuestro programa tenemos una función de `initialize`. En nuestra prueba, verás que podemos invocar esa función directamente usando `program.rpc.functionName`:
+
+```javascript
+const tx = await program.rpc.initialize();
+```
+
+Este es un patrón muy común que usarás mucho cuando trabajes con Anchor, y una vez que entiendas cómo funciona, veremos  que realmente es muy fácil conectarse e interactuar con un programa de Solana.
+
+Ahora podemos probar el programa ejecutando el script de prueba:
+
+```shell
+anchor test
+```
+
+```shell
+# Output is something like this:
+BPF SDK: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf
+cargo-build-bpf child: rustup toolchain list -v
+cargo-build-bpf child: cargo +bpf build --target bpfel-unknown-unknown --release
+warning: unused variable: `ctx`
+ --> programs/mydapp/src/lib.rs:8:23
+  |
+8 |     pub fn initialize(ctx: Context<Initialize>) -> ProgramResult {
+  |                       ^^^ help: if this is intentional, prefix it with an underscore: `_ctx`
+  |
+  = note: `#[warn(unused_variables)]` on by default
+
+warning: `mydapp` (lib) generated 1 warning
+    Finished release [optimized] target(s) in 0.21s
+cargo-build-bpf child: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /home/alejandro/Documentos/Education/Blog/mydapp/target/deploy/mydapp.so
+
+To deploy this program:
+  $ solana program deploy /home/alejandro/Documentos/Education/Blog/mydapp/target/deploy/mydapp.so
+The program address will default to this keypair (override with --program-id):
+  /home/alejandro/Documentos/Education/Blog/mydapp/target/deploy/mydapp-keypair.json
+yarn run v1.22.17
+warning package.json: No license field
+$ /home/alejandro/Documentos/Education/Blog/mydapp/node_modules/.bin/ts-mocha -p ./tsconfig.json -t 1000000 'tests/**/*.ts'
+
+
+  mydapp
+Your transaction signature oEboPaKA1Y6t8UT3CVpvgcPquoy7fizKedyg7Hr8PF6vD2EH3GmoCCqczEVLwH9HzvGxsJ7Uc2uuL3qhvgJx5Ag
+    ✔ Is initialized! (370ms)
+
+
+  1 passing (376ms)
+
+Done in 6.31s.
+
+```
+
+## Hello World
+
+Ya que nuestro proyecto está configurado, vamos a hacer algo un poco más interesante, como desarrolladores full stack, la mayoría de las veces nos preguntamos cómo hacer operaciones del tipo CRUD, así que eso es lo que veremos a continuación, obviamente, no implementaremos la operación de borrado como una transacción.
+
+El programa que crearemos nos permitirá crear un contador que se incremente cada vez que lo llamemos desde una aplicación cliente.
+
+Lo primero que debemos hacer es abrir `programs/mysolanaapp/src/lib.rs` y actualizarlo con el siguiente código:
+
+```rust
+use anchor_lang::prelude::*;
+
+declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+
+#[program]
+mod mydapp {
+    use super::*;
+
+    pub fn create(ctx: Context<Create>) -> ProgramResult {
+        let base_account = &mut ctx.accounts.base_account;
+        base_account.count = 0;
+        Ok(())
+    }
+
+    pub fn increment(ctx: Context<Increment>) -> ProgramResult {
+        let base_account = &mut ctx.accounts.base_account;
+        base_account.count += 1;
+        Ok(())
+    }
+}
+
+// Transaction instructions
+#[derive(Accounts)]
+pub struct Create<'info> {
+    #[account(init, payer = user, space = 16 + 16)]
+    pub base_account: Account<'info, BaseAccount>,
+    #[account(mut)]
+    pub user: Signer<'info>,
+    pub system_program: Program <'info, System>,
+}
+
+// Transaction instructions
+#[derive(Accounts)]
+pub struct Increment<'info> {
+    #[account(mut)]
+    pub base_account: Account<'info, BaseAccount>,
+}
+
+// An account that goes inside a transaction instruction
+#[account]
+pub struct BaseAccount {
+    pub count: u64,
+}
+```
+
+{{< admonition >}}
+Recuerda que si estás usando Anchor 0.22.0 o superior debes remplazar `ProgramResult` por `Result<()>`.
+{{< /admonition >}}
+
+En este programa tenemos dos funciones - `create` e `increment`. Estas dos funciones son los controladores de las  peticiones RPC que podremos llamar desde una aplicación cliente para interactuar con el programa.
+
+El primer parámetro de un controlador RPC es la estructura `Context`, que describe el contexto que se pasará cuando se llame a la función y cómo manejarlo. En el caso de `Create`, se esperan tres parámetros: `base_account`, `user`, y `system_program`.
+
+Los atributos #[account(...)] definen las restricciones e instrucciones que están relacionadas con la cuenta de origen donde se declara. Si alguna de estas restricciones no se mantienen, entonces la instrucción nunca se ejecutará.
+
+Cualquier cliente que llame a este programa con `base_account` adecuada puede llamar a estos métodos RPC.
+
+La forma en que Solana maneja los datos es muy diferente a cualquier cosa con la que se haya trabajado antes. No hay un estado persistente dentro del programa, todo se adjunta a lo que se conoce como cuentas. Una cuenta contiene esencialmente todo el estado de un programa. Debido a esto, todos los datos se pasan por referencia desde el exterior.
+
+Tampoco hay operaciones de lectura. Esto se debe a que todo lo que necesitas hacer para leer el contenido de un programa es solicitar la cuenta, a partir de ahí somos capaces de ver todo el estado del programa. Para leer más sobre el funcionamiento de las cuentas, consulta este [post](https://2501babe.github.io/posts/solana101.html#programs-and-accounts).
+
+Para construir el programa:
+
+```shell
+anchor build
+```
+
+```shell
+# Output is something like this:
+BPF SDK: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf
+cargo-build-bpf child: rustup toolchain list -v
+cargo-build-bpf child: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling mydapp2 v0.1.0 (/home/alejandro/Documentos/Education/Blog/mydapp2/programs/mydapp2)
+    Finished release [optimized] target(s) in 1.07s
+cargo-build-bpf child: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf/scripts/strip.sh /home/alejandro/Documentos/Education/Blog/mydapp2/target/bpfel-unknown-unknown/release/mydapp2.so /home/alejandro/Documentos/Education/Blog/mydapp2/target/deploy/mydapp2.so
+cargo-build-bpf child: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /home/alejandro/Documentos/Education/Blog/mydapp2/target/deploy/mydapp2.so
+
+To deploy this program:
+  $ solana program deploy /home/alejandro/Documentos/Education/Blog/mydapp2/target/deploy/mydapp2.so
+The program address will default to this keypair (override with --program-id):
+  /home/alejandro/Documentos/Education/Blog/mydapp2/target/deploy/mydapp2-keypair.json
+```
+
+A continuación, vamos a escribir un test que utilice este programa. Para ello, abrimos ```tests/mysolanaapp.js``` y actualízamos con el siguiente código:
+
+```javascript
+const assert = require("assert");
+const anchor = require("@project-serum/anchor");
+const { SystemProgram } = anchor.web3;
+
+describe("mydapp", () => {
+  /* create and set a Provider */
+  const provider = anchor.Provider.env();
+  anchor.setProvider(provider);
+  const program = anchor.workspace.Mydapp;
+  it("Creates a counter)", async () => {
+    /* Call the create function via RPC */
+    const baseAccount = anchor.web3.Keypair.generate();
+    await program.rpc.create({
+      accounts: {
+        baseAccount: baseAccount.publicKey,
+        user: provider.wallet.publicKey,
+        systemProgram: SystemProgram.programId,
+      },
+      signers: [baseAccount],
+    });
+
+    /* Fetch the account and check the value of count */
+    const account = await program.account.baseAccount.fetch(baseAccount.publicKey);
+    console.log('Count 0: ', account.count.toString())
+    assert.ok(account.count.toString() == 0);
+    _baseAccount = baseAccount;
+
+  });
+
+  it("Increments the counter", async () => {
+    const baseAccount = _baseAccount;
+
+    await program.rpc.increment({
+      accounts: {
+        baseAccount: baseAccount.publicKey,
+      },
+    });
+
+    const account = await program.account.baseAccount.fetch(baseAccount.publicKey);
+    console.log('Count 1: ', account.count.toString())
+    assert.ok(account.count.toString() == 1);
+  });
+});
+```
+
+Antes de continuar probando y desplegando el programa, debemos obtener el ID del programa generado dinámicamente por la compilación. Necesitamos este ID para usarlo en el programa de Rust para reemplazar el ID del marcador de posición que establecimos cuando creamos el proyecto. Para obtener este ID, podemos ejecutar el siguiente comando:
+
+```shell
+solana address -k target/deploy/mydapp-keypair.json
+```
+
+```shell
+# Output is something like this:
+3L2Pintorca7FYFPRpKrgWojyfCMP3btASnM4w3kpZbs
+```
+
+Ahora podemos actualizar los ID de los programas en `lib.rs`:
+
+```rust 
+// mysolanaapp/src/lib.rs
+
+declare_id!("YOUR_PROGRAM_ID");
+```
+
+y también en el archivo `Anchor.toml`
+
+```toml
+[features]
+seeds = false
+[programs.localnet]
+mydapp2 = "3L2Pintorca7FYFPRpKrgWojyfCMP3btASnM4w3kpZbs"
+```
+
+Luego ejecutamos:
+```shell
+anchor test
+```
+
+```shell
+# Output is something like this:
+BPF SDK: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf
+cargo-build-bpf child: rustup toolchain list -v
+cargo-build-bpf child: cargo +bpf build --target bpfel-unknown-unknown --release
+    Finished release [optimized] target(s) in 0.18s
+cargo-build-bpf child: /home/alejandro/.local/share/solana/install/releases/1.8.16/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /home/alejandro/Documentos/Education/Blog/mydapp2/target/deploy/mydapp2.so
+
+To deploy this program:
+  $ solana program deploy /home/alejandro/Documentos/Education/Blog/mydapp2/target/deploy/mydapp2.so
+The program address will default to this keypair (override with --program-id):
+  /home/alejandro/Documentos/Education/Blog/mydapp2/target/deploy/mydapp2-keypair.json
+yarn run v1.22.17
+warning package.json: No license field
+$ /home/alejandro/Documentos/Education/Blog/mydapp2/node_modules/.bin/mocha -t 1000000 tests/
+
+
+  mydapp2
+Count 0:  0
+    ✔ Creates a counter) (238ms)
+Count 1:  1
+    ✔ Increments the counter (419ms)
+
+
+  2 passing (663ms)
+
+Done in 6.15s.
+```
+
+{{< admonition warning>}}
+En ocasiones la ejecución de las pruebas falla porque el nodo de pruebas está activo. Verifica que `solana-test-validator` no esté corriendo, si es así termina el proceso y vuelve a ejecutar las pruebas.
+{{</ admonition >}}
+
+Una vez que la prueba se ejecuta sin problemas, podemos desplegar. Hay que asegurarnos de que `solana-test-validator` se está ejecutando:
+
+```shell
+anchor deploy
+```
+
+```shell
+# Output is something like this:
+Deploying workspace: http://localhost:8899
+Upgrade authority: /home/alejandro/.config/solana/id.json
+Deploying program "mydapp"...
+Program path: /home/alejandro/Documentos/Education/Blog/mydapp/target/deploy/mydapp.so...
+Program Id: CdhMsArvZhsPzEt5LYc55TZeScg1RNGUfXExtayB6vUA
+
+Deploy success
+```
+{{< admonition >}}
+Tambien se puede ver el registro del validador abriendo una ventana separada y ejecutando `solana logs`.
+{{< /admonition >}}
+
+Ya estamos listos para construir el frontend.
+
+## Construyento la React App
+
+En la raíz del proyecto Anchor, se crea una nueva react app para sobrescribir el directorio de la app existente:
+
+```shell
+create-react-app app
+```
+
+El siguiente paso es instalar la dependencias que vamos a necesitar para Anchor y Solana Web3:
+```
+cd app
+yarn add @project-serum/anchor @solana/web3.js
+```
+
+También vamos a utilizar [Solana Wallet Adapter](https://github.com/solana-labs/wallet-adapter) para controlar las conexiones de las criptocarteras de los usuarios de solana. Para esto hacemos:
+
+```shell
+yarn add @solana/wallet-adapter-react @solana/wallet-adapter-react-ui @solana/wallet-adapter-wallets @solana/wallet-adapter-base
+```
+
+A continuación, en el directorio `src`, creamos un nuevo archivo llamado `idl.json`. Aquí, copiamos el IDL JSON que fue creado en la carpeta principal del proyecto, ubicado en  `target/idl/mydapp.json`.
+
+Sería bueno si pudiéramos copiar este archivo idl automáticamente a nuestra carpeta src de la aplicación cliente, pero hasta ahora no he encontrado una manera de hacer esto de forma nativa. Por supuesto, puedes crear tu propio script que haga esto si lo deseas, o bien necesitas copiar y pegar sobre el IDL después de cada cambio en tu programa principal.
+
+Si quieres un script como este, puedes hacerlo en sólo un par de líneas de código:
+
+```javascript
+//copyIdl.js
+const fs = require('fs');
+const idl = require('./target/idl/mysolanaapp.json');
+
+fs.writeFileSync('./app/src/idl.json', JSON.stringify(idl));
+```
+
+A continuación, abrimos app/src/App.js y actualízamos con lo siguiente:
+
+```javascript
+import './App.css';
+import { useState } from 'react';
+import { Connection, PublicKey } from '@solana/web3.js';
+import {
+  Program, Provider, web3
+} from '@project-serum/anchor';
+import idl from './idl.json';
+
+import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
+import { useWallet, WalletProvider, ConnectionProvider } from '@solana/wallet-adapter-react';
+import { WalletModalProvider, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+require('@solana/wallet-adapter-react-ui/styles.css');
+
+const wallets = [
+  /* view list of available wallets at https://github.com/solana-labs/wallet-adapter#wallets */
+  new PhantomWalletAdapter()
+]
+
+const { SystemProgram, Keypair } = web3;
+/* create an account  */
+const baseAccount = Keypair.generate();
+const opts = {
+  preflightCommitment: "processed"
+}
+const programID = new PublicKey(idl.metadata.address);
+
+function App() {
+  const [value, setValue] = useState(null);
+  const wallet = useWallet();
+
+  async function getProvider() {
+    /* create the provider and return it to the caller */
+    /* network set to local network for now */
+    const network = "http://127.0.0.1:8899";
+    const connection = new Connection(network, opts.preflightCommitment);
+
+    const provider = new Provider(
+      connection, wallet, opts.preflightCommitment,
+    );
+    return provider;
+  }
+
+  async function createCounter() {    
+    const provider = await getProvider()
+    /* create the program interface combining the idl, program ID, and provider */
+    const program = new Program(idl, programID, provider);
+    try {
+      /* interact with the program via rpc */
+      await program.rpc.create({
+        accounts: {
+          baseAccount: baseAccount.publicKey,
+          user: provider.wallet.publicKey,
+          systemProgram: SystemProgram.programId,
+        },
+        signers: [baseAccount]
+      });
+
+      const account = await program.account.baseAccount.fetch(baseAccount.publicKey);
+      console.log('account: ', account);
+      setValue(account.count.toString());
+    } catch (err) {
+      console.log("Transaction error: ", err);
+    }
+  }
+
+  async function increment() {
+    const provider = await getProvider();
+    const program = new Program(idl, programID, provider);
+    await program.rpc.increment({
+      accounts: {
+        baseAccount: baseAccount.publicKey
+      }
+    });
+
+    const account = await program.account.baseAccount.fetch(baseAccount.publicKey);
+    console.log('account: ', account);
+    setValue(account.count.toString());
+  }
+
+  if (!wallet.connected) {
+    /* If the user's wallet is not connected, display connect wallet button. */
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop:'100px' }}>
+        <WalletMultiButton />
+      </div>
+    )
+  } else {
+    return (
+      <div className="App">
+        <div>
+          {
+            !value && (<button onClick={createCounter}>Create counter</button>)
+          }
+          {
+            value && <button onClick={increment}>Increment counter</button>
+          }
+
+          {
+            value && value >= Number(0) ? (
+              <h2>{value}</h2>
+            ) : (
+              <h3>Please create the counter.</h3>
+            )
+          }
+        </div>
+      </div>
+    );
+  }
+}
+
+/* wallet configuration as specified here: https://github.com/solana-labs/wallet-adapter#setup */
+const AppWithProvider = () => (
+  <ConnectionProvider endpoint="http://127.0.0.1:8899">
+    <WalletProvider wallets={wallets} autoConnect>
+      <WalletModalProvider>
+        <App />
+      </WalletModalProvider>
+    </WalletProvider>
+  </ConnectionProvider>
+)
+
+export default AppWithProvider;
+```
+
+Finalmente desde el directorio, iniciamos la aplicación de React:
+
+```shell
+yarn start
+```
+
+{{< admonition warning >}}
+Si estas haciendo uso de React.js versión 17.0.0 o superior, es posible que tengas problemas con webpack 5. Para resolver esto, te recomiendo hacer lo siguiente:
+
+1. Primero instalamos las siguientes dependencias:
+    ```shell
+    yarn add --dev react-app-rewired process crypto-browserify stream-browserify assert stream-http https-browserify os-browserify url buffer
+    ```
+2. Creamos el archivo `config-overrides.js` en la raiz del proyecto de React:
+    ```javascript
+    const webpack = require('webpack');
+
+    module.exports = function override(config) {
+        const fallback = config.resolve.fallback || {};
+        Object.assign(fallback, {
+            "crypto": require.resolve("crypto-browserify"),
+            "stream": require.resolve("stream-browserify"),
+            "assert": require.resolve("assert"),
+            "http": require.resolve("stream-http"),
+            "https": require.resolve("https-browserify"),
+            "os": require.resolve("os-browserify"),
+            "url": require.resolve("url")
+        })
+        config.resolve.fallback = fallback;
+        config.plugins = (config.plugins || []).concat([
+            new webpack.ProvidePlugin({
+                process: 'process/browser',
+                Buffer: ['buffer', 'Buffer']
+            })
+        ])
+        return config;
+    }
+    ```
+3. Luego editamos el archivo package.json. En lugar de `react-scripts` remplazar esto por `react-app-rewired`:
+   
+    ```json
+    /* Before */
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+
+    /* After */
+    "scripts ": {
+        "start": "react-app-rewired start",
+        "build": "react-app-rewired build",
+        "test": "react-app-rewired test",
+        "eject": "react-scripts eject"
+    },
+    ```
+Los polyfills de Nodejs que faltan deberían estar incluidos ahora y tu aplicación debería ser funcionar con web3.
+
+Si queremos ocultar las advertencias creadas por la consola en `config-overrides.js` en el interior de la función `override`, agregamos:
+```javascript
+config.ignoreWarnings = [/Failed to parse source map/];
+
+Ver documentación de [web3.js.](https://github.com/ChainSafe/web3.js)
+```
+{{< /admonition >}}
+
+## Configurar la red local en la Wallet
+
+Antes de poder interactuar con un programa en la red localhost, debemos cambiar nuestro criptocartera de Phantom a la red adecuada.
+
+Para ello, abrimos nuestra criptocartera de Phantom y hacemos clic en el botón de configuración. A continuación, nos desplazmaos hacia abajo para cambiar la red:
+
+![red](wallet.png "Figura 1. Cambiar la red" )
+
+A continuación, elejimos Localhost:
+
+![Localhost](wallet2.png "Figura 2. Seleccionar la red")
+
+Ahora tenemos que enviar algunas criptomonedas de prueba a esta cartera. En la parte superior de la interfaz de la criptocartera, hacemos clic en nuestra dirección para copiarla en el portapapeles.
+
+![Address](wallet3.png "Figura 3. Dirección del monedero")
+
+A continuación, en una terminal ejecutamos el siguiente comando (asegurate que `solana-test-validator` esté corriendo):
+
+```shell
+solana airdrop 2 «YOUR_ADDRESS»
+```
+
+Ahora deberíamos tener 2 solanas en nuestra cartera. Con estemo podemos ejecutar y probar la aplicación. Cambiamos al directorio de la aplicación y ejecutamos el siguiente comando:
+
+```shell
+yarn start
+```
+
+Deberíamos poder conectarnos a nuestra criptocartera, crear un contador e incrementarlo.
+
+Notaremos que cuando refrescamos, pierdemos el estado del programa. Esto es porque estamos generando dinámicamente la cuenta base cuando el programa se carga. Si quieres leer e interactuar con los datos del programa a través de varios clientes, tendrías que crear y almacenar el Keypair en algún lugar de tu proyecto.
+
+
+## Despliegue en la Devnet
+A partir de aquí, el despliegue en una red activa es bastante sencillo. Las principales cosas que tenemos que hacer son:
+
+1. Actualizar la CLI de Solana para utilizar devnet:
+   ```shell 
+   solana config set --url devnet
+   ```
+2. Actualizar la criptocartera para usar la `devnet`.
+3. En el archivo `Anchor.toml` actualizar el cluster de `localnet` a `devnet`.
+4. Compilar el programa nuevamente. Asegurate que el ID del programa en `Anchor.toml` se igual al ID actual del programa
+5. En archivo `app/src/App.js`, también es necesario actualizar la red, para esto debemos remplazar la red de localhost: `http://127.0.0.1:8899` por la red de desarrollo: `devnet`.
+    ```javascript
+    /* Before */
+    <ConnectionProvider endpoint="http://127.0.0.1:8899">
+
+    /* After */
+    import {
+      ...,
+      clusterApiUrl
+    } from '@solana/web3.js';
+
+    const network = clusterApiUrl('devnet');
+
+    <ConnectionProvider endpoint={network}>
+    ```
+A partir de aquí, deberías poder desplegar y probar como hemos hecho en los pasos anteriores. 
+
+## El siguiente paso para no parar de aprender
+
+Te sugiero continuar aprendiendo sobre NFTs y el uso de la API de Solana. Para ello, puedes visitar la siguiente página: [¿Cómo crear una colección de NFTs en Solana con IPFS?](https://alejandrosanchezyali.vercel.app/20220323solananftandipfs/). Finalmente, esperamos que esta guía te sea de ayuda para que puedas desarrollar tus aplicaciones de forma sencilla. ¡Nos vemos pronto!
+
+## Asesorías
+Puedes encontrarme en [Classgap](https://www.classgap.com/es-co/tutor/alejandro-sanchez-yali), allí puedes puedes consultar mis horarios de asesorías y agendar una.
+## Patrocinio 
+₿itcoin: [bc1qrcecrz47ywrcnyuqknzgzzz2t3lwawyjnl4t7f](https://www.exodus.com/)
+
+Solana: [Ft8A8t3UyGZHjWNvtgruADnUgrij3uaFe7pLj9QNG44N](https://phantom.app/)
+
+Ethereum: [0x886ce8Cc54cd0964E6939c5290242b1135D10C7f](https://metamask.io/)
+
+Paypal: [@asanchezyali](https://paypal.me/asanchezyali?country.x=CO&locale.x=es_XC)
+## Imágenes
+
+  * [Unplash](https://unsplash.com/) - [3D illustration of blocks in a blockchain](https://unsplash.com/photos/_rZnChsIFuQ)
+  
+    WhatsApp: +917559305753 
+    
+    Email: shubhamdhage000@gmail.com
+## Referencias
+
+1. [Metaplex Docs](https://docs.metaplex.com/)
+2. [Web3.js](https://github.com/ChainSafe/web3.js)
+3. [Metaboss](https://metaboss.rs/update.html)

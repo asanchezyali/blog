@@ -5,9 +5,9 @@ I am a mathematician, but also a programmer. I have experience in software devel
 
 ## Technical skills.
 
-* **Programming language:** JavaScript, TypeScript, Python, C#, C++, Java, Go, Rust, HTML, CSS, SQL, NoSQL, etc.
-* Machine Learning:** TensorFlow, Keras, Scikit-Learn, etc.
-* Mathematics: Algebra, Geometry, Linear Algebra, Spatial Algebra, etc.
+* **Programming language**: JavaScript, TypeScript, Python, C#, C++, Java, Go, Rust, HTML, CSS, SQL, NoSQL, etc.
+* **Machine Learning**: TensorFlow, Keras, Scikit-Learn, etc.
+* **Mathematics**: Algebra, Geometry, Linear Algebra, Spatial Algebra, etc.
 * **Blockchain:** Ethereum, Bitcoin, etc.
 
 ## Professional experience.
